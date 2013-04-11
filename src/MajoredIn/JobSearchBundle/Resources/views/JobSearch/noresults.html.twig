@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{% if major != 'undeclared' %}{{ major|e|ucwords }} Major {% else %}Entry Level {% endif %}Jobs{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %} - MajoredIn{% endblock %}
+{% block meta %}
+    <meta name="description" content="" />
+	<meta name="keywords" content="" />
+    <meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block body %}
+<div id="mi-container">
+    {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
+        with {'major': major, 'location': location, 'advancedBase': advancedBase}
+    %}
+    <div class="article-body row">
+        <div class="span2"></div>
+        <div class="span6">
+{% block article %}
+
+<h1 class="article-title">Sorry.  We couldn't find any jobs for you.</h1>
+<p>Is everything spelled correctly? You're probably a good speller, but it doesn't hurt to make sure.</p>
+<p>Did you go a little overboard with the advanced filters? Try removing a few of those if you have too many.</p>
+<p>If you're willing to commute a bit farther, try expanding your search radius by increasing the distance filter.</p>
+<p>Our servers might've screwed things up too; nothing you can do about that one.</p>
+
+
+{% endblock %}
+        </div>
+    </div>
+    {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
+        with {'simplyhired': false}
+    %}
+</div>
+{% endblock %}

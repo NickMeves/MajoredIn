@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{% block title %}Results Mobile{% endblock %}</title>
+</head>
+<body>
+    <form action="{{ path('mi_jobs_redirect') }}" method="get">
+        <label>Major:</label><textarea name="major" rows="6" cols="50">{% if major != 'undeclared' %}{{ major|e }}{% endif %}</textarea>
+        <label>Location:</label><input type="text" name="location" {% if location != 'everywhere' %}value="{{ location|e }}" {% endif %}/>
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        <div>
+            {% set rangeStart = jobResults.currentPage * 10 - 9 %}
+            {% set rangeEnd = (jobResults.currentPage * 10 > jobResults.totalViewable) ? jobResults.totalViewable : jobResults.currentPage * 10 %}
+            <p>Jobs {{ rangeStart|number_format }}-{{ rangeEnd|number_format }} of {{ jobResults.totalResults|number_format }} ({{ jobResults.totalViewable|number_format }})</p>
+        </div>
+    {% for jobListing in jobResults.jobListings %}
+        <ul>
+            <li><a href="{{ jobListing.url|e }}" target="_blank">{{ jobListing.title|e }}</a></li>
+            <li>{{ jobListing.company|e }}</li>
+            <li>{{ jobListing.url|e }}</li>
+            <li>{{ jobListing.type|e }}</li>
+            <li>{{ jobListing.location|e }}</li>
+        {% if jobListing.age > 30 %}
+            <li>30+ days</li>
+        {% elseif jobListing.age == 'error' %}
+        {% else %}
+            <li>{{ jobListing.age|e }} ago</li>
+        {% endif %}
+            <li>{{ jobListing.excerpt|e }}</li>
+        </ul>
+    {% endfor %}
+    {% if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 %}
+        <p>Looked through 1,000 jobs already?  You are quite the proficient job hunter!  Unfortunately our servers can't keep up with you; we can only serve 1,000
+            results per search. Try using the filters to the left to narrow down your search. Happy job hunting!
+        </p>
+    {% elseif jobResults.hidden == 'blank' and jobResults.currentPage == jobResults.maxPage and jobResults.totalViewable != jobResults.totalResults %}
+        <p>In order to show the most relevant jobs, we have hidden jobs that are very similar to the {{ jobResults.totalViewable }} already shown.<br/>
+        If you want, you can <a href="{{ path('mi_jobs_results', urlBase|merge({'hidden': 'comboxp0'})) }}">repeat this search with hidden jobs included.</a></p>
+    {% endif %}
+    </div>
+{% if jobResults.maxPage != 1 %}
+    <div>
+        <ul>
+    {% if jobResults.currentPage != 1 %}
+        {% set prev = jobResults.currentPage - 1 %}
+        {% if prev == 1 %}
+            <li><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}">&lt prev</a></li>
+        {% else %}
+            <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': prev})) }}">&lt prev</a></li>
+        {% endif %}
+    {% endif %}
+    
+    {% if jobResults.currentPage < 7 %}
+        {% set pageRange = range(1, (10 < jobResults.maxPage) ? 10 : jobResults.maxPage) %}
+    {% elseif jobResults.currentPage > jobResults.maxPage - 4 %}
+        {% set pageRange = range((1 > jobResults.maxPage - 9) ? 1 : jobResults.maxPage - 9, jobResults.maxPage) %}
+    {% else %}
+        {% set pageRange = range(jobResults.currentPage - 5, jobResults.currentPage + 4) %}
+    {% endif %}
+        
+    {% for page in pageRange %}
+        {% if page == jobResults.currentPage  %}
+            <li>{{ page }}</li>
+        {% elseif page == 1 %}
+            <li><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}">{{ page }}</a></li>
+        {% else %}
+            <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': page})) }}">{{ page }}</a></li>
+        {% endif %}
+    {% endfor %}
+    
+    {% if jobResults.currentPage != jobResults.maxPage %}
+        {% set next = jobResults.currentPage + 1 %}
+            <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': next})) }}">next &gt</a></li>
+    {% endif %}
+        </ul>
+    </div>
+{% endif %}
+<a href="{{ full_host }}{{ path('mi_jobs_results', pageUrlBase|merge({'device_view': 'full' })) }}">Full Site</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+//
+// Modals
+// --------------------------------------------------
+
+// Background
+.modal-backdrop,
+.modal-backdrop.fade.in {
+    .opacity(15);
+}
+
+// Base modal
+.modal {
+    overflow: hidden;
+    top: 20%;
+}
+
+.modal-header {
+    padding: 8px 15px;
+    .gradientBar(darken(@btnPrimaryBackground, 5%), darken(@btnPrimaryBackgroundHighlight, 5%));
+    .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2)");
+    border-bottom: 1px solid lighten(@btnPrimaryBackgroundHighlight, 5%);
+    // Close icon
+    .close {
+        color: @white;
+        font-size: 28px;
+        line-height: 28px;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.7);
+        .opacity(100);
+        &:hover {
+            color: lighten(@filterLink, 25%);
+        }
+    }
+    // Heading
+    h3 {
+        margin: 0;
+        line-height: 30px;
+    }
+}
+
+.modal-body {
+    border-top: 1px solid @gray;
+}

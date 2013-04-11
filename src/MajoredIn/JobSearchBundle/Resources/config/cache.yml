@@ -1,0 +1,15 @@
+parameters:
+    mi_search.cache.namespace: mi_search
+
+services:
+    mi_search.cache.factory:
+        class: MajoredIn\JobSearchBundle\Util\CacheFactory
+        arguments:
+            - @doctrine.orm.entity_manager
+        
+    mi_search.cache:
+        class: MajoredIn\JobSearchBundle\Util\Cache
+        factory_service: mi_search.cache.factory
+        factory_method: getCache
+        arguments:
+            - %mi_search.cache.namespace%

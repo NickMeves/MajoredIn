@@ -1,0 +1,201 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Advanced Job Search - MajoredIn{% endblock %}
+
+{% block body %}
+<div id="mi-container">
+    {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
+        with {'major': 'undeclared', 'location': 'everywhere', 'advancedBase': {}}
+    %}
+<div id="advanced-body" class="article-body">
+<div class="row">
+    <h1 class="span article-title">Advanced Job Search</h1>
+</div>
+<form action="{{ path('mi_jobs_advanced_submit') }}" method="post">
+    <div class="row">
+        <h5 class="span">First, the basics...</h5>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="major">College major:</label></div></div>
+        <div class="span"><input type="text" id="major" name="major" {% if queryString['major'] != 'undeclared' %}value="{{ queryString['major']|e }}"{% endif %}/></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="location">Where to work:</label></div></div>
+        <div class="span"><input type="text" id="location" name="location" {% if queryString['location'] != 'everywhere' %}value="{{ queryString['location']|e }}" {% endif %}/></div>
+    </div>
+    <div class="row">
+        <h5 class="span">Then, sort through each job with more specific criteria...</h5>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="all">All these words:</label></div></div>
+        <div class="span"><input type="text" id="all" name="all" value="{{ queryString['all']|e }}"/></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="exact">This exact phrase:</label></div></div>
+        <div class="span"><input type="text" id="exact" name="exact" value="{{ queryString['exact']|e }}"/></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="atleast">Any of these words:</label></div></div>
+        <div class="span"><input type="text" id="atleast" name="atleast" value="{{ queryString['atleast']|e }}"/></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="without">Without the words:</label></div></div>
+        <div class="span"><input type="text" id="without" name="without" value="{{ queryString['without']|e }}"/></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="title">Job title:</label></div></div>
+        <div class="span"><input type="text" id="title" name="title" value="{{ queryString['title']|e }}"/></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="company">Company name:</label></div></div>
+        <div class="span"><input type="text" id="company" name="company" value="{{ queryString['company']|e }}"/></div>
+    </div>
+    <div class="row">
+        <h5 class="span">Lastly, narrow your job results with some filters...</h5>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="dist">Distance:</label></div></div>
+        <div class="span"><select id="dist" name="dist">
+        {% if queryString['dist'] not in ['exact', '5', '10', '25', '50', '100', '200'] %}
+            {% set queryString = queryString|merge({'dist': defaults['dist']}) %}
+        {% endif %}
+        {% set distDisplay = {'exact': 'exact',
+                                '5': '5 miles',
+                                '10': '10 miles',
+                                '25': '25 miles',
+                                '50': '50 miles',
+                                '100': '100 miles',
+                                '200': '200 miles'}
+        %}
+        {% for dist in ['exact', '5', '10', '25', '50', '100', '200'] %}
+            <option value="{{ dist }}" {% if queryString['dist'] == dist %}selected="selected"{% endif %}>{{ distDisplay[dist] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="sort">Sort by:</label></div></div>
+        <div class="span"><select id="sort" name="sort">
+        {% if queryString['sort'] not in ['', 'dd'] %}
+            {% set queryString = queryString|merge({'sort': defaults['sort']}) %}
+        {% endif %}
+        {% set sortDisplay = {'': 'Relevance',
+                                'dd': 'Date'} %}
+        {% for sort in ['', 'dd'] %}
+            <option value="{{ sort }}" {% if queryString['sort'] == sort %}selected="selected"{% endif %}>{{ sortDisplay[sort] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="date">Date posted:</label></div></div>
+        <div class="span"><select id="date" name="date">
+        {% if queryString['date'] not in ['', '1', '7', '14', '30'] %}
+            {% set queryString = queryString|merge({'date': defaults['date']}) %}
+        {% endif %}
+        {% set dateDisplay = {'': '-- show all --',
+                                '1': 'Last 24 hours',
+                                '7': 'Last 7 days',
+                                '14': 'Last 14 days',
+                                '30': 'Last 30 days'}
+        %}
+        {% for date in ['', '1', '7', '14', '30'] %}
+            <option value="{{ date }}" {% if queryString['date'] == date %}selected="selected"{% endif %}>{{ dateDisplay[date] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="jobtype">Job type:</label></div></div>
+        <div class="span"><select id="jobtype" name="jobtype">
+        {% if queryString['jobtype'] not in ['', 'full-time', 'part-time', 'internship'] %}
+            {% set queryString = queryString|merge({'jobtype': defaults['jobtype']}) %}
+        {% endif %}
+        {% set jobTypeDisplay = {'': '-- show all --',
+                                'full-time': 'Full Time',
+                                'part-time': 'Part Time',
+                                'internship': 'Internship'}
+        %}
+        {% for jobType in ['', 'full-time', 'part-time', 'internship'] %}
+            <option value="{{ jobType }}" {% if queryString['jobtype'] == jobType %}selected="selected"{% endif %}>{{ jobTypeDisplay[jobType] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="boards">Job boards:</label></div></div>
+        <div class="span"><select id="boards" name="boards">
+        {% if queryString['boards'] not in ['', 'primary', 'job_board'] %}
+            {% set queryString = queryString|merge({'boards': defaults['boards']}) %}
+        {% endif %}
+        {% set boardsDisplay = {'': '-- show all --',
+                                'primary': 'Exclude Job Boards',
+                                'job_board': 'Job Boards Only'}
+        %}
+        {% for board in ['', 'primary', 'job_board'] %}
+            <option value="{{ board }}" {% if queryString['boards'] == board %}selected="selected"{% endif %}>{{ boardsDisplay[board] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="recruiters">Recruiter or employer:</label></div></div>
+        <div class="span"><select id="recruiters" name="recruiters">
+        {% if queryString['recruiters'] not in ['', 'employer', 'recruiter'] %}
+            {% set queryString = queryString|merge({'recruiters': defaults['recruiters']}) %}
+        {% endif %}
+        {% set recruitersDisplay = {'': '-- show all --',
+                                'employer': 'Exclude Recruiters',
+                                'recruiter': 'Recruiters Only'}
+        %}
+        {% for recruiter in ['', 'employer', 'recruiter'] %}
+            <option value="{{ recruiter }}" {% if queryString['recruiters'] == recruiter %}selected="selected"{% endif %}>{{ recruitersDisplay[recruiter] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="size">Company size:</label></div></div>
+        <div class="span"><select id="size" name="size">
+        {% if queryString['size'] not in ['', '1', '2', '3', '4', '5', '6'] %}
+            {% set queryString = queryString|merge({'size': defaults['size']}) %}
+        {% endif %}
+        {%  set sizeDisplay = {'': '-- show all --',
+                                '1': 'Less than 10 employeers',
+                                '2': '10 - 100 employees',
+                                '3': '100 - 500 employees',
+                                '4': '500 - 1000 employees',
+                                '5': '1000 - 5000 employees',
+                                '6': 'More than 5000 employees'}
+        %}
+        {% for size in ['', '1', '2', '3', '4', '5', '6'] %}
+            <option value="{{ size }}" {% if queryString['size'] == size %}selected="selected"{% endif %}>{{ sizeDisplay[size] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"><div class="valign"><label for="revenue">Company revenue:</label></div></div>
+        <div class="span6"><select id="revenue" name="revenue">
+        {% if queryString['revenue'] not in ['', '1', '2', '3', '4', '5', '6'] %}
+            {% set queryString = queryString|merge({'revenue': defaults['revenue']}) %}
+        {% endif %}
+        {%  set revenueDisplay = {'': '-- show all --',
+                                '1': 'Less than $5M',
+                                '2': '$5M - $10M',
+                                '3': '$10M - $50M',
+                                '4': '$50M - $100M',
+                                '5': '$100M - $500M',
+                                '6': '$500M+'}
+        %}
+        {% for revenue in ['', '1', '2', '3', '4', '5', '6'] %}
+            <option value="{{ revenue }}" {% if queryString['revenue'] == revenue %}selected="selected"{% endif %}>{{ revenueDisplay[revenue] }}</option>
+        {% endfor %}
+        </select></div>
+    </div>
+    <div class="row">
+        <div class="span2"></div>
+        <div class="span6"><button id="advanced-submit" class="btn btn-primary pull-right" type="submit">Advanced Job Search</button></div>
+    </div>
+</form>
+</div>
+
+    {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
+        with {'simplyhired': false}
+    %}
+
+</div>
+{% endblock %}

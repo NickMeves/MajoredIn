@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}MajoredIn - Search Entry Level Jobs and Internships by College Major{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id="homepage">
+        <div id="homepage-body">
+            <div id="homepage-content-wrapper">
+                <div id="homepage-content">
+                    <div id="homepage-logo">
+                        <a href="{{ path('mi_main_about') }}"></a>
+                    </div>
+                    {% spaceless %}
+                    <div id="search-bar" class="form-horizontal">
+                        <form id="search-bar-form" action="{{ path('mi_jobs_redirect') }}" method="get">
+                            <span id="search-inputs">
+                                <div class="placeholding-input">
+                                    <input id="search-major" type="text" name="major" autocomplete="off" />
+                                    <label class="placeholder" for="search-major">College major</label>
+                                </div>
+                                <div class="placeholding-input">
+                                    <input id="search-location" type="text" name="location" autocomplete="off" />
+                                    <label class="placeholder" for="search-location">Where to work</label>
+                                    <a id="advanced-search" href="{{ path('mi_jobs_advanced') }}">Advanced Search</a>
+                                </div>
+                            </span>
+                            <button id="search-submit" class="btn btn-primary" type="submit">Find Jobs</button>
+                        </form>
+                    </div>
+                    {% endspaceless %}
+                </div>
+                <div id="homepage-slogan">Find jobs by your major.</div>
+                {% include 'MajoredInMainBundle:Social:socialshare.html.twig' %}
+            </div>
+            
+            {# {% if is_mobile() %} //UNCOMMENT WHEN MOBILE IS DEVELOPED
+            <div id="homepage-mobile"><a href="{{ mobile_host }}{{ path('mi_main_homepage', { 'device_view': 'mobile' }) }}">Mobile Site</a></div>
+            {% endif %} #}
+
+        </div>
+        <div id="homepage-footer">
+            <div class="links">
+                <span class="copyright">&copy; {{ "now"|date("Y") }} Majored In, LLC</span>
+                <a href="{{ path('mi_main_about') }}">About Us</a>
+                <a href="{{ path('mi_main_privacy') }}">Privacy Policy</a>
+                <a href="{{ path('mi_main_terms') }}">Terms of Service</a>
+                <a href="{{ path('mi_main_sitemap') }}">Site Map</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{% block title %}No Results Mobile{% endblock %}</title>
+</head>
+<body>
+<form action="{{ path('mi_jobs_redirect') }}" method="get">
+        <label>Major:</label><textarea name="major" rows="6" cols="50">{% if major != 'undeclared' %}{{ major|e }}{% endif %}</textarea>
+        <label>Location:</label><input type="text" name="location" {% if location != 'everywhere' %}value="{{ location|e }}" {% endif %}/>
+        <input type="submit" value="Submit">
+</form>
+<h1>No Results Found.</h1>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/web/bundles/
+/web/js/*
+/web/css/*
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.yml
+/rsync_exclude.txt
+/.settings
+/.buildpath
+/.project
+/*.bat
+/phpunit.php
+/app/console.bat
+

@@ -1,0 +1,54 @@
+mi_main_homepage:
+    pattern:  /
+    defaults: { _controller: MajoredInMainBundle:Homepage:index }
+    options: { mobile: redirect }
+
+mi_main_about:
+    pattern: /about
+    defaults: { _controller: MajoredInMainBundle:Info:about }
+
+mi_main_faq:
+    pattern: /faq
+    defaults: { _controller: MajoredInMainBundle:Info:faq }
+    
+mi_main_privacy:
+    pattern: /privacy
+    defaults: { _controller: MajoredInMainBundle:Info:privacy }
+
+mi_main_terms:
+    pattern: /terms
+    defaults: { _controller: MajoredInMainBundle:Info:terms }
+    
+mi_main_sitemap:
+    pattern: /sitemap
+    defaults: { _controller: MajoredInMainBundle:Info:sitemap }
+    
+mi_main_attribution:
+    pattern: /attribution
+    defaults: { _controller: MajoredInMainBundle:Info:attribution }
+
+
+       
+mi_main_sitemap_index:
+    pattern: /sitemaps/index.{_format}
+    defaults: { _controller: MajoredInMainBundle:SiteMapXml:index }
+    requirements:
+        _format:  xml
+
+mi_main_sitemap_main:
+    pattern: /sitemaps/main.{_format}
+    defaults: { _controller: MajoredInMainBundle:SiteMapXml:main }
+    requirements:
+        _format:  xml
+        
+mi_main_sitemap_locations:
+    pattern: /sitemaps/locations.{_format}
+    defaults: { _controller: MajoredInMainBundle:SiteMapXml:locations }
+    requirements:
+        _format:  xml
+        
+mi_main_sitemap_majors:
+    pattern: /sitemaps/majors/{id}.{_format}
+    defaults: { _controller: MajoredInMainBundle:SiteMapXml:majors }
+    requirements:
+        _format:  xml

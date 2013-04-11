@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="span2"></div>
+    <div id="footer-wrap" class="span6">
+        <div id="footer">
+                <span class="copyright">&copy; {{ "now"|date("Y") }} Majored In, LLC</span><span class="separator">|</span>
+                <a href="{{ path('mi_main_about') }}">About Us</a><span class="separator">|</span>
+                <a href="{{ path('mi_main_privacy') }}">Privacy Policy</a><span class="separator">|</span>
+                <a href="{{ path('mi_main_terms') }}">Terms of Service</a><span class="separator">|</span>
+                <a href="{{ path('mi_main_sitemap') }}">Site Map</a>
+         </div>
+         {# if simplyhired == true #}
+         <div id="simplyhired-footer">
+             <a STYLE="text-decoration:none" href="http://www.simplyhired.com/"><span>Jobs</span></a> by <a STYLE="text-decoration:none" href="http://www.simplyhired.com/"><span style="color: rgb(0, 159, 223); font-weight: bold;">Simply</span><span style="color: rgb(163, 204, 64); font-weight: bold;">Hired</span></a></li>
+         </div>
+         {# endif #}
+     </div>
+</div>

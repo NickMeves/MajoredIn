@@ -1,0 +1,32 @@
+mi_jobs_results:
+    pattern:  /jobs/{major}/{location}
+    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:results, location: everywhere }
+    options: { mobile: redirect }
+    
+mi_jobs_precache:
+    pattern:  /precache/{major}/{location}
+    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:preCache, location: everywhere }
+    
+mi_jobs_redirect:
+    pattern: /jobs
+    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:redirect }
+
+mi_jobs_advanced:
+    pattern: /advanced-search
+    defaults: { _controller: MajoredInJobSearchBundle:Advanced:index }
+    requirements:
+        _method:  GET
+    
+mi_jobs_advanced_submit:
+    pattern: /advanced-search
+    defaults: { _controller: MajoredInJobSearchBundle:Advanced:submit }
+    requirements:
+        _method:  POST
+        
+mi_autocomplete_major:
+    pattern: /autocomplete/major
+    defaults: { _controller: MajoredInJobSearchBundle:AutoComplete:major }
+    
+mi_autocomplete_location:
+    pattern: /autocomplete/location
+    defaults: { _controller: MajoredInJobSearchBundle:AutoComplete:location }

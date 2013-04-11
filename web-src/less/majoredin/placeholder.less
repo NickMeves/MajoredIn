@@ -1,0 +1,36 @@
+
+.form-horizontal {
+    .placeholding-input {
+        display: inline-block;
+        .ie7-inline-block();
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+}
+
+.placeholding-input {
+    position: relative;
+
+    .placeholder {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        bottom: 1px;
+        left: 2px;
+    
+        .user-select(none);
+        color: @placeholderText;
+        cursor: text;
+        font-size: @baseFontSize - 1;
+        height: @baseLineHeight;
+        line-height: @baseLineHeight;
+        padding: 4px 6px; //must match input padding
+        .transition(opacity 0.1s ease 0s, font-size 0.1s ease 0s);
+        white-space: nowrap;
+        z-index: 1;
+    }
+}
+
+.placeholding-input input:focus ~ .placeholder {
+    .opacity(60);
+}

@@ -1,0 +1,18 @@
+parameters:
+    mi_search.advanced_search.default_params:
+        major: ''
+        location: ''
+        all: ''
+        exact: ''
+        atleast: ''
+        without: ''
+        company: ''
+        title: ''
+        dist: 25
+        date: ''
+        sort: ''
+        jobtype: ''
+        boards: ''
+        recruiters: ''
+        size: ''
+        revenue: ''

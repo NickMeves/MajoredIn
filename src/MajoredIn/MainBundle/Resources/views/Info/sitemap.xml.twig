@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>{{ url('mi_main_homepage') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_jobs_advanced') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_main_about') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_main_faq') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_main_terms') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_main_privacy') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_main_sitemap') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>{{ url('mi_main_attribution') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.01</priority>
+    </url>
+    {% for major in majors %}
+        {% set majorWeight = 0.9999 * (major.popularity / maxMajor) %}
+        <url>
+            <loc>{{ url('mi_jobs_results', {'major': major.name|dash}) }}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>{{ majorWeight|number_format(6) }}</priority>
+        </url>
+        <url>
+            <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'jobtype': 'internship'}) }}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>{{ (0.5 * majorWeight)|number_format(6) }}</priority>
+        </url>
+        {% for location in locations %}
+            {% set weight = (location.population / maxLocation) * majorWeight %}
+            <url>
+                <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'location': location.name|dash}) }}</loc>
+                <changefreq>weekly</changefreq>
+                <priority>{{ weight|number_format(6) }}</priority>
+            </url>
+            <url>
+                <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'location': location.name|dash, 'jobtype': 'internship'}) }}</loc>
+                <changefreq>weekly</changefreq>
+                <priority>{{ (0.5 * weight)|number_format(6) }}</priority>
+            </url>
+        {% endfor %}
+    {% endfor %}
+</urlset>

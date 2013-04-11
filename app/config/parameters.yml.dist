@@ -1,0 +1,24 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     int-mysql-master.majoredin.com
+    database_port:     3306
+    database_name:     majoredin
+    database_user:     root
+    database_password: development
+    
+    slave_host:        int-mysql-slave.majoredin.com
+    slave_port:        3306
+    
+    memcached_driver:  memcache
+    memcached_host:    int-memcached.majoredin.com
+    memcached_port:    11211
+    
+    java_exe:          /usr/bin/java
+
+    mailer_transport:  smtp
+    mailer_host:       localhost
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

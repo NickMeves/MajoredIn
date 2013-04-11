@@ -1,0 +1,98 @@
+/*
+* search_results.less
+* Styles for search results page main content (the results)
+*/
+
+#results-header {
+    .clearfix();
+    padding-bottom: 8px;
+}
+
+#results-sort {
+    float: left;
+    font-size: @baseFontSize - 2;
+    .sort-active {
+        font-weight: bold;
+    }
+}
+
+#resultStats {
+    float: right;
+    color: @grayLight;
+    .text-overflow();
+}
+
+#jobs {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.job_wrap {
+    list-style: none outside none;
+    margin-bottom: 23px;
+}
+
+.job {
+    font-size: small;
+    line-height: 1.25;
+}
+
+.job-title {
+    .text-overflow();
+    font-size: medium;
+    line-height: 1.2;
+    padding-bottom: 2px;
+    margin: 0;
+    font-weight: normal;
+    a {
+        text-decoration: underline;
+    }
+}
+
+.new-wrapper {
+    position: relative;
+    display: inline-block;
+    .ie7-inline-block();
+    .new-job {
+        position: absolute;
+        right: -33px;
+        top: 4px;
+        color: @filterLink;
+        font-size: x-small;
+        font-weight: bold;
+    }
+    .new-job + .job-title {
+        max-width: @resultsWidth - 35;
+    }
+}
+
+.job-info {
+    color: @subLinkGreen;
+    padding-bottom: 1px;
+    a {
+        color: @subLinkGreen;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.job-age {
+    float: right;
+    color: @grayLight;
+}
+
+.job-excerpt {
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.jobs-warn {
+    font-size: medium;
+    line-height: 1.1;
+    font-style: italic;
+}
+  
+    

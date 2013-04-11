@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{% block title %}Entry Level Jobs and Internships - MajoredIn{% endblock %}</title>
+	
+{%  set description = 'Search nearly a million entry level jobs and internships by your college major.  We show you jobs for recent graduates with your specific college major.' %}
+{% block meta %}
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="job search engine, entry level jobs, job listings, find jobs, major, college major, recent graduate" />
+{% endblock %}
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+
+{% block opengraph %}
+    <meta property="og:title" content="Find Entry Level Jobs by your Major" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.majoredin.com" />
+    <meta property="og:image" content="{{ asset('img/majoredin_180x120.png') }}" />
+    <meta property="og:site_name" content="MajoredIn" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="fb:app_id" content="621030121246066" />
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Majored_In">
+    <meta name="twitter:url" content="http://www.majoredin.com">
+    <meta name="twitter:title" content="Find Entry Level Jobs by your Major">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ asset('img/twitter_hat.png') }}">
+{% endblock %}
+
+{% block stylesheets %}
+{% stylesheets 'less/main.less' filter='?yui_css' output='css/main.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block google_analytics %}
+{% if app.environment == 'prod' or app.environment == 'mobile' %}
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39519154-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+{% endif %}
+{% endblock %}
+
+</head>
+<body>
+<div id="fb-root"></div>
+{% block body %}
+{% endblock %}    
+
+{% block javascripts %}
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="{{ asset("lib/jquery-1.9.1.min.js") }}"><\/script>')</script>
+    <script type="text/javascript">window.JSON || document.write('<script src="{{ asset("lib/json2.min.js") }}"><\/script>')</script>
+{% if app.environment == 'prod' or app.environment == 'mobile' %}
+    {% javascripts
+            'js/vendor/amplify.store.js'
+            'js/vendor/waypoints.js'
+            'js/vendor/socialite.js'
+            'js/bootstrap/bootstrap-modal.js'
+            'js/bootstrap/bootstrap-typeahead.js'
+            'js/majoredin/utils.js'
+            'js/majoredin/search-bar.js'
+            'js/majoredin/filters.js'
+            'js/majoredin/results.js'
+            'js/majoredin/social.js'
+            'js/majoredin/event-tracking.js'
+            filter='closure' output='js/main.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% else %}
+    {% javascripts
+            'js/vendor/amplify.store.js'
+            'js/vendor/waypoints.js'
+            'js/vendor/socialite.js'
+            'js/bootstrap/bootstrap-modal.js'
+            'js/bootstrap/bootstrap-typeahead.js'
+            'js/majoredin/utils.js'
+            'js/majoredin/search-bar.js'
+            'js/majoredin/filters.js'
+            'js/majoredin/results.js'
+            'js/majoredin/social.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endif %}
+    <script type="text/javascript">
+      (function() {
+        var sh = document.createElement('script'); sh.type = 'text/javascript'; sh.async = true;
+        sh.src = "http://api.simplyhired.com/c/jobs-api/js/xml-v2.js";
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sh, s);
+      })();
+    </script>
+{% endblock %}
+
+</body>
+</html>

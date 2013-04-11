@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>{{ url('mi_main_sitemap_main', {'_format': 'xml'}) }}</loc>
+    </sitemap>
+    <sitemap>
+        <loc>{{ url('mi_main_sitemap_locations', {'_format': 'xml'}) }}</loc>
+   </sitemap>
+   {% for major in majors %}
+       <sitemap>
+            <loc>{{ url('mi_main_sitemap_majors', {'_format': 'xml', 'id': major.id}) }}</loc>
+       </sitemap>
+   {% endfor %}
+</sitemapindex>

@@ -1,0 +1,23 @@
+<div id="search-header" class="row">
+    <div id="header-logo" class="span2">
+        <a href="{{ path('mi_main_homepage') }}"></a>
+    </div>
+    {% spaceless %}
+    <div id="search-bar" class="span form-horizontal">
+        <form id="search-bar-form" action="{{ path('mi_jobs_redirect') }}" method="get">
+            <span id="search-inputs">
+                <div class="placeholding-input">
+                    <input id="search-major" type="text" name="major" {% if major != 'undeclared' %}value="{{ major|e }}" {% endif %} autocomplete="off" />
+                    <label class="placeholder {% if major != 'undeclared' %}hide{% endif %}" for="search-major">College major</label>
+                </div>
+                <div class="placeholding-input">
+                    <input id="search-location" type="text" name="location" {% if location != 'everywhere' %}value="{{ location|e }}" {% endif %} autocomplete="off" />
+                    <label class="placeholder {% if location != 'everywhere' %}hide{% endif %}" for="search-location">Where to work</label>
+                    <a id="advanced-search" href="{{ path('mi_jobs_advanced', advancedBase) }}">Advanced Search</a>
+                </div>
+            </span>
+            <button id="search-submit" class="btn btn-primary" type="submit">Find Jobs</button>
+        </form>
+    </div>
+    {% endspaceless %}
+</div>

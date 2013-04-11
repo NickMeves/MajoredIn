@@ -1,0 +1,39 @@
+#advanced-body {
+    .valign {
+        height: @inputHeight;
+    }
+    
+    label {
+        margin: 0 0 0 20px;
+    }
+    
+    input,
+    select {
+        position: relative;
+        border-color: @searchInputBorder;
+        .box-shadow(inset 1px 1px 2px rgba(0, 0, 0, .3));
+        width: @resultsWidth - (@inputPaddingLR * 2);
+        .transition(box-shadow 0.1s linear 0s);
+        
+        &:hover {
+            border-color: @searchInputHover;
+        }
+        
+        &:focus {
+            border-color: @linkColor;
+            .box-shadow(~"inset 1px 1px 2px rgba(0, 0, 0, .3), 0 0 4px rgba(82, 168, 236, .6)");
+        }
+    }
+    
+    select {
+        outline: 0;
+        width: @resultsWidth - (@inputPaddingLR * 2) + 14;
+    }
+    
+    .btn {
+        .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight, #fff, 0 -1px 1px rgba(0, 0, 0, .7));
+        font-size: @baseFontSize + 1;
+        font-weight: bold;
+        line-height: @baseLineHeight + 3;
+    }
+}

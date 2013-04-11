@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Page Error{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="" />
+	<meta name="keywords" content="" />
+    <meta name="robots" content="noindex" />
+{% endblock %}
+{% block opengraph %}{% endblock %}
+
+{% block body %}
+<div id="mi-container">
+    {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
+        with {'major': 'undeclared', 'location': 'everywhere', 'advancedBase': {}}
+    %}
+    <div class="article-body row">
+        <div class="span2"></div>
+        <div class="span6">
+{% block article %}
+
+<h1 class="article-title">Uh Oh! Something is broken.</h1>
+<p>Well this is embarrassing...</p>
+<p>We are terribly sorry.  Something seems to have gone wrong on our servers.</p>
+<p>When you tell all your friends how great MajoredIn is, can you conveniently forget to mention this tiny little error?</p>
+<p>Please don't hesitate to <a href="mailto:webmaster@majoredin.com">email us</a> about this error, though.  We'll try to fix it ASAP.</p>
+
+
+{% endblock %}
+        </div>
+    </div>
+    {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
+        with {'simplyhired': true}
+    %}
+</div>
+{% endblock %}
