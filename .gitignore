@@ -13,4 +13,5 @@
 /*.bat
 /phpunit.php
 /app/console.bat
+!.gitkeep
 
