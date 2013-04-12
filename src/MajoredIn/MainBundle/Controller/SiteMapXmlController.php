@@ -14,9 +14,7 @@ class SiteMapXmlController extends Controller
         $response = $this->render('MajoredInMainBundle:SiteMapXml:index.xml.twig', array(
                 'majors' => $majors
         ));
-        $response->setPublic();
-        $response->setMaxAge(604800);
-        $response->setSharedMaxAge(604800);
+
         return $response;
     }
     
@@ -38,9 +36,7 @@ class SiteMapXmlController extends Controller
                 'locations' => $locations,
                 'maxPopulation' => $maxPopulation
         ));
-        $response->setPublic();
-        $response->setMaxAge(604800);
-        $response->setSharedMaxAge(604800);
+
         return $response;
     }
     
@@ -59,7 +55,7 @@ class SiteMapXmlController extends Controller
         }
         $weight = ($weight > 1) ? 1 : $weight;
         
-        $locationCount = round(1000 * $weight) + 30; //dilute length of sitemap by importance to limit robot crawling.
+        $locationCount = round(1000 * $weight) + 50; //dilute length of sitemap by importance to limit robot crawling.
         
         $locationManager = $this->get('mi_search.location.manager');
         $locations = $locationManager->findLocationsLike('', $locationCount);
@@ -73,9 +69,7 @@ class SiteMapXmlController extends Controller
                 'majorWeight' => $weight,
                 'maxPopulation' => $maxPopulation
         ));
-        $response->setPublic();
-        $response->setMaxAge(604800);
-        $response->setSharedMaxAge(604800);
+
         return $response;
     }
 }

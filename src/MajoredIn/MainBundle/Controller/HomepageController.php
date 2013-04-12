@@ -14,9 +14,8 @@ class HomepageController extends Controller
         else {
             $response = $this->render('MajoredInMainBundle:Homepage:homepage.html.twig');
         }
-        $response->setPublic();
-        $response->setMaxAge(86400);
-        $response->setSharedMaxAge(86400);
+
+        $response->setSharedMaxAge(3600);
         return $response;
     }
 }

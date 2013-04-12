@@ -39,9 +39,6 @@ class AutoCompleteController extends Controller
             $this->get('mi_search.cache')->save($this->get('request')->getRequestUri(), $response->getContent());
         }
         
-        $response->setPublic();
-        $response->setMaxAge(604800);
-        $response->setSharedMaxAge(604800);
         return $response;
     }
     
@@ -74,9 +71,6 @@ class AutoCompleteController extends Controller
             $this->get('mi_search.cache')->save($this->get('request')->getRequestUri(), $response->getContent());
         }
         
-        $response->setPublic();
-        $response->setMaxAge(604800);
-        $response->setSharedMaxAge(604800);
         return $response;
     }
 }
