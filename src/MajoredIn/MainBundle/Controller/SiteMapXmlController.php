@@ -15,6 +15,7 @@ class SiteMapXmlController extends Controller
                 'majors' => $majors
         ));
 
+        $response->setSharedMaxAge(604800);
         return $response;
     }
     
@@ -36,7 +37,8 @@ class SiteMapXmlController extends Controller
                 'locations' => $locations,
                 'maxPopulation' => $maxPopulation
         ));
-
+        
+        $response->setSharedMaxAge(604800);
         return $response;
     }
     
@@ -70,6 +72,7 @@ class SiteMapXmlController extends Controller
                 'maxPopulation' => $maxPopulation
         ));
 
+        $response->setSharedMaxAge(604800);
         return $response;
     }
 }
