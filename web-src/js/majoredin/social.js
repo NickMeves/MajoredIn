@@ -16,7 +16,7 @@ $(document).ready(function() {
 			social.hide();
 			social.removeClass('hidden');
 			$('.social-sharing').fadeIn();
-		}, 1250);
+		}, 2000);
 	}
 	
 	var timeout;
