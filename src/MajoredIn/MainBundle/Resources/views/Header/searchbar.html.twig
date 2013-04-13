@@ -13,7 +13,7 @@
                 <div class="placeholding-input">
                     <input id="search-location" type="text" name="location" {% if location != 'everywhere' %}value="{{ location|e }}" {% endif %} autocomplete="off" />
                     <label class="placeholder {% if location != 'everywhere' %}hide{% endif %}" for="search-location">Where to work</label>
-                    <a id="advanced-search" href="{{ path('mi_jobs_advanced', advancedBase) }}">Advanced Search</a>
+                    <a id="advanced-search" href="{{ path('mi_jobs_advanced', advancedBase) }}"{% if advancedBase %}  rel="nofollow"{% endif %}>Advanced Search</a>
                 </div>
             </span>
             <button id="search-submit" class="btn btn-primary" type="submit">Find Jobs</button>

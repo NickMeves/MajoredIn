@@ -2,6 +2,13 @@
 
 {% block title %}Advanced Job Search - MajoredIn{% endblock %}
 
+{%  set description = 'Advanced search nearly a million entry level jobs and internships by your college major.  Add custom filters to go beyond searching with just your major.' %}
+{% block meta %}
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="advanced search, job search engine, entry level jobs, job listings, find jobs, major, college major, recent graduate" />
+    <link rel="canonical" href="{{ url('mi_jobs_advanced') }}" />
+{% endblock %}
+
 {% block body %}
 <div id="mi-container">
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
