@@ -10,7 +10,7 @@
 {% block opengraph %}{% endblock %}
 
 {% block body %}
-<div id="mi-container">
+<div id="mi-container" class="error500">
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
         with {'major': 'undeclared', 'location': 'everywhere', 'advancedBase': {}}
     %}
@@ -23,7 +23,7 @@
 <p>Well this is embarrassing...</p>
 <p>We are terribly sorry.  Something seems to have gone wrong on our servers.</p>
 <p>When you tell all your friends how great MajoredIn is, can you conveniently forget to mention this tiny little error?</p>
-<p>Please don't hesitate to <a href="mailto:webmaster@majoredin.com">email us</a> about this error, though.  We'll try to fix it ASAP.</p>
+<p>Please don't hesitate to <a href="mailto:support@majoredin.com">email us</a> about this error, though.  We'll try to fix it ASAP.</p>
 
 
 {% endblock %}
