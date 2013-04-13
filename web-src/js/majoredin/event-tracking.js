@@ -42,6 +42,15 @@ $(document).ready(function () {
 		_gaq.push(['_trackEvent', 'Cache', 'Miss', major]);
 	}
 	
+	//Error logging
+	if ($('.error500').length) {
+		_gaq.push(['_trackEvent', 'Error', '500', window.location.href]);
+	}
+	
+	if ($('.error404').length) {
+		_gaq.push(['_trackEvent', 'Error', '404', window.location.href]);
+	}
+	
 	//Social
 	$('.facebook-follow').click(function () {
 		_gaq.push(['_trackEvent', 'Follow', 'Facebook', major]);
@@ -112,5 +121,18 @@ $(document).ready(function () {
 		}, 500);
 	}).mouseleave(function () {
 		clearTimeout(timeout);
+	});
+	
+	//Adsense
+	var adsenseSidebarHover = false;
+	$('.google-adsense-160x600').mouseenter(function() {
+		adsenseSidebarHover = true;
+	}).mouseleave(function() {
+		adsenseSidebarHover = false;
+	});
+	$(window).blur(function() {
+		if (adsenseSidebarHover) {
+			_gaq.push(['_trackEvent', 'Adsense', 'Sidebar Click', major]);
+		}
 	});
 });
