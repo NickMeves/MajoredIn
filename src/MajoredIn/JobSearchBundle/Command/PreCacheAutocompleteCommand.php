@@ -67,6 +67,7 @@ class PreCacheAutocompleteCommand extends ContainerAwareCommand
                 
                 $response = new JsonResponse();
                 $response->setData(array('term' => isset($queryString['term']) ? $queryString['term'] : '', 'data' => $majorNames));
+                $response->setCallback('majoredin.autocomplete_major_' . preg_replace('/[^\w]/', '_', $term));
                 $this->getContainer()->get('mi_search.cache')->save($baseUri . $term . '&callback=majoredin.autocomplete_major_' . preg_replace('/[^\w]/', '_', $term), $response->getContent());
                 $count++;
             }
@@ -101,6 +102,7 @@ class PreCacheAutocompleteCommand extends ContainerAwareCommand
                 
                 $response = new JsonResponse();
                 $response->setData(array('term' => isset($queryString['term']) ? $queryString['term'] : '', 'data' => $locationNames));
+                $response->setCallback('majoredin.autocomplete_location_' . preg_replace('/[^\w]/', '_', $term));
                 $this->getContainer()->get('mi_search.cache')->save($baseUri . $term . '&callback=majoredin.autocomplete_location_' . preg_replace('/[^\w]/', '_', $term), $response->getContent());
                 $count++;
             }
