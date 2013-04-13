@@ -5,24 +5,29 @@
     <meta name="description" content="{% if jobResults.jobType == 'internship' %}Internships{% else %}Entry level jobs{% endif %}{% if major != 'undeclared' %} with companies specifically looking for {{ major|e|strtolower }} majors{% endif %}. Search over {{ jobResults.totalResults|number_format }} job listings{% if major != 'undeclared' %} for {{ major|e|strtolower }} majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}." />
 	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% else %}entry level {% endif %}{% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}, entry level jobs, job listings, find jobs, job search engine, major, college major, recent graduate" />
 	
+    {% if major != 'undeclared' %}
+        {% set majorFormatted = major|e|ucwords|dash %}
+    {% else %}
+        {% set majorFormatted = 'undeclared' %}
+    {% endif %}
     {% if location != 'everywhere' %}
         {% set locationFormatted = location|e|formatLoc|dash %}
     {% else %}
-        {% set locationFormatted = location %}
+        {% set locationFormatted = 'everywhere' %}
     {% endif %}
 	
-	<link rel="canonical" href="{{ url('mi_jobs_results', urlBase|merge({'major': major|e|ucwords|dash, 'location': locationFormatted})) }}" />
+	<link rel="canonical" href="{{ url('mi_jobs_results', urlBase|merge({'major': majorFormatted, 'location': locationFormatted})) }}" />
 	{% if jobResults.currentPage != 1 %}
         {% set prev = jobResults.currentPage - 1 %}
         {% if prev == 1 %}
-            <link rel="prev" href="{{ url('mi_jobs_results', pageUrlBase|merge({'major': major|e|ucwords|dash, 'location': locationFormatted})|diff({'page': jobResults.currentPage})) }}" />
+            <link rel="prev" href="{{ url('mi_jobs_results', pageUrlBase|merge({'major': majorFormatted, 'location': locationFormatted})|diff({'page': jobResults.currentPage})) }}" />
         {% else %}
-            <link rel="prev" href="{{ url('mi_jobs_results', pageUrlBase|merge({'major': major|e|ucwords|dash, 'location': locationFormatted, 'page': prev})) }}" />
+            <link rel="prev" href="{{ url('mi_jobs_results', pageUrlBase|merge({'major': majorFormatted, 'location': locationFormatted, 'page': prev})) }}" />
         {% endif %}{# if prev == 1 #}
     {% endif %}{# if jobResults.currentPage != 1 #}
     {% if jobResults.currentPage != jobResults.maxPage %}
         {% set next = jobResults.currentPage + 1 %}
-        <link rel="next" href="{{ url('mi_jobs_results', pageUrlBase|merge({'major': major|e|ucwords|dash, 'location': locationFormatted, 'page': next})) }}" />
+        <link rel="next" href="{{ url('mi_jobs_results', pageUrlBase|merge({'major': majorFormatted, 'location': locationFormatted, 'page': next})) }}" />
     {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
 {% endblock %}
 
