@@ -2,6 +2,11 @@
 
 {% block title %}Frequently Asked Questions - MajoredIn{% endblock %}
 
+{% block meta %}
+{{ parent() }}
+    <link rel="canonical" href="{{ url('mi_main_faq') }}" />
+{% endblock %}
+
 {% block article %}
 
 <h1 class="article-title">Frequently Asked Questions</h1>

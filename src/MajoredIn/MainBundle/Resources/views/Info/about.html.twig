@@ -2,6 +2,11 @@
 
 {% block title %}About Us - MajoredIn{% endblock %}
 
+{% block meta %}
+{{ parent() }}
+    <link rel="canonical" href="{{ url('mi_main_about') }}" />
+{% endblock %}
+
 {% block article %}
 
 <h1 class="article-title">About Us</h1>
