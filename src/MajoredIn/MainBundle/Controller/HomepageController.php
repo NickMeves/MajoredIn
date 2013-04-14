@@ -8,9 +8,9 @@ class HomepageController extends Controller
 {
     public function indexAction()
     {
-        //redirect away from weird facebook link query string for homepage
+        //redirect away from weird facebook link querystring for homepage (can tie analytics logic in later)
         $queryString = $this->get('request')->query->all();
-        if (isset($queryString['fb_action_ids'])) {
+        if (count($queryString) > 0) {
             $response = $this->redirect($this->generateUrl('mi_main_homepage', array(), true), 301);
             return $response;
         }
@@ -22,7 +22,7 @@ class HomepageController extends Controller
             $response = $this->render('MajoredInMainBundle:Homepage:homepage.html.twig');
         }
 
-        $response->setSharedMaxAge(3600);
+        $response->setSharedMaxAge(600);
         return $response;
     }
 }
