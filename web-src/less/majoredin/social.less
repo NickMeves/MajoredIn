@@ -32,7 +32,17 @@
 .social-follow {
     width: 160px;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    
+    .followus {
+        display: block;
+        color: @filterLink;
+        .text-overflow();
+        font-size: @baseFontSize + 1;
+        line-height: @baseLineHeight;
+        font-weight: bold;
+        margin-left: 3px;
+    }
     
     a {
         display: inline-block;
