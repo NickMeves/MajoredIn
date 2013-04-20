@@ -15,6 +15,7 @@ class AdvancedController extends Controller
             'defaults' => $this->container->getParameter('mi_search.advanced_search.default_params')
         ));
 
+        $response->setSharedMaxAge(3600);
         return $response;
     }
     
