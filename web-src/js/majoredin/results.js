@@ -35,7 +35,7 @@ $(document).ready(function () {
 		    		if (major == '') {
 		    			major = 'Undeclared';
 		    		}
-		    		_gaq.push(['_trackEvent', 'Modal Share', 'Popup', major]);
+		    		_gaq.push(['_trackEvent', 'Modal', 'Popup', major]);
 		    	}
 		    }, 300);
 		}
