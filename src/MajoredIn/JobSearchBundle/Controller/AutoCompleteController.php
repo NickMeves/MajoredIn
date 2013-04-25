@@ -32,7 +32,12 @@ class AutoCompleteController extends Controller
         $response->setData(array('term' => isset($queryString['term']) ? $queryString['term'] : '', 'data' => $majorNames));
         
         if (isset($queryString['callback'])) {
-            $response->setCallback($queryString['callback']);
+            try {
+                $response->setCallback($queryString['callback']);
+            }
+            catch (\Exception $e) {
+                $this->get('logger')->err('AutoCompleteController::majorAction: Exception caught due to invalid callback.  URI: ' . $request->getRequestUri());
+            }
         }
         
         if ($cache) {
@@ -64,7 +69,12 @@ class AutoCompleteController extends Controller
         $response->setData(array('term' => isset($queryString['term']) ? $queryString['term'] : '', 'data' => $locationNames));
         
         if (isset($queryString['callback'])) {
-            $response->setCallback($queryString['callback']);
+            try {
+                $response->setCallback($queryString['callback']);
+            }
+            catch (\Exception $e) {
+                $this->get('logger')->err('AutoCompleteController::locationAction: Exception caught due to invalid callback.  URI: ' . $request->getRequestUri());
+            }
         }
         
         if ($cache) {
