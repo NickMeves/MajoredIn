@@ -122,17 +122,4 @@ $(document).ready(function () {
 	}).mouseleave(function () {
 		clearTimeout(timeout);
 	});
-	
-	//Adsense
-	var adsenseSidebarHover = false;
-	$('.google-adsense-160x600').mouseenter(function() {
-		adsenseSidebarHover = true;
-	}).mouseleave(function() {
-		adsenseSidebarHover = false;
-	});
-	$(window).blur(function() {
-		if (adsenseSidebarHover) {
-			_gaq.push(['_trackEvent', 'Adsense', 'Sidebar Click', major]);
-		}
-	});
 });
