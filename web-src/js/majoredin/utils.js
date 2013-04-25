@@ -73,7 +73,7 @@
 	    			    cache: "true",
 	    			    dataType: "jsonp",
 	    			    jsonpCallback: function () {
-	    			    	majoredin[namespace + canon_query.replace(/[^\w]/, '_')] = function(response) { //bind closure function to global scope
+	    			    	majoredin[namespace + canon_query.replace(/[^\w]/g, '_')] = function(response) { //bind closure function to global scope
 	    			    		var term = response['term'];
 	    			    		var data = response['data'];
 					    		if (element.val() == term) { //only process if still valid query
@@ -115,7 +115,7 @@
 					    		
 					    		return data;
 					    	};
-					    	return "majoredin." + namespace + canon_query.replace(/[^\w]/, '_');
+					    	return "majoredin." + namespace + canon_query.replace(/[^\w]/g, '_');
 	    			    }
 			    	}); //ajax call
 		    	}
