@@ -31,6 +31,7 @@ class JobSearchController extends Controller
             $jobQuery = $this->get('mi_search.job_query.factory')->createFromRequest($request, $major, $this->get('mi_search.canonicalizer')->canonicalize($location));
         }
         catch (\Exception $e) {
+            $this->get('logger')->err('JobSearchController::resultsAction: Exception caught running JobQueryFactory::createFromRequest.  URI: ' . $request->getRequestUri());
             if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
                 $response = $this->render('MajoredInJobSearchBundle:JobSearch:error.mobile.twig');
             }
@@ -108,6 +109,7 @@ class JobSearchController extends Controller
             return $response;
         }
         catch (InvalidParamException $e) {
+            $this->get('logger')->err('JobSearchController::resultsAction: InvalidParamException caught running JobApiConnector::accessApi.  URI: ' . $request->getRequestUri());
             if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
                 $response = $this->render('MajoredInJobSearchBundle:JobSearch:error.mobile.twig');
             }
@@ -125,6 +127,7 @@ class JobSearchController extends Controller
             return $response;
         }
         catch (\Exception $e) {
+            $this->get('logger')->err('JobSearchController::resultsAction: Exception caught running JobApiConnector::accessApi.  URI: ' . $request->getRequestUri());
             if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
                 $response = $this->render('MajoredInJobSearchBundle:JobSearch:error.mobile.twig');
             }
@@ -169,6 +172,7 @@ class JobSearchController extends Controller
             $jobQuery = $this->get('mi_search.job_query.factory')->createFromRequest($request, $major, $this->get('mi_search.canonicalizer')->canonicalize($location));
         }
         catch (\Exception $e) {
+            $this->get('logger')->err('JobSearchController::resultsAction: Exception caught running JobQueryFactory::createFromRequest.  URI: ' . $request->getRequestUri());
             return $fail;
         }
         
