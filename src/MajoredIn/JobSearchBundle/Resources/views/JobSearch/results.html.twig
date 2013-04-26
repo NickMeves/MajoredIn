@@ -3,7 +3,7 @@
 {% block title %}{% if major != 'undeclared' %}{{ major|e|ucwords }} Major {% else %}Entry Level {% endif %}{% if jobResults.jobType == 'internship' %}Internships{% else %}Jobs{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %} - MajoredIn{% endblock %}
 {% block meta %}
     <meta name="description" content="{% if jobResults.jobType == 'internship' %}Internships for college students{% else %}Entry level jobs for recent college graduates{% endif %}{% if major != 'undeclared' %} with a {{ major|e|strtolower }} {% if jobResults.jobType == 'internship' %}major{% else %}degree{% endif %}{% endif %}. Search over {{ jobResults.totalResults|number_format }} {% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}{% if major != 'undeclared' %} for {{ major|e|strtolower }} majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}." />
-	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% else %}entry level {% endif %}{% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}, entry level jobs, job listings, find jobs, job search engine, major, college major, recent graduate" />
+	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% else %}entry level {% endif %}{% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}, entry level jobs, jobs, internships, job search, college major, recent college graduate, major, college degree" />
 	
     {% if major != 'undeclared' %}
         {% set majorFormatted = major|e|ucwords|dash %}
