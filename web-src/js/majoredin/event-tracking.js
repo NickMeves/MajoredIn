@@ -47,6 +47,14 @@ $(document).ready(function () {
 		_gaq.push(['_trackEvent', 'Error', '500', window.location.href]);
 	}
 	
+	if ($('.error501').length) {
+		_gaq.push(['_trackEvent', 'Error', '501', window.location.href]);
+	}
+	
+	if ($('.error502').length) {
+		_gaq.push(['_trackEvent', 'Error', '502', window.location.href]);
+	}
+	
 	if ($('.error404').length) {
 		_gaq.push(['_trackEvent', 'Error', '404', window.location.href]);
 	}
