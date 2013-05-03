@@ -10,7 +10,7 @@ $(document).ready(function () {
 	
 	$('.placeholding-input input')
 		.keydown(function (e) {
-			if (!(e.which == 8) || !($(this).val() == '')) {
+			if (e.which != 8 || $(this).val() != '') {
 				$(this).siblings('.placeholder').hide();
 			}
 		}).blur(function () {
