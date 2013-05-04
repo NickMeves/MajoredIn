@@ -72,6 +72,9 @@ $(document).ready(function () {
 	$('.linkedin-follow').click(function () {
 		_gaq.push(['_trackEvent', 'Follow', 'LinkedIn', major]);
 	});
+	$('.pinterest-follow').click(function () {
+		_gaq.push(['_trackEvent', 'Follow', 'Pinterest', major]);
+	});
 	
 	var timeout;
 	$('#homepage .social-sharing .facebook').mouseenter(function () {

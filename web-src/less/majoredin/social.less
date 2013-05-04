@@ -30,7 +30,6 @@
 }
 
 .social-follow {
-    width: 160px;
     border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
     
@@ -38,7 +37,7 @@
         display: block;
         color: @filterLink;
         .text-overflow();
-        font-size: @baseFontSize + 1;
+        font-size: @baseFontSize;
         line-height: @baseLineHeight;
         font-weight: bold;
         margin-left: 3px;
@@ -79,6 +78,13 @@
 
         &:active {
             background-position: 0px -252px;
+        }
+    }
+    .pinterest-follow {
+        background-position: 0px -288px;
+
+        &:active {
+            background-position: 0px -324px;
         }
     }
 }

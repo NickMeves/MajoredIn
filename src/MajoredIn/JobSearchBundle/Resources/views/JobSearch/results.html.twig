@@ -32,12 +32,12 @@
 {% endblock %}
 
 {% block body %}
-<div id="mi-container">
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
-        with {'major': major, 'location': location, 'advancedBase': advancedBase}
+        with {'major': major, 'location': location, 'advancedBase': advancedBase, 'layoutType': 'mi-results-layout'}
     %}
+<div id="mi-results-layout">
     <div id="results-body" class="row">
-        <div id="filter-column" class="span2">
+        <div id="filter-column" class="span-left">
             {% set sortDisplay = {'rd': 'Relevance',
                                     'dd': 'Date'}
             %}
@@ -360,7 +360,7 @@
                 </ol>
             </div>
         </div>
-        <div id="results-column" class="span6">
+        <div id="results-column" class="span-center">
             <div id="results-header">
                 {% set rangeStart = jobResults.currentPage * 10 - 9 %}
                 {% set rangeEnd = (jobResults.currentPage * 10 > jobResults.totalViewable) ? jobResults.totalViewable : jobResults.currentPage * 10 %}
@@ -466,9 +466,9 @@
             </div>
             {% endif %}{# if jobResults.maxPage != 1 #} 
         </div>
-        <div id="ads-column" class="span2">
+        <div id="ads-column" class="span-right">
             {% include 'MajoredInMainBundle:Social:socialfollow.html.twig' %}
-            {% include 'MajoredInMainBundle:Adsense:adsense160x600.html.twig' %}
+            {% include 'MajoredInMainBundle:Adsense:adsense300x250.html.twig' %}
         </div>
     </div>
     {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
