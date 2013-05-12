@@ -1,3 +1,0 @@
-mi_main_homepage:
-    pattern:  /
-    defaults: { _controller: MajoredInMainBundle:Homepage:index }

@@ -21,10 +21,9 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new MajoredIn\JobSearchBundle\MajoredInJobSearchBundle(),
             new MajoredIn\MainBundle\MajoredInMainBundle(),
-            new SunCat\MobileDetectBundle\MobileDetectBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'mobile_dev', 'test'))) {
+        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

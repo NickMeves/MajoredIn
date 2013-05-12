@@ -1,7 +1,0 @@
-mi_jobs_results:
-    pattern:  /jobs/{major}/{location}
-    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:results, location: everywhere }
-    
-mi_jobs_redirect:
-    pattern: /jobs
-    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:redirect }

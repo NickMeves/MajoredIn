@@ -1,7 +1,6 @@
 mi_jobs_results:
     pattern:  /jobs/{major}/{location}
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:results, location: everywhere }
-    options: { mobile: redirect }
     
 mi_jobs_precache:
     pattern:  /precache/{major}/{location}

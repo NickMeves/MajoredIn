@@ -32,12 +32,7 @@ class JobSearchController extends Controller
         }
         catch (\Exception $e) {
             $this->get('logger')->err('JobSearchController::resultsAction: Exception caught running JobQueryFactory::createFromRequest.  URI: ' . $request->getRequestUri());
-            if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
-                $response = $this->render('MajoredInJobSearchBundle:JobSearch:error.mobile.twig');
-            }
-            else {
-                $response = $this->render('TwigBundle:Exception:error.html.twig');
-            }
+            $response = $this->render('TwigBundle:Exception:error.html.twig');
             $response->setStatusCode('500');
             return $response;
         }
@@ -76,12 +71,7 @@ class JobSearchController extends Controller
                         'pageUrlBase' => $pageUrlBase,
                         'advancedBase' => $advancedBase
                     );
-                    if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
-                        $response = $this->render('MajoredInJobSearchBundle:JobSearch:noresults.mobile.twig', $variables);
-                    }
-                    else {
-                        $response = $this->render('MajoredInJobSearchBundle:JobSearch:noresults.html.twig', $variables);
-                    }
+                    $response = $this->render('MajoredInJobSearchBundle:JobSearch:noresults.html.twig', $variables);
                 }
                 
                 $queryString['page'] = $jobResults->getMaxPage();
@@ -98,24 +88,14 @@ class JobSearchController extends Controller
                     'pageUrlBase' => $pageUrlBase,
                     'advancedBase' => $advancedBase
                 );
-                if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
-                    $response = $this->render('MajoredInJobSearchBundle:JobSearch:noresults.mobile.twig', $variables);
-                }
-                else {
-                    $response = $this->render('MajoredInJobSearchBundle:JobSearch:noresults.html.twig', $variables);
-                }
+                $response = $this->render('MajoredInJobSearchBundle:JobSearch:noresults.html.twig', $variables);
             }
             
             return $response;
         }
         catch (InvalidParamException $e) {
             $this->get('logger')->err('JobSearchController::resultsAction: InvalidParamException caught running JobApiConnector::accessApi.  URI: ' . $request->getRequestUri());
-            if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
-                $response = $this->render('MajoredInJobSearchBundle:JobSearch:error.mobile.twig');
-            }
-            else {
-                $response = $this->render('TwigBundle:Exception:error.html.twig');
-            }
+            $response = $this->render('TwigBundle:Exception:error.html.twig');
             $response->setStatusCode('500');
             return $response;
         }
@@ -128,12 +108,7 @@ class JobSearchController extends Controller
         }
         catch (\Exception $e) {
             $this->get('logger')->err('JobSearchController::resultsAction: Exception caught running JobApiConnector::accessApi.  URI: ' . $request->getRequestUri());
-            if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
-                $response = $this->render('MajoredInJobSearchBundle:JobSearch:error.mobile.twig');
-            }
-            else {
-                $response = $this->render('TwigBundle:Exception:error.html.twig');
-            }
+            $response = $this->render('TwigBundle:Exception:error.html.twig');
             $response->setStatusCode('500');
             return $response;
         }
@@ -145,13 +120,8 @@ class JobSearchController extends Controller
             'pageUrlBase' => $pageUrlBase,
             'advancedBase' => $advancedBase,
             'jobResults' => $jobResults
-        );        
-        if (in_array($this->get('kernel')->getEnvironment(), array('mobile', 'mobile_dev'))) {
-            $response = $this->render('MajoredInJobSearchBundle:JobSearch:results.mobile.twig', $variables);
-        }
-        else {
-            $response = $this->render('MajoredInJobSearchBundle:JobSearch:results.html.twig', $variables);
-        }
+        );
+        $response = $this->render('MajoredInJobSearchBundle:JobSearch:results.html.twig', $variables);
         return $response;
     }
     

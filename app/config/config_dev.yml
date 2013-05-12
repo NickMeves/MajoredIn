@@ -28,20 +28,5 @@ doctrine:
         result_cache_driver: array
         query_cache_driver: array
 
-#Get the absolute hostnames in twig for switch URLs
-twig:
-    globals: 
-        full_host: http://www.majoredin.dev
-        mobile_host: http://m.majoredin.dev
-        
-mobile_detect:
-    redirect:
-        mobile:
-            is_enabled: true
-            host: http://m.majoredin.dev
-            action: no_redirect
-    cookie:
-        domain: majoredin.dev
-
 #swiftmailer:
 #    delivery_address: me@example.com

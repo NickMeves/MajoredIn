@@ -1,7 +1,6 @@
 mi_main_homepage:
     pattern:  /
     defaults: { _controller: MajoredInMainBundle:Homepage:index }
-    options: { mobile: redirect }
 
 mi_main_about:
     pattern: /about
@@ -26,8 +25,6 @@ mi_main_sitemap:
 mi_main_attribution:
     pattern: /attribution
     defaults: { _controller: MajoredInMainBundle:Info:attribution }
-
-
        
 mi_main_sitemap_index:
     pattern: /sitemaps/index.{_format}

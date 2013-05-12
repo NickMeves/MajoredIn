@@ -16,19 +16,6 @@ doctrine:
             host: %memcached_host%
             port: %memcached_port%
 
-#Get the absolute hostnames in twig for switch URLs
-twig:
-    globals: 
-        full_host: http://www.majoredin.com
-        mobile_host: http://m.majoredin.com
-        
-mobile_detect:
-    redirect:
-        mobile:
-            is_enabled: false
-            host: http://m.majoredin.com
-            action: no_redirect
-
 monolog:
     handlers:
         main:
