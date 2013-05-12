@@ -55,7 +55,7 @@ class SiteMapXmlController extends Controller
         }
         $weight = ($weight > 1) ? 1 : $weight;
         
-        $locationCount = round(2000 * $weight) + 100; //dilute length of sitemap by importance to limit robot crawling.
+        $locationCount = round(2000 * $weight) + 500; //dilute length of sitemap by importance to limit robot crawling.
         
         $locationManager = $this->get('mi_search.location.manager');
         $locations = $locationManager->findLocationsLike('', $locationCount);
