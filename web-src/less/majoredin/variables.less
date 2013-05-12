@@ -46,7 +46,7 @@
 
 // Typography
 // -------------------------
-@sansFontFamily:        'Open Sans', Arial, sans-serif;
+@sansFontFamily:        Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -315,13 +315,17 @@
 @searchInputBorder: #aaa;
 @searchInputHover: #666; 
 
-// MAJOREDIN RESULTS
+// MAJOREDIN SIZING
 // --------------------------------------------------
 
 @resultsWidth: (@gridColumnWidth * 6) + (@gridGutterWidth * (6 - 1));
 @filterWidth: (@gridColumnWidth * 2) + (@gridGutterWidth * (2 - 1));
 @adWidth: 300px;
 @adMargin: 15px;
-@totalWidth: (8 * @gridColumnWidth) + (@gridGutterWidth * 7) + @adWidth + @adMargin;
-@mediumWidth: (6 * @gridColumnWidth) + (@gridGutterWidth * 5) + @adWidth + @adMargin;
-@smallWidth: (7 * @gridColumnWidth) + (@gridGutterWidth * 7);
+@normalWidth: (8 * @gridColumnWidth) + (@gridGutterWidth * 7) + @adWidth + @adMargin;
+@netbookWidth: (6 * @gridColumnWidth) + (@gridGutterWidth * 5) + @adWidth + @adMargin;
+@tabletWidth: (7 * @gridColumnWidth) + (@gridGutterWidth * 7);
+
+@netbookMedia: @normalWidth + @gridGutterWidth * 2 + 10;
+@tabletMedia: @netbookWidth + @gridGutterWidth * 2 + 10;
+@phoneMedia: @tabletWidth + @gridGutterWidth * 2 + 10;

@@ -23,7 +23,7 @@ $(document).ready(function () {
 			amplify.store('job_click_count', count);
 		}
 		
-		if (count % 10 == 3 && !amplify.store('has_shared')) {
+		if (count % 10 == 3 && !amplify.store('has_shared') && $('.social-sharing').css('display') != 'none') {
 		    setTimeout(function () {
 		    	var modal = $('#shareModal');
 		    	modal.hide();

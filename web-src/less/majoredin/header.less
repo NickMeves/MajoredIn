@@ -11,7 +11,7 @@
         height: 37px;
         margin: 0 auto;
         background-image: url("../img/logo_sprite.png");
-        background-position: 0px -83px;
+        background-position: 0px -73px;
     }
 }
 
@@ -131,6 +131,60 @@
     position: absolute;
     right: 6px;
     top: 37px;
-    font-size: small;
+    font-size: @baseFontSize - 1;
     line-height: 1;
+}
+
+@media only screen and (max-width: @tabletMedia) {
+    #header-logo {
+        padding-bottom: 10px;
+        
+        a {
+            display: block;
+            width: 220px;
+            height: 46px;
+            margin: 0 auto;
+            background-image: url("../img/logo_sprite.png");
+            background-position: 0px -110px;
+        }
+    }
+}
+
+@media only screen and (max-width: @phoneMedia) {
+    #search-header {
+        padding: 15px 0;
+    }
+    
+    #search-bar {
+        .placeholding-input {
+            input {
+                height: @baseLineHeight + 3 + @inputPaddingTB * 2;
+                margin-right: 0;
+                float: none;
+                display: block;
+                width: 100%;
+                margin-left: 0;
+                .box-sizing(border-box);
+            }
+        }
+        .btn {
+            float: none;
+            display: block;
+            width: 100%;
+            margin-left: 0;
+            .box-sizing(border-box);
+        }
+        .dropdown-menu {
+            min-width: 0;
+            float: none;
+            display: block;
+            width: 100%;
+            margin-left: 0;
+            .box-sizing(border-box);
+        }
+    }
+    
+    #advanced-search {
+        display: none;
+    }
 }

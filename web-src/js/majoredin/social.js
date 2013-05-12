@@ -9,13 +9,13 @@ $(document).ready(function() {
 	    }
 	});
 	
-	if (! (majoredin.utils.ie < 8)) {
-		var social = $('.social-sharing');
+	var social = $('.social-sharing');
+	if (!(majoredin.utils.ie < 8) && social.css('display') != 'none') {
 		Socialite.load(social);
 		setTimeout(function () {
 			social.hide();
 			social.removeClass('hidden');
-			$('.social-sharing').fadeIn();
+			social.fadeIn();
 		}, 1500);
 	}
 	

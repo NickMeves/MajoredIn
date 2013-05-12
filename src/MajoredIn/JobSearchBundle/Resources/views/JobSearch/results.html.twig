@@ -33,9 +33,9 @@
 
 {% block body %}
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
-        with {'major': major, 'location': location, 'advancedBase': advancedBase, 'layoutType': 'mi-results-layout'}
+        with {'major': major, 'location': location, 'advancedBase': advancedBase, 'layoutType': 'container-results'}
     %}
-<div id="mi-results-layout">
+<div id="container-results">
     <div id="results-body" class="row">
         <div id="filter-column" class="span-left">
             {% set sortDisplay = {'rd': 'Relevance',
@@ -415,6 +415,7 @@
                     {% endspaceless %}
                 {% endfor %}{# for jobListing in jobResults.jobListings #}
                 </ol>
+                <p class="jobs-warn visible-phone">Results not that great? Try the <a href="{{ path('mi_jobs_advanced', advancedBase) }}"{% if advancedBase %}  rel="nofollow"{% endif %}>advanced search</a>.</p>
             {% if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 %}
                 <p class="jobs-warn">
                     <span>Looked through 1,000 jobs already?  You are quite the proficient job hunter!  Unfortunately our servers can't keep up with you; we can only serve 1,000
@@ -464,7 +465,7 @@
             {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
                 </ul>
             </div>
-            {% endif %}{# if jobResults.maxPage != 1 #} 
+            {% endif %}{# if jobResults.maxPage != 1 #}
         </div>
         <div id="ads-column" class="span-right">
             {% include 'MajoredInMainBundle:Social:socialfollow.html.twig' %}

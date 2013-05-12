@@ -37,3 +37,34 @@
         line-height: @baseLineHeight + 3;
     }
 }
+
+@media only screen and (max-width: @tabletMedia) {
+    #advanced-body {
+        label {
+            margin: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: @phoneMedia) {
+    #advanced-body {
+        input,
+        select,
+        .btn {
+            float: none;
+            display: block;
+            width: 100%;
+            .box-sizing(border-box);
+        }
+        
+        input,
+        select {
+            height: @baseLineHeight + 8px;
+            margin-bottom: 5px;
+        }
+        
+        .btn {
+            margin-top: 10px;
+        }
+    }
+}

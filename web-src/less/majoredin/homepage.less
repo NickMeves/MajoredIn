@@ -113,3 +113,136 @@
         }
     }
 }
+
+@media only screen and (max-width: @tabletMedia) {
+    #homepage-content-wrapper {
+        width: @resultsWidth;
+        margin: 0 auto;
+        padding: 180px 0 100px;
+    }
+    
+    #homepage-content {
+        padding-left: 0;
+        
+        #search-bar {
+            #search-location {
+                margin-right: 0;
+            }
+            
+            .btn {
+                .clearfix();
+                display: block;
+                width: @resultsWidth / 2 - 70;
+                font-size: @baseFontSize + 2;
+                line-height: @baseLineHeight + 5;
+                margin: 30px auto 0 auto;
+            }
+            
+            #advanced-search {
+                right: 0;
+            }
+        }
+    }
+        
+    #homepage-logo {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: @phoneMedia) { 
+    #homepage-content-wrapper {
+        float: none;
+        display: block;
+        width: 100%;
+        .box-sizing(border-box);
+        padding: 0 15px;
+        margin: 0;
+        border: 0;
+    }
+    
+    #homepage-content {
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+        
+    #homepage-logo {
+        float: none;
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        .box-sizing(border-box);
+        padding: 40px 0 20px 0;
+        
+        a {
+            display: block;
+            width: 220px;
+            height: 46px;
+            margin: 0 auto;
+            background-image: url("../img/logo_sprite.png");
+            background-position: 0px -110px;
+        }
+    }
+    
+    #homepage-content {
+        #search-bar {
+            .placeholding-input {
+                input {
+                    height: @baseLineHeight + 3 + @inputPaddingTB * 2 + 2;
+                }
+            }
+            .btn {
+                float: none;
+                display: block;
+                width: 100%;
+                .box-sizing(border-box);
+                margin: 0;
+            }
+        }
+    }
+    
+    #homepage-slogan {
+        padding: 50px 0 0 0;
+        font-size: 21px;
+        letter-spacing: 0px;
+        text-shadow: inherit;    
+    }
+    
+    #homepage {
+        min-height: 0;
+        *height: auto;
+        position: static;
+    }
+     
+    #homepage-body {
+        padding-bottom: 0;
+    }
+     
+    #homepage-footer {
+        background-color: transparent;
+        border-top: 0;
+        height: 40px;
+        
+        .links {
+            float: none;
+            padding: 10px;
+            font-size: @baseFontSize + 1;
+                
+            span {
+                display: block;
+                color: @gray;
+                padding: 0;
+                text-decoration: none;
+                text-align: center;
+            }
+            
+            a {
+                display: none;
+            }
+            
+            .separator {
+                display: none;
+            }
+        }
+    }
+}

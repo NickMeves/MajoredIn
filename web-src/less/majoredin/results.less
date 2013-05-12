@@ -2,6 +2,9 @@
 * search_results.less
 * Styles for search results page main content (the results)
 */
+#results-body {
+    padding-top: 10px;
+}
 
 #results-header {
     .clearfix();
@@ -93,6 +96,42 @@
     font-size: @baseFontSize + 2;
     line-height: @baseLineHeight - 2;
     font-style: italic;
+}
+
+@media only screen and (max-width: @phoneMedia) { 
+    #results-sort {
+        display: none;
+    }
+    
+    #resultStats {
+        float: none;
+    }
+    
+    .job_wrap {
+        list-style: none outside none;
+        margin-bottom: 23px;
+    }
+    
+    .job-title {
+        font-size: @baseFontSize + 3;
+        line-height: @baseLineHeight + 5;
+        overflow: inherit;
+        text-overflow: inherit;
+        white-space: normal;
+    }
+    
+    .new-wrapper {
+        .new-job {
+            display: none;
+        }
+        .new-job + .job-title {
+            max-width: 100%;
+        }
+    }
+    
+    .job-age {
+        display: none;
+    }
 }
   
     
