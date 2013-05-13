@@ -188,22 +188,37 @@
         #search-bar {
             .placeholding-input {
                 input {
-                    height: @baseLineHeight + 3 + @inputPaddingTB * 2 + 2;
+                    font-size: @baseFontSize + 3;
+                    line-height: @baseLineHeight + 5;
+                    height: @baseLineHeight + 5 + @inputPaddingTB * 2;
+                    margin-right: 0;
+                    float: none;
+                    display: block;
+                    width: 100%;
+                    margin-left: 0;
+                    .box-sizing(border-box);
+                }
+                .placeholder {
+                    font-size: @baseFontSize + 2;
+                    height: @baseLineHeight + 5;
+                    line-height: @baseLineHeight + 5;
                 }
             }
             .btn {
                 float: none;
                 display: block;
                 width: 100%;
-                .box-sizing(border-box);
                 margin: 0;
+                .box-sizing(border-box);
+                font-size: @baseFontSize + 2;
+                line-height: @baseLineHeight + 5;
             }
         }
     }
     
     #homepage-slogan {
         padding: 50px 0 0 0;
-        font-size: 21px;
+        font-size: 22px;
         letter-spacing: 0px;
         text-shadow: inherit;    
     }
@@ -226,11 +241,11 @@
         .links {
             float: none;
             padding: 10px;
-            font-size: @baseFontSize + 1;
+            font-size: @baseFontSize;
                 
             span {
                 display: block;
-                color: @gray;
+                color: @grayLight;
                 padding: 0;
                 text-decoration: none;
                 text-align: center;
