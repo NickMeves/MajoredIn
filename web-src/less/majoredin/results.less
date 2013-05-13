@@ -31,7 +31,7 @@
     margin: 0;
 }
 
-.job_wrap {
+.job-wrap {
     list-style: none outside none;
     margin-bottom: 23px;
 }
@@ -107,14 +107,14 @@
         float: none;
     }
     
-    .job_wrap {
-        list-style: none outside none;
-        margin-bottom: 23px;
+    .job {
+        font-size: @baseFontSize;
+        line-height: @baseLineHeight;
     }
     
     .job-title {
-        font-size: @baseFontSize + 3;
-        line-height: @baseLineHeight + 5;
+        font-size: @baseFontSize + 4;
+        line-height: @baseLineHeight + 6;
         overflow: inherit;
         text-overflow: inherit;
         white-space: normal;
@@ -131,6 +131,10 @@
     
     .job-age {
         display: none;
+    }
+    
+    .jobs-warn {
+        line-height: @baseLineHeight;
     }
 }
   
