@@ -35,7 +35,7 @@
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
         with {'major': major, 'location': location, 'advancedBase': advancedBase, 'layoutType': 'container-results'}
     %}
-<div id="container-results">
+<div class="container-results">
     <div id="results-body" class="row">
         <div id="filter-column" class="span-left">
             {% set sortDisplay = {'rd': 'Relevance',
@@ -380,12 +380,21 @@
                     {% endif %}
                 </div>
             </div>
-            <h1 class="hidden">Job Search Results for {{ major|e|ucwords }} Majors in {{ location|e|ucwords }}</h1>
+            <h1 class="hidden">Entry Level Jobs for {{ major|e|ucwords }} Majors in {{ location|e|ucwords }}</h1>
             <div id="search">
                 <ol id="jobs" {% if disableRemove %}class={% if jobResults.cached %}"cache-hit"{% else %}"cache-miss"{% endif %}{% endif %}>
                 {% for jobListing in jobResults.jobListings %}
                     {% spaceless %}
-                    <li class="job_wrap">
+                    {# if jobResults.jobListings|length > 5 and loop.index == 4 %}
+                    <li class="ad-wrap visible-phone">
+                        {% include 'MajoredInMainBundle:Adsense:adsense320x50.html.twig' %}
+                    </li>
+                    {% elseif jobResults.jobListings|length == 10 and loop.index == 8 %}
+                    <li class="ad-wrap visible-phone">
+                        {% include 'MajoredInMainBundle:Adsense:adsense320x50.html.twig' %}
+                    </li>
+                    {% endif #}
+                    <li class="job-wrap">
                         <div class="job {{ jobListing.type }}">
                         {% if 'hour' in jobListing.age %}
                             <div class="new-wrapper">
@@ -430,7 +439,7 @@
             {% endif %}{# if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 #}
             </div>
             {% if jobResults.maxPage != 1 %}
-            <div class="pagination">
+            <div class="pagination hidden-phone">
                 <ul>
             {% if jobResults.currentPage != 1 %}
                 {% set prev = jobResults.currentPage - 1 %}
@@ -462,6 +471,41 @@
             {% if jobResults.currentPage != jobResults.maxPage %}
                 {% set next = jobResults.currentPage + 1 %}
                     <li class="next"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': next})) }}" rel="nofollow">Next</a></li>
+            {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
+                </ul>
+            </div>
+            <div class="pagination visible-phone">
+                <ul>
+            {% if jobResults.currentPage != 1 %}
+                {% set prev = jobResults.currentPage - 1 %}
+                {% if prev == 1 %}
+                    <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}" rel="nofollow">&laquo;</a></li>
+                {% else %}
+                    <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': prev})) }}" rel="nofollow">&laquo;</a></li>
+                {% endif %}{# if prev == 1 #}
+            {% endif %}{# if jobResults.currentPage != 1 #}
+            
+            {% if jobResults.currentPage < 4 %}
+                {% set pageRange = range(1, (5 < jobResults.maxPage) ? 5 : jobResults.maxPage) %}
+            {% elseif jobResults.currentPage > jobResults.maxPage - 2 %}
+                {% set pageRange = range((1 > jobResults.maxPage - 4) ? 1 : jobResults.maxPage - 4, jobResults.maxPage) %}
+            {% else %}
+                {% set pageRange = range(jobResults.currentPage - 2, jobResults.currentPage + 2) %}
+            {% endif %}{# if jobResults.currentPage < 7 #}
+                
+            {% for page in pageRange %}
+                {% if page == jobResults.currentPage  %}
+                    <li class="active"><a href="{{ path('mi_jobs_results', pageUrlBase) }}" rel="nofollow">{{ page }}</a></li>
+                {% elseif page == 1 %}
+                    <li><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}" rel="nofollow">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': page})) }}" rel="nofollow">{{ page }}</a></li>
+                {% endif %}{# if page == jobResults.currentPage  #}
+            {% endfor %}{# for page in pageRange #}
+            
+            {% if jobResults.currentPage != jobResults.maxPage %}
+                {% set next = jobResults.currentPage + 1 %}
+                    <li class="next"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': next})) }}" rel="nofollow">&raquo;</a></li>
             {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
                 </ul>
             </div>

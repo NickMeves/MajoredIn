@@ -10,10 +10,10 @@
 {% block opengraph %}{% endblock %}
 
 {% block body %}
-<div id="mi-container" class="error404">
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
-        with {'major': 'undeclared', 'location': 'everywhere', 'advancedBase': {}}
+        with {'major': 'undeclared', 'location': 'everywhere', 'advancedBase': {}, 'layoutType': 'container-article'}
     %}
+<div class="container-article error404">
     <div class="article-body row">
         <div class="span2"></div>
         <div class="span6">

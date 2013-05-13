@@ -1,4 +1,4 @@
-#container-results {
+.container-results {
     width: @normalWidth;
     padding: 0 @gridGutterWidth;
     margin-right: auto;
@@ -6,7 +6,7 @@
     .clearfix();
 }
 
-#container-article {
+.container-article {
     width: @gridRowWidth;
     padding: 0 @gridGutterWidth;
     margin-right: auto;
@@ -43,7 +43,7 @@
 
 
 @media only screen and (max-width: @netbookMedia) {
-    #container-results {
+    .container-results {
         width: @netbookWidth;
         
         .span-left {
@@ -53,7 +53,7 @@
 }
 
 @media only screen and (max-width: @tabletMedia) {
-    #container-results {
+    .container-results {
         width: @tabletWidth;
         padding: 0 @gridGutterWidth * 2;
         
@@ -66,7 +66,7 @@
         }
     }
     
-    #container-article {
+    .container-article {
         width: @tabletWidth;
         padding: 0 @gridGutterWidth * 2;
     }
@@ -113,8 +113,8 @@
     // GRID & CONTAINERS
     // -----------------
     // Remove width from containers
-    #container-results,
-    #container-article {
+    .container-results,
+    .container-article {
         width: auto;
         padding-left: 15px;
         padding-right: 15px;
@@ -188,11 +188,7 @@
     }
 }
 
-// UP TO LANDSCAPE PHONE
-// ---------------------
-
 @media (max-width: 480px) {
-
     // Smooth out the collapsing/expanding nav
     .nav-collapse {
         -webkit-transform: translate3d(0, 0, 0); // activate the GPU

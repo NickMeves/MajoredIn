@@ -8,10 +8,10 @@
 {% endblock %}
 
 {% block body %}
-<div id="mi-container">
     {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
-        with {'major': major, 'location': location, 'advancedBase': advancedBase}
+        with {'major': major, 'location': location, 'advancedBase': advancedBase, 'layoutType': 'container-article'}
     %}
+<div class="container-article">
     <div class="article-body row">
         <div class="span2"></div>
         <div class="span6">
