@@ -11,7 +11,7 @@
 {%  set description = 'Search a million entry level jobs and internships with your college major.  We show you jobs for recent college graduates with your specific college degree.' %}
 {% block meta %}
     <meta name="description" content="{{ description }}" />
-    <meta name="keywords" content="entry level jobs, jobs, internships, job search, college major, recent college graduate, major, college degree" />
+    <meta name="keywords" content="entry level jobs, internships, major, college major, degree, recent college graduate" />
 {% endblock %}
     <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
@@ -57,6 +57,18 @@
 </script>
 {% endif %}
 {% endblock %}
+
+<script>
+(function (majoredin) {
+	var globals = majoredin.globals = majoredin.globals || {};
+
+    globals.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    globals.isDesktop = (globals.width > 1100) ? true : false;
+    globals.isNetbook = (globals.width <= 1100 && globals.width > 975) ? true : false;
+    globals.isTablet = (globals.width <= 975 && globals.width > 750) ? true : false;
+    globals.isMobile = (globals.width <= 750) ? true : false;
+})(this.majoredin = this.majoredin || {});
+</script>
 
 </head>
 <body>

@@ -3,7 +3,7 @@
 {% block title %}{% if major != 'undeclared' %}{{ major|e|ucwords }} Major {% else %}Entry Level {% endif %}{% if jobResults.jobType == 'internship' %}Internships{% else %}Jobs{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %} - MajoredIn{% endblock %}
 {% block meta %}
     <meta name="description" content="{% if jobResults.jobType == 'internship' %}Internships for college students{% else %}Entry level jobs for recent college graduates{% endif %}{% if major != 'undeclared' %} with a {{ major|e|strtolower }} {% if jobResults.jobType == 'internship' %}major{% else %}degree{% endif %}{% endif %}. Search over {{ jobResults.totalResults|number_format }} {% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}{% if major != 'undeclared' %} for {{ major|e|strtolower }} majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}." />
-	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% else %}entry level {% endif %}{% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}, entry level jobs, jobs, internships, job search, college major, recent college graduate, major, college degree" />
+	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% else %}entry level {% endif %}{% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}, entry level jobs, internships, major, college major, college degree" />
 	
     {% if major != 'undeclared' %}
         {% set majorFormatted = major|e|ucwords|dash %}
@@ -93,7 +93,6 @@
                 {% set disableRemove = false %}
             {% endif %}
             <div id="remove-filters" {% if disableRemove %}class="hidden"{% endif %}>
-                <h3 class="hide">Remove Filters</h3>
                 <ul id="rm-filter-list">
                 {% if major != 'undeclared' %}
                     <!-- <li class="rm-fltr-wrap">
@@ -220,7 +219,7 @@
                 <ol id="add-filter-list">
                     <li class="add-fltr-wrap">
                         <div class="add-filter">
-                            <h3 class="filter-cat"><span>Distance</span></h3>
+                            <div class="filter-cat"><span>Distance</span></div>
                             <ul>
                             {% set distDisplay = {'exact': 'exact', '5': '5 miles', '10': '10 miles', '25': '25 miles', '50': '50 miles', '100': '100 miles', '200': '200 miles'} %}
                             {% for dist in ['exact', '5', '10', '25', '50', '100', '200'] %}
@@ -250,7 +249,7 @@
                     </li>
                     <li class="add-fltr-wrap">
                         <div class="add-filter">
-                            <h3 class="filter-cat"><span>Date Posted</span></h3>
+                            <div class="filter-cat"><span>Date Posted</span></div>
                             <ul>
                             {% set dateDisplay = {'1': 'Last 24 hours', '7': 'Last 7 days', '14': 'Last 14 days', '30': 'Last 30 days'} %}
                             {% for date in ['1', '7', '14', '30'] %}
@@ -269,7 +268,7 @@
                     </li>
                     <li class="add-fltr-wrap">
                         <div class="add-filter">
-                            <h3 class="filter-cat"><span>Job Type</span></h3>
+                            <div class="filter-cat"><span>Job Type</span></div>
                             <ul>
                             {% set jobTypeDisplay = {'full-time': 'Full Time', 'part-time': 'Part Time', 'internship': 'Internship'} %}
                             {% for jobType in ['full-time', 'part-time', 'internship'] %}
@@ -289,7 +288,7 @@
                     {% if jobResults.title == '' and jobResults.titles|length > 1 %}
                     <!-- <li class="add-fltr-wrap">
                         <div class="add-filter">
-                            <h3 class="filter-cat"><span>Job Titles</span></h3>
+                            <div class="filter-cat"><span>Job Titles</span></div>
                             <ul>
                             {% for title in jobResults.titles %}
                                 {% if loop.index == 5 %}
@@ -312,7 +311,7 @@
                     {% if jobResults.company == '' and jobResults.companies|length > 1 %}
                     <li class="add-fltr-wrap">
                         <div class="add-filter">
-                            <h3 class="filter-cat"><span>Companies</span></h3>
+                            <div class="filter-cat"><span>Companies</span></div>
                             <ul>
                             {% for company in jobResults.companies %}
                                 {% if loop.index == 5 and jobResults.companies|length > 5 %}
@@ -335,7 +334,7 @@
                     {% if jobResults.locations|length > 1 %}
                     <li class="add-fltr-wrap">
                         <div class="add-filter">
-                            <h3 class="filter-cat"><span>Locations</span></h3>
+                            <div class="filter-cat"><span>Locations</span></div>
                             <ul>
                             {% for locationFilter in jobResults.locations %}
                                 {% if loop.index == 5 and jobResults.locations|length > 5 %}
@@ -380,20 +379,11 @@
                     {% endif %}
                 </div>
             </div>
-            <h1 class="hidden">Entry Level Jobs for {{ major|e|ucwords }} Majors in {{ location|e|ucwords }}</h1>
+            <h1 class="hidden">{% if jobResults.jobType == 'internship' %}Internships{% else %}Entry Level Jobs{% endif %}{% if major != 'undeclared' %} for {{ major|e|ucwords }} Majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}.</h1>
             <div id="search">
                 <ol id="jobs" {% if disableRemove %}class={% if jobResults.cached %}"cache-hit"{% else %}"cache-miss"{% endif %}{% endif %}>
                 {% for jobListing in jobResults.jobListings %}
                     {% spaceless %}
-                    {# if jobResults.jobListings|length > 5 and loop.index == 4 %}
-                    <li class="ad-wrap visible-phone">
-                        {% include 'MajoredInMainBundle:Adsense:adsense320x50.html.twig' %}
-                    </li>
-                    {% elseif jobResults.jobListings|length == 10 and loop.index == 8 %}
-                    <li class="ad-wrap visible-phone">
-                        {% include 'MajoredInMainBundle:Adsense:adsense320x50.html.twig' %}
-                    </li>
-                    {% endif #}
                     <li class="job-wrap">
                         <div class="job {{ jobListing.type }}">
                         {% if 'hour' in jobListing.age %}
@@ -421,6 +411,51 @@
                             <p class="job-excerpt">{{ jobListing.excerpt|e }}</p>
                         </div>
                     </li>
+                    {%  if (jobResults.jobListings|length > 5 and loop.index == 3) or (jobResults.jobListings|length == 10 and loop.index == 7) %}
+                    <li class="ad-wrap-mob visible-phone">
+                        <div class="google-adsense-320x50">
+                            <script type="text/javascript"><!--
+                            if (majoredin.globals.isMobile) {
+                                google_ad_client = "ca-pub-9995124179332681";
+                                /* MajoredIn Results Mobile */
+                                google_ad_slot = "3235600455";
+                                google_ad_width = 320;
+                                google_ad_height = 50;
+                            }
+                            //-->
+                            </script>
+                            <script type="text/javascript">
+                            if (majoredin.globals.isMobile) {
+                                document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                            }
+                            </script>
+                        </div>
+                    </li>
+                    {%  elseif jobResults.jobListings|length > 6 and loop.index == 4 %}
+                    <li class="job-wrap hidden-phone">
+                        <div class="google-adsense-468x15">
+                            <script type="text/javascript"><!--
+                            if (!majoredin.globals.isMobile) {
+                                google_ad_client = "ca-pub-9995124179332681";
+                                /* Results Link Unit */
+                                google_ad_slot = "1834102458";
+                                google_ad_width = 468;
+                                google_ad_height = 15;
+                            }
+                            //-->
+                            </script>
+                            <script type="text/javascript">
+                            if (!majoredin.globals.isMobile) {
+                                document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                            }
+                            </script>
+                        </div>
+                    </li>
+                    {% elseif loop.last %}
+                    <li class="ad-wrap-mob visible-phone">
+                        {# include 'MajoredInMainBundle:Adsense:adsense320x50.html.twig' #}
+                    </li>
+                    {% endif %}
                     {% endspaceless %}
                 {% endfor %}{# for jobListing in jobResults.jobListings #}
                 </ol>
@@ -510,10 +545,65 @@
                 </ul>
             </div>
             {% endif %}{# if jobResults.maxPage != 1 #}
+            {% if jobResults.jobListings|length == 10 %}
+            <div class="google-adsense-300x250 hidden-phone">
+                <script type="text/javascript"><!--
+                if (!majoredin.globals.isMobile) {
+                    google_ad_client = "ca-pub-9995124179332681";
+                    /* Results Bottom Smaller */
+                    google_ad_slot = "9776171654";
+                    google_ad_width = 300;
+                    google_ad_height = 250;
+                }
+                //-->
+                </script>
+                <script type="text/javascript">
+                if (!majoredin.globals.isMobile) {
+                    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                }
+                </script>
+            </div>
+            <div class="ad-wrap-mob visible-phone">
+                <div class="google-adsense-320x50">
+                    <script type="text/javascript"><!--
+                    if (majoredin.globals.isMobile) {
+                        google_ad_client = "ca-pub-9995124179332681";
+                        /* MajoredIn Results Mobile */
+                        google_ad_slot = "3235600455";
+                        google_ad_width = 320;
+                        google_ad_height = 50;
+                    }
+                    //-->
+                    </script>
+                    <script type="text/javascript">
+                    if (majoredin.globals.isMobile) {
+                        document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                    }
+                    </script>
+                </div>
+            </div>
+            {% endif %}
         </div>
         <div id="ads-column" class="span-right">
             {% include 'MajoredInMainBundle:Social:socialfollow.html.twig' %}
-            {% include 'MajoredInMainBundle:Adsense:adsense300x250.html.twig' %}
+            <div class="google-adsense-300x250">
+                <script type="text/javascript"><!--
+                if (majoredin.globals.isDesktop) {
+                    google_ad_client = "ca-pub-9995124179332681";
+                    /* Sidebar Rectangle */
+                    google_ad_slot = "1839702858";
+                    google_ad_width = 300;
+                    google_ad_height = 250;
+                }
+                //-->
+                </script>
+                <script type="text/javascript">
+                if (majoredin.globals.isDesktop) {
+                    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                }
+                </script>
+            </div>
+            {# include 'MajoredInMainBundle:Adsense:adsense300x250.html.twig' #}
         </div>
     </div>
     {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
