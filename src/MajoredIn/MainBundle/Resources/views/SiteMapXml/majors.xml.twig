@@ -3,24 +3,28 @@
     <url>
         <loc>{{ url('mi_jobs_results', {'major': major.name|dash}) }}</loc>
         <changefreq>daily</changefreq>
-        <priority>{{ majorWeight|number_format(6) }}</priority>
+        {# <priority>{{ majorWeight|number_format(6) }}</priority> #}
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'jobtype': 'internship'}) }}</loc>
         <changefreq>daily</changefreq>
-        <priority>{{ (0.8 * majorWeight)|number_format(6) }}</priority>
+        {# <priority>{{ (0.8 * majorWeight)|number_format(6) }}</priority> #}
+        <priority>0.6</priority>
     </url>
     {% for location in locations %}
         {% set weight = (location.population / maxPopulation) * majorWeight %}
         <url>
             <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'location': location.name|dash}) }}</loc>
             <changefreq>monthly</changefreq>
-            <priority>{{ weight|number_format(6) }}</priority>
+            {# <priority>{{ weight|number_format(6) }}</priority> #}
+            <priority>0.7</priority>
         </url>
         <url>
             <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'location': location.name|dash, 'jobtype': 'internship'}) }}</loc>
             <changefreq>monthly</changefreq>
-            <priority>{{ (0.8 * weight)|number_format(6) }}</priority>
+            {# <priority>{{ (0.8 * weight)|number_format(6) }}</priority> #}
+            <priority>0.5</priority>
         </url>
     {% endfor %}
 </urlset>

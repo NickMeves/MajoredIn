@@ -5,12 +5,14 @@
         <url>
             <loc>{{ url('mi_jobs_results', {'major': 'undeclared', 'location': location.name|dash}) }}</loc>
             <changefreq>weekly</changefreq>
-            <priority>{{ weight|number_format(6) }}</priority>
+            {# <priority>{{ weight|number_format(6) }}</priority> #}
+            <priority>0.8</priority>
         </url>
         <url>
             <loc>{{ url('mi_jobs_results', {'major': 'undeclared', 'location': location.name|dash, 'jobtype': 'internship'}) }}</loc>
             <changefreq>weekly</changefreq>
-            <priority>{{ (0.8 * weight)|number_format(6) }}</priority>
+            {# <priority>{{ (0.8 * weight)|number_format(6) }}</priority> #}
+            <priority>0.6</priority>
         </url>
     {% endfor %}
 </urlset>
