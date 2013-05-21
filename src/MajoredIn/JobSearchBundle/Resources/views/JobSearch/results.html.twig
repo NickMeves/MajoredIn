@@ -412,24 +412,24 @@
                         </div>
                     </li>
                     {%  if (jobResults.jobListings|length > 5 and loop.index == 3) %}
-                    <li class="ad-wrap-mob visible-phone">
-                        <div class="google-adsense-320x50">
+                    <li class="ad-wrap visible-phone">
+                        <div class="adsense-body">
                             <script type="text/javascript"><!--
                             if (majoredin.globals.isMobile) {
                                 google_ad_client = "ca-pub-9995124179332681";
-                                /* MajoredIn Results Mobile */
-                                google_ad_slot = "3235600455";
-                                google_ad_width = 320;
-                                google_ad_height = 50;
+                                /* Results Mobile Link Unit */
+                                google_ad_slot = "8921560459";
+                                google_ad_width = 200;
+                                google_ad_height = 90;
                                 document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
                             }
                             //-->
                             </script>
                         </div>
                     </li>
-                    {%  elseif jobResults.jobListings|length > 6 and loop.index == 4 %}
-                    <li class="job-wrap hidden-phone">
-                        <div class="google-adsense-468x15">
+                    {%  elseif jobResults.jobListings|length > 7 and loop.index == 4 %}
+                    <li class="ad-wrap hidden-phone">
+                        <div class="adsense-body">
                             <script type="text/javascript"><!--
                             if (!majoredin.globals.isMobile) {
                                 google_ad_client = "ca-pub-9995124179332681";
@@ -566,21 +566,8 @@
     <div class="row">
         <div class="span-left"></div>
         <div class="span-center">
-            <div class="google-adsense-300x250 hidden-phone">
-                <script type="text/javascript"><!--
-                if (!majoredin.globals.isMobile) {
-                    google_ad_client = "ca-pub-9995124179332681";
-                    /* Results Bottom Smaller */
-                    google_ad_slot = "9776171654";
-                    google_ad_width = 300;
-                    google_ad_height = 250;
-                    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                }
-                //-->
-                </script>
-            </div>
-            <div class="ad-wrap-mob visible-phone">
-                <div class="google-adsense-320x50">
+            <div class="ad-wrap-footer visible-phone">
+                <div class="adsense-footer">
                     <script type="text/javascript"><!--
                     if (majoredin.globals.isMobile) {
                     	google_ad_client = "ca-pub-9995124179332681";
@@ -588,6 +575,21 @@
                     	google_ad_slot = "3352704857";
                     	google_ad_width = 320;
                     	google_ad_height = 50;
+                        document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                    }
+                    //-->
+                    </script>
+                </div>
+            </div>
+            <div class="ad-wrap-footer hidden-phone">
+                <div class="adsense-footer">
+                    <script type="text/javascript"><!--
+                    if (!majoredin.globals.isMobile) {
+                    	google_ad_client = "ca-pub-9995124179332681";
+                        /* Results Bottom Smaller */
+                        google_ad_slot = "9776171654";
+                        google_ad_width = 300;
+                        google_ad_height = 250;
                         document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
                     }
                     //-->
