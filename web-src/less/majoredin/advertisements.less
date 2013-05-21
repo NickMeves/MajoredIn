@@ -28,7 +28,30 @@
     width: 250px;
 }
 
-.ad-wrap-mob {
-    margin: 0 -15px 23px -15px;
+.ad-wrap {
     list-style: none outside none;
+    margin-bottom: 23px;
+}
+
+.adsense-body {
+    width: 468px;
+}
+
+.adsense-footer {
+    width: 300px;
+}
+
+@media only screen and (max-width: @phoneMedia) {
+    .adsense-body {
+        width: 200px;
+    }
+    
+    .ad-wrap-footer {
+        margin: 0 -15px 23px -15px;
+    }
+    
+    .adsense-footer {
+        width: 320px;
+        margin: 0 auto;
+    }
 }
