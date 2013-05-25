@@ -94,26 +94,6 @@
             {% endif %}
             <div id="remove-filters" {% if disableRemove %}class="hidden"{% endif %}>
                 <ul id="rm-filter-list">
-                {% if major != 'undeclared' %}
-                    <!-- <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|merge({'major': 'undeclared'})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Major:</span>
-                                <span class="rm-fltr-cont">{{ major|e }}</span>
-                            </a>
-                        </div>
-                    </li> -->
-                {% endif %}
-                {% if location != 'everywhere' %}
-                   <!--  <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'location': location|dash})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Location:</span>
-                                <span class="rm-fltr-cont">{{ location|e }}</span>
-                            </a>
-                        </div>
-                    </li> -->
-                {% endif %}
                 {% if jobResults.distance != '' %}
                     <li class="rm-fltr-wrap">
                         <div class="rm-filter">
@@ -285,29 +265,6 @@
                             </ul>
                         </div>
                     </li>
-                    {% if jobResults.title == '' and jobResults.titles|length > 1 %}
-                    <!-- <li class="add-fltr-wrap">
-                        <div class="add-filter">
-                            <div class="filter-cat"><span>Job Titles</span></div>
-                            <ul>
-                            {% for title in jobResults.titles %}
-                                {% if loop.index == 5 %}
-                                    </ul>
-                                    <ul id="jobtitle-hd" class="hide">
-                                {% endif %}{# if loop.index == 5 #}
-                                        <li><a href="{{ path('mi_jobs_results', urlBase|merge({'title': title|e})) }}" rel="nofollow">{{ title|e }}</a></li>
-                                {% if loop.last %}
-                                    </ul>
-                                    {% if loop.index > 4 %}
-                                    <div id="jobtitle-more" class="more">
-                                        <span>more &raquo;</span>
-                                    </div>
-                                    {% endif %}{# if loop.index > 4 #}
-                                {% endif %}{# if loop.last #}
-                            {% endfor %}{# for title in jobResults.titles #}
-                        </div>
-                    </li>  -->
-                    {% endif %}{# if jobResults.title == '' and jobResults.titles|length > 1 #}
                     {% if jobResults.company == '' and jobResults.companies|length > 1 %}
                     <li class="add-fltr-wrap">
                         <div class="add-filter">
@@ -405,7 +362,7 @@
                                 </span>
                                 <span> - </span>
                                 <span class="job-location">
-                                    <a href="{{ path('mi_jobs_results', urlBase|merge({'location': jobListing.location|dash})) }}" rel="nofollow">{{ jobListing.location|e }}</a>
+                                    <a href="{{ path('mi_jobs_results', urlBase|merge({'location': jobListing.location|dash})) }}">{{ jobListing.location|e }}</a>
                                 </span>
                             </div>
                             <p class="job-excerpt">{{ jobListing.excerpt|e }}</p>
