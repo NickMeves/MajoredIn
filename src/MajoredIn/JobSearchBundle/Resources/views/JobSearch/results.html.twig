@@ -365,7 +365,7 @@
                                     <a href="{{ path('mi_jobs_results', urlBase|merge({'location': jobListing.location|dash})) }}">{{ jobListing.location|e }}</a>
                                 </span>
                             </div>
-                            <p class="job-excerpt">{{ jobListing.excerpt|e }}</p>
+                            <p class="job-excerpt">{{ jobListing.excerpt|slice(0,jobListing.excerpt|length - 1)|e }}</p>
                         </div>
                     </li>
                     {%  if (jobResults.jobListings|length > 5 and loop.index == 3) %}
