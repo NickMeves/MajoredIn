@@ -55,6 +55,10 @@ $(document).ready(function () {
 		_gaq.push(['_trackEvent', 'Error', '502', window.location.href]);
 	}
 	
+	if ($('.error504').length) {
+		_gaq.push(['_trackEvent', 'Error', '504', window.location.href]);
+	}
+	
 	if ($('.error404').length) {
 		_gaq.push(['_trackEvent', 'Error', '404', window.location.href]);
 	}

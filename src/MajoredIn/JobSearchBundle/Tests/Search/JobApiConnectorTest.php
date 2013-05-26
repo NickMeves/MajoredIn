@@ -6,6 +6,7 @@ use MajoredIn\JobSearchBundle\Search\JobApiConnector;
 use MajoredIn\JobSearchBundle\Exception\NoResultsException;
 use MajoredIn\JobSearchBundle\Exception\InvalidParamException;
 use MajoredIn\JobSearchBundle\Exception\LocationRedirectException;
+use MajoredIn\JobSearchBundle\Exception\GatewayTimeoutException;
 
 class JobApiConnectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -60,7 +61,7 @@ class JobApiConnectorTest extends \PHPUnit_Framework_TestCase
                 ->will($this->returnValue(false));
             $this->jobApiConnector->accessApi($this->jobQuery);
         }
-        catch (\Exception $e) {
+        catch (GatewayTimeoutException $e) {
             return;
         }
         

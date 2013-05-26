@@ -7,6 +7,7 @@ use MajoredIn\JobSearchBundle\Util\CacheInterface;
 use MajoredIn\JobSearchBundle\Exception\NoResultsException;
 use MajoredIn\JobSearchBundle\Exception\InvalidParamException;
 use MajoredIn\JobSearchBundle\Exception\LocationRedirectException;
+use MajoredIn\JobSearchBundle\Exception\GatewayTimeoutException;
 
 class JobApiConnector implements JobApiConnectorInterface
 {
@@ -77,7 +78,7 @@ class JobApiConnector implements JobApiConnectorInterface
         }
         
         if (! $xmlstr) {
-            throw new \Exception;
+            throw new GatewayTimeoutException;
         }
         
         $xml = new \SimpleXMLElement($xmlstr);

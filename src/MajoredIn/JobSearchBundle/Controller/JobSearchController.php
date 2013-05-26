@@ -13,6 +13,7 @@ use MajoredIn\JobSearchBundle\Search\JobResults;
 use MajoredIn\JobSearchBundle\Exception\NoResultsException;
 use MajoredIn\JobSearchBundle\Exception\InvalidParamException;
 use MajoredIn\JobSearchBundle\Exception\LocationRedirectException;
+use MajoredIn\JobSearchBundle\Exception\GatewayTimeoutException;
 
 class JobSearchController extends Controller
 {
@@ -104,6 +105,12 @@ class JobSearchController extends Controller
             $queryString['major'] = $majorUrl;
             $queryString['location'] = static::dash($location);
             $response = $this->redirect($this->generateUrl('mi_jobs_results', $queryString, true), 301);
+            return $response;
+        }
+        catch (GatewayTimeoutException $e) {
+            $this->get('logger')->err('JobSearchController::resultsAction: GatewayTimeoutException caught running JobApiConnector::accessApi.  URI: ' . $request->getRequestUri());
+            $response = $this->render('MajoredInJobSearchBundle:JobSearch:timeout.html.twig');
+            $response->setStatusCode('504');
             return $response;
         }
         catch (\Exception $e) {
