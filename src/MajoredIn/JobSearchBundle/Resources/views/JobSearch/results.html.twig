@@ -368,7 +368,7 @@
                             <p class="job-excerpt">{{ jobListing.excerpt|slice(0,jobListing.excerpt|length - 1)|e }}</p>
                         </div>
                     </li>
-                    {%  if (jobResults.jobListings|length > 5 and loop.index == 3) %}
+                    {#  if (jobResults.jobListings|length > 5 and loop.index == 3) %}
                     <li class="ad-wrap visible-phone">
                         <div class="adsense-body">
                             <script type="text/javascript"><!--
@@ -400,7 +400,7 @@
                             </script>
                         </div>
                     </li>
-                    {% endif %}
+                    {% endif #}
                     {% endspaceless %}
                 {% endfor %}{# for jobListing in jobResults.jobListings #}
                 </ol>
@@ -490,39 +490,7 @@
                 </ul>
             </div>
             {% endif %}{# if jobResults.maxPage != 1 #}
-        </div>
-        <div id="ads-column" class="span-right">
-            {% include 'MajoredInMainBundle:Social:socialfollow.html.twig' %}
-            <div class="google-adsense-300x250">
-                <script type="text/javascript"><!--
-                if (majoredin.globals.isDesktop) {
-                	var random = Math.random();
-                	if (random < 0.5) {
-                        google_ad_client = "ca-pub-9995124179332681";
-                        /* Sidebar Rectangle */
-                        google_ad_slot = "1839702858";
-                        google_ad_width = 300;
-                        google_ad_height = 250;
-                	}
-                	else {
-                        google_ad_client = "ca-pub-9995124179332681";
-                        /* Sidebar Rectangle Text/Image */
-                        google_ad_slot = "3236783658";
-                        google_ad_width = 300;
-                        google_ad_height = 250;
-                	}
-                    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                }
-                //-->
-                </script>
-            </div>
-            {# include 'MajoredInMainBundle:Adsense:adsense300x250.html.twig' #}
-        </div>
-    </div>
-    {% if jobResults.jobListings|length == 10 %}
-    <div class="row">
-        <div class="span-left"></div>
-        <div class="span-center">
+            {% if jobResults.jobListings|length == 10 %}
             <div class="ad-wrap-footer visible-phone">
                 <div class="adsense-footer">
                     <script type="text/javascript"><!--
@@ -553,9 +521,26 @@
                     </script>
                 </div>
             </div>
+    {% endif %}
+        </div>
+        <div id="ads-column" class="span-right">
+            {% include 'MajoredInMainBundle:Social:socialfollow.html.twig' %}
+            <div class="google-adsense-300x250">
+                <script type="text/javascript"><!--
+                if (majoredin.globals.isDesktop) {
+                    google_ad_client = "ca-pub-9995124179332681";
+                    /* Sidebar Rectangle */
+                    google_ad_slot = "1839702858";
+                    google_ad_width = 300;
+                    google_ad_height = 250;
+                    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
+                }
+                //-->
+                </script>
+            </div>
+            {# include 'MajoredInMainBundle:Adsense:adsense300x250.html.twig' #}
         </div>
     </div>
-    {% endif %}
     {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
         with {'simplyhired': true}
     %}
