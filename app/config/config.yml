@@ -12,7 +12,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'], assets_version: %assets_version% }
+    templating:      { engines: ['twig'], assets_version: %assets_version%, assets_version_format: %%s?ver=%%s }
     default_locale:  %locale%
     trusted_proxies: ~
     session: ~
