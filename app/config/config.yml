@@ -8,14 +8,16 @@ framework:
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: %kernel.debug%
-    form:            true
-    csrf_protection: true
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'], assets_version: %assets_version%, assets_version_format: "v%%2$s/%%1$s" }
+    templating:      { engines: ['twig'], assets_version: %assets_version% }
     default_locale:  %locale%
-    trust_proxy_headers: false # Should Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~
+    trusted_proxies: ~
+    session: ~
+    fragments: ~
+    http_method_override: true
 
 # Twig Configuration
 twig:
