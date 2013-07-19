@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v2.2.2
+ * Bootstrap v2.3.2
  *
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -8,14 +8,12 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-/* Moved to main
-* // CSS Reset
-* @import "reset.less";
-*
-* // Core variables and mixins
-* @import "variables.less"; // Modify this for custom colors, font-sizes, etc
-* @import "mixins.less";
-*/
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+// CSS Reset
+@import "reset.less";
 
 // Grid system and page structure
 @import "scaffolding.less";
@@ -61,7 +59,5 @@
 @import "carousel.less";
 @import "hero-unit.less";
 
-/* Moved to main
-* // Utility classes
-* @import "utilities.less"; // Has to be last to override when necessary
-*/
+// Utility classes
+@import "utilities.less"; // Has to be last to override when necessary
