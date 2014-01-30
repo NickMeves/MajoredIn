@@ -1,6 +1,10 @@
 mi_jobs_results:
     pattern:  /jobs/{major}/{location}
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:results, location: everywhere }
+
+mi_jobs_api_results:
+    pattern:  /jobs-api/{major}/{location}
+    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:resultsApi, location: everywhere }
     
 mi_jobs_precache:
     pattern:  /precache/{major}/{location}
@@ -9,18 +13,17 @@ mi_jobs_precache:
 mi_jobs_redirect:
     pattern: /jobs
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:redirect }
+    methods: [POST]
 
-mi_jobs_advanced:
-    pattern: /advanced-search
-    defaults: { _controller: MajoredInJobSearchBundle:Advanced:index }
-    requirements:
-        _method:  GET
+#TODO: MAKE CONTROLLER FOR THIS  
+mi_jobs_landing:
+    pattern: /jobs
+    defaults: { _controller: MajoredInJobSearchBundle:JobSearch:redirect }
+    methods: [GET]
     
 mi_jobs_advanced_submit:
     pattern: /advanced-search
     defaults: { _controller: MajoredInJobSearchBundle:Advanced:submit }
-    requirements:
-        _method:  POST
         
 mi_autocomplete_major:
     pattern: /autocomplete/major

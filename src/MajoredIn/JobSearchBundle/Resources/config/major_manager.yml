@@ -1,6 +1,0 @@
-services:
-    mi_search.major.manager:
-        class: MajoredIn\JobSearchBundle\Model\MajorManager
-        arguments:
-            - @doctrine.orm.entity_manager
-            - @mi_search.canonicalizer

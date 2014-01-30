@@ -2,73 +2,30 @@
 <html lang="en-US">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>{% block title %}College Graduate Entry Level Jobs & Internships | MajoredIn{% endblock %}</title>
+	<title>{% block title %}College Graduate Entry Level Jobs & Internships - MajoredIn{% endblock %}</title>
 	{% block viewport %}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	{% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	
-{%  set description = 'Search a million entry level jobs and internships with your college major.  We show you jobs for recent college graduates with your specific college degree.' %}
 {% block meta %}
-    <meta name="description" content="{{ description }}" />
+    <meta name="description" content="Search a million entry level jobs and internships with your college major.  We show you jobs for recent college graduates with your specific college degree." />
     <meta name="keywords" content="entry level jobs, college graduate internships, entry level jobs for graduates, entry level job, college graduate jobs, college internships, find college graduate internships, find college graduate jobs" />
 {% endblock %}
-    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png" />
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 
-{% block opengraph %}
-    <meta property="og:title" content="Find Entry Level Jobs by your Major" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.majoredin.com" />
-    <meta property="og:image" content="{{ asset('img/majoredin_180x180.png') }}" />
-    <meta property="og:site_name" content="MajoredIn" />
-    <meta property="og:description" content="{{ description }}" />
-    <meta property="fb:app_id" content="621030121246066" />
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@Majored_In">
-    <meta name="twitter:url" content="http://www.majoredin.com">
-    <meta name="twitter:title" content="Find Entry Level Jobs by your Major">
-    <meta name="twitter:description" content="{{ description }}">
-    <meta name="twitter:image" content="{{ asset('img/twitter_hat.png') }}">
-{% endblock %}
+{% include '::favicon.html.twig' %}
+
+{% block opengraph %}{% endblock %}
 
 {% block stylesheets %}
-    {# <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'> #}
-{% stylesheets 'less/main.less' filter='?yui_css' output='css/main.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-{% endstylesheets %}
+{% include '::stylesheets.html.twig' %}
 {% endblock %}
 
 {% block google_analytics %}
-{% if app.environment == 'prod' or app.environment == 'mobile' %}
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39519154-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-{% endif %}
+{% include '::analytics.html.twig' %}
 {% endblock %}
 
-<script>
-(function (majoredin) {
-	var globals = majoredin.globals = majoredin.globals || {};
-
-    globals.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    globals.isDesktop = (globals.width > 1100) ? true : false;
-    globals.isNetbook = (globals.width <= 1100 && globals.width > 975) ? true : false;
-    globals.isTablet = (globals.width <= 975 && globals.width > 750) ? true : false;
-    globals.isMobile = (globals.width <= 750) ? true : false;
-})(this.majoredin = this.majoredin || {});
-</script>
+{% include '::globals.html.twig' %}
 
 </head>
 <body>
@@ -77,49 +34,7 @@
 {% endblock %}    
 
 {% block javascripts %}
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">window.jQuery || document.write('<script src="{{ asset("lib/jquery-1.9.1.min.js") }}"><\/script>')</script>
-    <script type="text/javascript">window.JSON || document.write('<script src="{{ asset("lib/json2.min.js") }}"><\/script>')</script>
-{% if app.environment == 'prod' or app.environment == 'mobile' %}
-    {% javascripts
-            'js/vendor/amplify.store.js'
-            'js/vendor/waypoints.js'
-            'js/vendor/socialite.js'
-            'js/bootstrap/bootstrap-modal.js'
-            'js/bootstrap/bootstrap-typeahead.js'
-            'js/majoredin/utils.js'
-            'js/majoredin/search-bar.js'
-            'js/majoredin/filters.js'
-            'js/majoredin/results.js'
-            'js/majoredin/social.js'
-            'js/majoredin/event-tracking.js'
-            filter='closure' output='js/main.js'
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% else %}
-    {% javascripts
-            'js/vendor/amplify.store.js'
-            'js/vendor/waypoints.js'
-            'js/vendor/socialite.js'
-            'js/bootstrap/bootstrap-modal.js'
-            'js/bootstrap/bootstrap-typeahead.js'
-            'js/majoredin/utils.js'
-            'js/majoredin/search-bar.js'
-            'js/majoredin/filters.js'
-            'js/majoredin/results.js'
-            'js/majoredin/social.js'
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endif %}
-    <script type="text/javascript">
-      (function() {
-        var sh = document.createElement('script'); sh.type = 'text/javascript'; sh.async = true;
-        sh.src = "http://api.simplyhired.com/c/jobs-api/js/xml-v2.js";
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sh, s);
-      })();
-    </script>
+{% include '::javascripts.html.twig' %}
 {% endblock %}
 
 </body>

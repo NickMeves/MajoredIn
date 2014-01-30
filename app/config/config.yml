@@ -66,6 +66,37 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        
+# Wordpress Bootstrap
+majored_in_wordpress:
+    install_path:     %kernel.root_dir%/../web/cms
+    
+    database:
+        master:
+            host:     %database_host%
+            port:     %database_port%
+            dbname:   %database_name%
+            user:     %database_user%
+            password: %database_password%
+            charset:  UTF8
+        slave:
+            host:     %slave_host%
+            port:     %slave_port%
+            dbname:   %database_name%
+            user:     %database_user%
+            password: %database_password%
+            charset:  UTF8
+            
+    auth_key:         %wp_auth_key%
+    secure_auth_key:  %wp_secure_auth_key%
+    logged_in_key:    %wp_logged_in_key%
+    nonce_key:        %wp_nonce_key%
+    auth_salt:        %wp_auth_salt%
+    secure_auth_salt: %wp_secure_auth_salt%
+    logged_in_salt:   %wp_logged_in_salt%
+    nonce_salt:       %wp_nonce_salt%
+    
+    table_prefix:     %wp_table_prefix%
 
 # Swiftmailer Configuration
 swiftmailer:

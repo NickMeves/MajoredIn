@@ -42,4 +42,51 @@ $(document).ready(function () {
 	majoredin.utils.autocomplete($('#search-location'), 'autocomplete_location_', '/autocomplete/location?term=', amplify.store.memory, function (selected) {
 		majoredin.utils.preloadSearch($('#search-major').val(), selected);
 	});
+	
+/***********************
+ * Header Lock
+ ***********************/
+	
+	if (!majoredin.globals.isMobile) {
+		var nav = $('#nav-header');
+		var search = $('#search-header-wrap');
+		
+		var offset = search.offset().top;
+		var fixed = false;
+		
+		nav.find('.btn-navbar').click(function () {
+			var t = setTimeout(function () {
+				offset = search.offset().top;
+			}, 500); // Hack to get as last click event
+		});
+		
+		$(window).scroll(function(){
+			if($(this).scrollTop() > offset) {
+				if (!fixed) {
+					nav.css({
+						height: nav.height() + search.height() + 'px'
+					});
+				    search.css({
+				    	position: 'fixed',
+				    	top: '0'
+				    });
+				    
+				    fixed = true;
+				}
+			}
+			else {
+				if (fixed) {
+					nav.css({
+						height: ''
+					});
+					search.css({
+						position: '',
+						top: ''
+					});
+					
+					fixed = false;
+				}
+			}
+		});
+	}
 });

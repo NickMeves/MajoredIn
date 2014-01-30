@@ -1,7 +1,0 @@
-services:
-    mi_search.twig.extension:
-        class: MajoredIn\JobSearchBundle\Twig\Extension\JobSearchExtension
-        arguments:
-            - @mi_search.canonicalizer
-        tags:
-            -  { name: twig.extension }

@@ -9,9 +9,38 @@ framework:
 
 doctrine:
     orm:
-        metadata_cache_driver: apc
-        query_cache_driver: apc
+        metadata_cache_driver:
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        query_cache_driver:
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
         result_cache_driver:
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+            
+liip_doctrine_cache:
+    namespaces:
+        precache:
+            namespace: mi_precache
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        autocomplete:
+            namespace: mi_autocomplete
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        layout:
+            namespace: mi_layout
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        majorguide:
+            namespace: mi_majorguide
             type: %memcached_driver%
             host: %memcached_host%
             port: %memcached_port%

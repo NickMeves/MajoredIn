@@ -4,5 +4,11 @@ namespace MajoredIn\JobSearchBundle\Util;
 
 interface FeedReaderInterface
 {
-    public function readUrl($url);
+    /**
+     * Send a request to a URL and get the response
+     *
+     * @return Reponse in format specified
+     * @throws Exception, GatewayTimeoutException
+     */
+    public function get($url);
 }

@@ -9,6 +9,46 @@ framework:
 web_profiler:
     toolbar: false
     intercept_redirects: false
+    
+doctrine:
+    orm:
+        metadata_cache_driver: array
+        query_cache_driver:
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        result_cache_driver:
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+            
+liip_doctrine_cache:
+    namespaces:
+        precache:
+            namespace: mi_precache
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        autocomplete:
+            namespace: mi_autocomplete
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        layout:
+            namespace: mi_layout
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        sidebar:
+            namespace: mi_sidebar
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
+        permalink:
+            namespace: mi_permalink
+            type: %memcached_driver%
+            host: %memcached_host%
+            port: %memcached_port%
 
 swiftmailer:
     disable_delivery: true

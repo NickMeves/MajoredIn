@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>{{ url('mi_jobs_results', {'major': major.name|dash}) }}</loc>
-        <changefreq>daily</changefreq>
-        <priority>{{ (majorWeight|number_format(8) < 0.00000001) ? 0.00000001 : majorWeight|number_format(8) }}</priority>
-    </url>
-    <url>
-        <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'jobtype': 'internship'}) }}</loc>
-        <changefreq>daily</changefreq>
-        <priority>{{ (majorWeight|number_format(8) < 0.00000001) ? 0.00000001 : majorWeight|number_format(8) }}</priority>
-    </url>
-    {% for location in locations %}
-        {% set weight = (location.population / maxPopulation) * majorWeight %}
+    {% for url in majorUrl %}
         <url>
-            <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'location': location.name|dash}) }}</loc>
-            <changefreq>monthly</changefreq>
-            <priority>{{ (weight|number_format(8) < 0.00000001) ? 0.00000001 : weight|number_format(8) }}</priority>
+            <loc>{{ url }}</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
         </url>
+    {% endfor %}
+    {% for url in majorUrlIntern %}
         <url>
-            <loc>{{ url('mi_jobs_results', {'major': major.name|dash, 'location': location.name|dash, 'jobtype': 'internship'}) }}</loc>
-            <changefreq>monthly</changefreq>
-            <priority>{{ (weight|number_format(8) < 0.00000001) ? 0.00000001 : weight|number_format(8) }}</priority>
+            <loc>{{ url }}</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.6</priority>
+        </url>
+    {% endfor %}
+    {% for url in locationUrls %}
+        <url>
+            <loc>{{ url }}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
+        </url>
+    {% endfor %}
+    {% for url in locationUrlsIntern %}
+        <url>
+            <loc>{{ url }}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.4</priority>
         </url>
     {% endfor %}
 </urlset>

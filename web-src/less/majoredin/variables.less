@@ -33,20 +33,20 @@
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             @gray;
 
 
 // Links
 // -------------------------
-@linkColor:             #1144cc;
-@linkColorHover:        #1144cc;
-@subLinkGreen:          #228833;
+@linkColor:             #1166cc;
+@linkColorHover:        darken(@linkColor, 15%);
+@subLinkGreen:          #339933;
 @filterLink:            #e14c38;
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        Arial, sans-serif;
+@sansFontFamily:        "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -184,15 +184,15 @@
 
 @navbarHeight:                    40px;
 @navbarBackgroundHighlight:       #ffffff;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
-@navbarBorder:                    darken(@navbarBackground, 12%);
+@navbarBackground:                #ffffff;
+@navbarBorder:                    #ffffff;
 
 @navbarText:                      #777;
 @navbarLinkColor:                 #777;
 @navbarLinkColorHover:            @grayDark;
 @navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkBackgroundActive:      transparent;
 
 @navbarBrandColor:                @navbarLinkColor;
 
@@ -273,9 +273,9 @@
 
 // Default 940px grid
 // -------------------------
-@gridColumns:             10;
-@gridColumnWidth:         80px;
-@gridGutterWidth:         15px;
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
 @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
 // 1200px min
@@ -305,27 +305,14 @@
 
 // MAJOREDIN HEADER
 // --------------------------------------------------
-@headerBackground: #f8f8f8;
-@headerBorderColor: #ddd;
+@navHeaderBackground:               @white;
+@searchHeaderBackground:            #418cbb;
 
-@inputPaddingTB: 4px;
-@inputPaddingLR: 6px;
-@inputMarginR: 6px;
+@navColorHover:                     #68B838;
 
-@searchInputBorder: #aaa;
-@searchInputHover: #666; 
+@btnHeaderBackground:               lighten(@searchHeaderBackground, 20%);
+@btnHeaderBackgroundHighlight:      darken(@btnHeaderBackground, 10%);
+@btnHeaderBorder:                   darken(@searchHeaderBackground, 5%);
+@btnHeaderColor:                    @white;
 
-// MAJOREDIN SIZING
-// --------------------------------------------------
-
-@resultsWidth: (@gridColumnWidth * 6) + (@gridGutterWidth * (6 - 1));
-@filterWidth: (@gridColumnWidth * 2) + (@gridGutterWidth * (2 - 1));
-@adWidth: 300px;
-@adMargin: 15px;
-@normalWidth: (8 * @gridColumnWidth) + (@gridGutterWidth * 7) + @adWidth + @adMargin;
-@netbookWidth: @gridRowWidth;
-@tabletWidth: (7 * @gridColumnWidth) + (@gridGutterWidth * 8); //A little extra so the button has room.
-
-@netbookMedia: @normalWidth + @gridGutterWidth * 2 + 10;
-@tabletMedia: @netbookWidth + @gridGutterWidth * 2 + 10;
-@phoneMedia: @tabletWidth + @gridGutterWidth * 4 + 10;
+@footerBackground:                  darken(@searchHeaderBackground, 15%);

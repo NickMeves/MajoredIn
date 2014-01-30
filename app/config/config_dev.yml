@@ -35,6 +35,22 @@ doctrine:
         result_cache_driver: array
         query_cache_driver: array
 
+liip_doctrine_cache:
+    namespaces:
+        precache:
+            namespace: mi_precache
+            type: array
+        autocomplete:
+            namespace: mi_autocomplete
+            type: array
+        layout:
+            namespace: mi_layout
+            type: array
+        majorguide:
+            namespace: mi_majorguide
+            type: array
+        
+
 #swiftmailer:
 #    delivery_address: me@example.com
 

@@ -8,7 +8,7 @@ use MajoredIn\JobSearchBundle\Model\MajorInterface;
 /**
  * MajoredIn\JobSearchBundle\Entity\Major
  *
- * @ORM\Table()
+ * @ORM\Table(indexes={@ORM\index(name="name_canonical_idx", columns={"name_canonical"}), @ORM\index(name="popularity_idx", columns={"popularity"})})
  * @ORM\Entity(repositoryClass="MajoredIn\JobSearchBundle\Entity\MajorRepository")
  */
 class Major implements MajorInterface
@@ -49,6 +49,13 @@ class Major implements MajorInterface
      * @ORM\Column(name="popularity", type="integer")
      */
     protected $popularity;
+    
+    /**
+     * @var Post $post
+     *
+     * @ORM\Column(name="post_id", type="bigint", nullable=true, options={"unsigned"=true})
+     */
+    protected $post;
 
 
     /**
@@ -131,5 +138,23 @@ class Major implements MajorInterface
     public function getPopularity()
     {
         return $this->popularity;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public function setPost($post)
+    {
+        $this->post = $post;
+    
+        return $this;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    public function getPost()
+    {
+        return $this->post;
     }
 }

@@ -6,8 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-use Symfony\Component\HttpKernel\Debug\Stopwatch;
-
 class AutoCompleteController extends Controller
 {
     public function majorAction()
@@ -41,7 +39,7 @@ class AutoCompleteController extends Controller
         }
         
         if ($cache) {
-            $this->get('mi_search.cache')->save($this->get('request')->getRequestUri(), $response->getContent());
+            $this->get('liip_doctrine_cache.ns.autocomplete')->save($this->get('request')->getRequestUri(), $response->getContent());
         }
         
         return $response;
@@ -78,7 +76,7 @@ class AutoCompleteController extends Controller
         }
         
         if ($cache) {
-            $this->get('mi_search.cache')->save($this->get('request')->getRequestUri(), $response->getContent());
+            $this->get('liip_doctrine_cache.ns.autocomplete')->save($this->get('request')->getRequestUri(), $response->getContent());
         }
         
         return $response;

@@ -1,3 +1,0 @@
-services:
-    mi_search.canonicalizer:
-        class: MajoredIn\JobSearchBundle\Util\Canonicalizer

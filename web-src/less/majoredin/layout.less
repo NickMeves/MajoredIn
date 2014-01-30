@@ -1,261 +1,84 @@
-.container-results {
-    width: @normalWidth;
-    padding: 0 @gridGutterWidth;
-    margin-right: auto;
-    margin-left: auto;
-    .clearfix();
+#content {
+    background: @white;
+    margin: 30px 0;
 }
 
-.container-article {
-    width: @gridRowWidth;
-    padding: 0 @gridGutterWidth;
-    margin-right: auto;
-    margin-left: auto;
-    .clearfix();
+#content-header {
+    margin-bottom: 30px;
 }
 
-.span-logo {
-    width: @filterWidth;
-}
-
-.span-left {
-    width: @filterWidth;
-}
-
-.span-center {
-    width: @resultsWidth;
-}
-
-.span-right {
-    width: @adWidth;
-    margin-left: @adMargin;
-}
-
-// Visibility utilities
-
-// For desktops
-.visible-phone     { display: none !important; }
-.visible-tablet    { display: none !important; }
-.hidden-phone      { }
-.hidden-tablet     { }
-.hidden-desktop    { display: none !important; }
-.visible-desktop   { display: inherit !important; }
-
-
-@media only screen and (max-width: @netbookMedia) {
-    .container-results {
-        width: @netbookWidth;
-        
-        .span-right {
-            display: none;
-        }
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    
+    &.thin {
+        font-weight: 400;
+    }
+    
+    &.thick {
+        font-weight: 700;
+    }
+    
+    &.top {
+        margin: 0 0 10px 0;
     }
 }
 
-@media only screen and (max-width: @tabletMedia) {
-    .container-results {
-        width: @tabletWidth;
-        padding: 0 @gridGutterWidth * 2;
-        
-        .span-left {
-            display: none;
-        }
-        
-        .span-right {
-            display: none;
+.centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.marketing {
+    text-align: center;
+}
+
+.module {
+    margin-bottom: 20px;
+    
+    &:first-child {
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0px;
         }
     }
     
-    .container-article {
-        width: @tabletWidth;
-        padding: 0 @gridGutterWidth * 2;
+    &:last-child {
+        margin-bottom: 0px;
     }
     
-    // Hide everything else
-    .hidden-desktop    { display: inherit !important; }
-    .visible-desktop   { display: none !important ; }
-    // Show
-    .visible-tablet    { display: inherit !important; }
-    // Hide
-    .hidden-tablet     { display: none !important; }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: @baseFontSize + 2;
+        font-height: @baseFontHeight;
+        font-weight: 400;
+        color: @white;
+        background-color: @searchHeaderBackground;
+        padding: 6px 12px;
+        .border-radius(3px);
+        margin: 10px 0;
+    }
 }
 
-@media only screen and (max-width: @phoneMedia) {
-    // Hide everything else
-    .hidden-desktop    { display: inherit !important; }
-    .visible-desktop   { display: none !important; }
-    // Show
-    .visible-phone     { display: inherit !important; } // Use inherit to restore previous behavior
-    // Hide
-    .hidden-phone      { display: none !important; }
+.spaced {
+    li {
+        margin-bottom: 5px;
+    }
+}
 
+ul {
+    list-style-type: disc;
+}
 
-    // Remove padding on container given explicit padding set on body
-    .container-fluid {
+.well {
+    background-color: #f0f0f0;
+    border-color: #d0d0d0;
+}
+
+@media (max-width: 767px) {
+    body {
         padding: 0;
     }
-
-  // TYPOGRAPHY
-  // ----------
-  // Reset horizontal dl
-    .dl-horizontal {
-        dt {
-            float: none;
-            clear: none;
-            width: auto;
-            text-align: left;
-        }
-        dd {
-            margin-left: 0;
-        }
-    }
-
-    // GRID & CONTAINERS
-    // -----------------
-    // Remove width from containers
-    .container-results,
-    .container-article {
-        width: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    // Fluid rows
-    .row-fluid {
-        width: 100%;
-    }
-    // Undo negative margin on rows and thumbnails
-    .row,
-    .thumbnails {
-        margin-left: 0;
-    }
-    .thumbnails > li {
-        float: none;
-        margin-left: 0; // Reset the default margin for all li elements when no .span* classes are present
-    }
-    // Make all grid-sized elements block level again
-    [class*="span"],
-    .uneditable-input[class*="span"], // Makes uneditable inputs full-width when using grid sizing
-    .row-fluid [class*="span"] {
-        float: none;
-        display: block;
-        width: 100%;
-        margin-left: 0;
-        .box-sizing(border-box);
-    }
-    .span12,
-    .row-fluid .span12 {
-        width: 100%;
-        .box-sizing(border-box);
-    }
-    .row-fluid [class*="offset"]:first-child {
-        margin-left: 0;
-    }
-
-    // FORM FIELDS
-    // -----------
-    // Make span* classes full width
-    .input-large,
-    .input-xlarge,
-    .input-xxlarge,
-    input[class*="span"],
-    select[class*="span"],
-    textarea[class*="span"],
-    .uneditable-input {
-        .input-block-level();
-    }
-    // But don't let it screw up prepend/append inputs
-    .input-prepend input,
-    .input-append input,
-    .input-prepend input[class*="span"],
-    .input-append input[class*="span"] {
-        display: inline-block; // redeclare so they don't wrap to new lines
-        width: auto;
-    }
-    .controls-row [class*="span"] + [class*="span"] {
-        margin-left: 0;
-    }
-
-    // Modals
-    .modal {
-        position: fixed;
-        top:   20px;
-        left:  20px;
-        right: 20px;
-        width: auto;
-        margin: 0;
-        &.fade  { top: -100px; }
-        &.fade.in { top: 20px; }
-    }
-}
-
-@media (max-width: 480px) {
-    // Smooth out the collapsing/expanding nav
-    .nav-collapse {
-        -webkit-transform: translate3d(0, 0, 0); // activate the GPU
-    }
-
-    // Block level the page header small tag for readability
-    .page-header h1 small {
-        display: block;
-        line-height: @baseLineHeight;
-    }
-
-    // Update checkboxes for iOS
-    input[type="checkbox"],
-    input[type="radio"] {
-        border: 1px solid #ccc;
-    }
-
-    // Remove the horizontal form styles
-    .form-horizontal {
-        .control-label {
-            float: none;
-            width: auto;
-            padding-top: 0;
-            text-align: left;
-        }
-        // Move over all input controls and content
-        .controls {
-            margin-left: 0;
-        }
-        // Move the options list down to align with labels
-        .control-list {
-            padding-top: 0; // has to be padding because margin collaspes
-        }
-        // Move over buttons in .form-actions to align with .controls
-        .form-actions {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-
-    // Medias
-    // Reset float and spacing to stack
-    .media .pull-left,
-    .media .pull-right  {
-        float: none;
-        display: block;
-        margin-bottom: 10px;
-    }
-    // Remove side margins since we stack instead of indent
-    .media-object {
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    // Modals
-    .modal {
-        top:   10px;
-        left:  10px;
-        right: 10px;
-    }
-    .modal-header .close {
-        padding: 10px;
-        margin: -10px;
-    }
-
-    // Carousel
-    .carousel-caption {
-        position: static;
+    
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

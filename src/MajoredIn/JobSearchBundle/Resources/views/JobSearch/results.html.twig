@@ -1,22 +1,27 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% if major != 'undeclared' %}{{ major|e|ucwords }} Major {% else %}Entry Level {% endif %}{% if jobResults.jobType == 'internship' %}Internships{% else %}Jobs{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %} - MajoredIn{% endblock %}
+{% set title %}{% if major != 'undeclared' %}{{ major|e|ucwords }} Major {% else %}Entry Level {% endif %}{% if jobResults.jobType == 'internship' %}Internships{% else %}Jobs{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}{% endset %}
+{% set description %}{% if jobResults.jobType == 'internship' %}Internships for college students{% else %}Entry level jobs for college graduates{% endif %}{% if major != 'undeclared' %} with {{ major|e|strtolower|addarticle }} {% if jobResults.jobType == 'internship' %}major{% else %}degree{% endif %}{% endif %}. Search {{ jobResults.totalResults|number_format }} {% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}{% if major != 'undeclared' %} for {{ major|e|strtolower }} majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}.{% endset %}
+
+{% if major != 'undeclared' %}
+    {% set majorFormatted = major|e|ucwords|dash %}
+{% else %}
+    {% set majorFormatted = 'undeclared' %}
+{% endif %}
+{% if location != 'everywhere' %}
+    {% set locationFormatted = location|e|formatLoc|dash %}
+{% else %}
+    {% set locationFormatted = 'everywhere' %}
+{% endif %}
+
+{% set canonical = url('mi_jobs_results', pageUrlBase|merge({'major': majorFormatted, 'location': locationFormatted})) %}
+
+{% block title %}{{ title }} - MajoredIn{% endblock %}
 {% block meta %}
-    <meta name="description" content="{% if jobResults.jobType == 'internship' %}Internships for college students{% else %}Entry level jobs for recent college graduates{% endif %}{% if major != 'undeclared' %} with a {{ major|e|strtolower }} {% if jobResults.jobType == 'internship' %}major{% else %}degree{% endif %}{% endif %}. Search over {{ jobResults.totalResults|number_format }} {% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}{% if major != 'undeclared' %} for {{ major|e|strtolower }} majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}." />
-	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% else %}entry level {% endif %}{% if jobResults.jobType == 'internship' %}internships{% else %}jobs{% endif %}, entry level jobs, internships, major, college major, college degree" />
+    <meta name="description" content="{{ description }}" />
+	<meta name="keywords" content="{% if major != 'undeclared' %}{{ major|e|strtolower }} major {% if jobResults.jobType == 'internship' %}internships, {% else %}jobs, {% endif %}{% endif %}entry level jobs, internships, major, college major, college degree" />
 	
-    {% if major != 'undeclared' %}
-        {% set majorFormatted = major|e|ucwords|dash %}
-    {% else %}
-        {% set majorFormatted = 'undeclared' %}
-    {% endif %}
-    {% if location != 'everywhere' %}
-        {% set locationFormatted = location|e|formatLoc|dash %}
-    {% else %}
-        {% set locationFormatted = 'everywhere' %}
-    {% endif %}
-	
-	<link rel="canonical" href="{{ url('mi_jobs_results', urlBase|merge({'major': majorFormatted, 'location': locationFormatted})) }}" />
+	<link rel="canonical" href="{{ canonical }}" />
 	{% if jobResults.currentPage != 1 %}
         {% set prev = jobResults.currentPage - 1 %}
         {% if prev == 1 %}
@@ -31,521 +36,138 @@
     {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
 {% endblock %}
 
-{% block body %}
-    {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
-        with {'major': major, 'location': location, 'advancedBase': advancedBase, 'layoutType': 'container-results'}
-    %}
-<div class="container-results">
-    <div id="results-body" class="row">
-        <div id="filter-column" class="span-left">
-            {% set sortDisplay = {'rd': 'Relevance',
-                                    'dd': 'Date'}
-            %}
-            {% set distDisplay = {'exact': 'exact',
-                                    '5': '5 miles',
-                                    '10': '10 miles',
-                                    '25': '25 miles',
-                                    '50': '50 miles',
-                                    '100': '100 miles',
-                                    '200': '200 miles'}
-            %}
-            {% set dateDisplay = {'1': 'Last 24 hours',
-                                    '7': 'Last 7 days',
-                                    '14': 'Last 14 days',
-                                    '30': 'Last 30 days'}
-            %}
-            {% set jobTypeDisplay = {'full-time': 'Full Time',
-                                    'part-time': 'Part Time',
-                                    'internship': 'Internship'}
-            %}
-            {% set boardsDisplay = {'primary': 'Exclude',
-                                    'job_board': 'Only'}
-            %}
-            {% set recruitersDisplay = {'employer': 'Exclude',
-                                    'recruiter': 'Only'}
-            %}
-            {%  set sizeDisplay = {'1': '10 employees',
-                                    '2': '10 - 100 employees',
-                                    '3': '100 - 500 employees',
-                                    '4': '500 - 1000 employees',
-                                    '5': '1000 - 5000 employees',
-                                    '6': '5000+ employees'}
-            %}
-            {%  set revenueDisplay = {'1': 'Less than $5M',
-                                    '2': '$5M - $10M',
-                                    '3': '$10M - $50M',
-                                    '4': '$50M - $100M',
-                                    '5': '$100M - $500M',
-                                    '6': '$500M+'}
-            %}
-            {% if jobResults.distance == '' and
-                jobResults.datePosted == '' and
-                jobResults.jobType == '' and
-                jobResults.title == '' and
-                jobResults.company == '' and
-                jobResults.jobBoards == '' and
-                jobResults.recruiters == '' and
-                jobResults.companySize == '' and
-                jobResults.companyRevenue == ''
-            %}
-                {% set disableRemove = true %}
-            {% else %}
-                {% set disableRemove = false %}
-            {% endif %}
-            <div id="remove-filters" {% if disableRemove %}class="hidden"{% endif %}>
-                <ul id="rm-filter-list">
-                {% if jobResults.distance != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'dist': jobResults.distance})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Distance:</span>
-                                {% if jobResults.distance in distDisplay %}
-                                    <span class="rm-fltr-cont">{{ distDisplay[jobResults.distance] }}</span>
-                                {% else %}
-                                    <span class="rm-fltr-cont">{{ jobResults.distance }} mile{% if jobResults.distance > 1 %}s{% endif %}</span>
-                                {% endif %}
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.datePosted != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'date': jobResults.datePosted})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Posted:</span>
-                                {% if jobResults.datePosted in dateDisplay %}
-                                    <span class="rm-fltr-cont">{{ dateDisplay[jobResults.datePosted] }}</span>
-                                {% else %}
-                                    <span class="rm-fltr-cont">Last {{ jobResults.datePosted }} days</span>
-                                {% endif %}
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.jobType != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'jobtype': jobResults.jobType})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Job Type:</span>
-                                <span class="rm-fltr-cont">{{ jobTypeDisplay[jobResults.jobType] }}</span>
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.title != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'title': jobResults.title})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Title:</span>
-                                <span class="rm-fltr-cont">{{ jobResults.title|e }}</span>
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.company != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'company': jobResults.company})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Company:</span>
-                                <span class="rm-fltr-cont">{{ jobResults.company|e }}</span>
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.jobBoards != '' %}
-                   <li class="rm-fltr-wrap">
-                       <div class="rm-filter">
-                           <a href="{{ path('mi_jobs_results', urlBase|diff({'boards': jobResults.jobBoards})) }}" rel="nofollow">
-                               <span class="rm-fltr-cat">Job Boards:</span>
-                               <span class="rm-fltr-cont">{{ boardsDisplay[jobResults.jobBoards] }}</span>
-                           </a>
-                       </div>
-                   </li>
-                {% endif %}
-                {% if jobResults.recruiters != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'recruiters': jobResults.recruiters})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Recruiters:</span>
-                                <span class="rm-fltr-cont">{{ recruitersDisplay[jobResults.recruiters] }}</span>
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.companySize != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'size': jobResults.companySize})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Size:</span>
-                                <span class="rm-fltr-cont">{{ sizeDisplay[jobResults.companySize] }}</span>
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                {% if jobResults.companyRevenue != '' %}
-                    <li class="rm-fltr-wrap">
-                        <div class="rm-filter">
-                            <a href="{{ path('mi_jobs_results', urlBase|diff({'revenue': jobResults.companyRevenue})) }}" rel="nofollow">
-                                <span class="rm-fltr-cat">Revenue:</span>
-                                <span class="rm-fltr-cont">{{ revenueDisplay[jobResults.companyRevenue] }}</span>
-                            </a>
-                        </div>
-                    </li>
-                {% endif %}
-                </ul>
-                <div id="clear-all"><a href="{{ path('mi_jobs_results', {'major': major|e|dash, 'location': location|e|dash}) }}" rel="nofollow">clear selections &raquo;</a></div>
-            </div>
-            <div id="add-filters" {% if disableRemove %}class="no-remove-filter"{% endif %}>
-                <ol id="add-filter-list">
-                    <li class="add-fltr-wrap">
-                        <div class="add-filter">
-                            <div class="filter-cat"><span>Distance</span></div>
-                            <ul>
-                            {% set distDisplay = {'exact': 'exact', '5': '5 miles', '10': '10 miles', '25': '25 miles', '50': '50 miles', '100': '100 miles', '200': '200 miles'} %}
-                            {% for dist in ['exact', '5', '10', '25', '50', '100', '200'] %}
-                                {% if loop.index == 5 and jobResults.distance not in ['50', '100', '200'] %}
-                                    </ul>
-                                    <ul id="dist-hd" class="hide">
-                                {% endif %}{# if loop.index == 5 #}
-                                    {% if jobResults.distance == dist %}
-                                        <li class="active">
-                                            <a href="{{ path('mi_jobs_results', urlBase|diff({'dist': dist})) }}" rel="nofollow">{{ distDisplay[dist] }}</a>
-                                        </li>
-                                    {% else %}
-                                        <li>
-                                            <a href="{{ path('mi_jobs_results', urlBase|merge({'dist': dist})) }}" rel="nofollow">{{ distDisplay[dist] }}</a>
-                                        </li>
-                                    {% endif %}
-                                {% if loop.last %}
-                                    </ul>
-                                    {% if loop.index > 4 and jobResults.distance not in ['50', '100', '200'] %}
-                                    <div id="dist-more" class="more">
-                                        <span>more &raquo;</span>
-                                    </div>
-                                    {% endif %}{# if loop.index > 4 #}
-                                {% endif %}{# if loop.last #}
-                            {% endfor %}{# for dist in ['exact', '5', '10', '25', '50', '100', '200'] #}
-                        </div>
-                    </li>
-                    <li class="add-fltr-wrap">
-                        <div class="add-filter">
-                            <div class="filter-cat"><span>Date Posted</span></div>
-                            <ul>
-                            {% set dateDisplay = {'1': 'Last 24 hours', '7': 'Last 7 days', '14': 'Last 14 days', '30': 'Last 30 days'} %}
-                            {% for date in ['1', '7', '14', '30'] %}
-                                {% if jobResults.datePosted == date %}
-                                    <li class="active">
-                                        <a href="{{ path('mi_jobs_results', urlBase|diff({'date': date})) }}" rel="nofollow">{{ dateDisplay[date] }}</a>
-                                    </li>
-                                {% else %}
-                                    <li>
-                                        <a href="{{ path('mi_jobs_results', urlBase|merge({'date': date})) }}" rel="nofollow">{{ dateDisplay[date] }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}{# for date in ['1', '7', '14', '30'] #}
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="add-fltr-wrap">
-                        <div class="add-filter">
-                            <div class="filter-cat"><span>Job Type</span></div>
-                            <ul>
-                            {% set jobTypeDisplay = {'full-time': 'Full Time', 'part-time': 'Part Time', 'internship': 'Internship'} %}
-                            {% for jobType in ['full-time', 'part-time', 'internship'] %}
-                                {% if jobResults.jobType == jobType %}
-                                    <li class="active">
-                                        <a href="{{ path('mi_jobs_results', urlBase|diff({'jobtype': jobType})) }}" rel="nofollow">{{ jobTypeDisplay[jobType] }}</a>
-                                    </li>
-                                {% else %}
-                                    <li>
-                                        <a href="{{ path('mi_jobs_results', urlBase|merge({'jobtype': jobType})) }}" rel="nofollow">{{ jobTypeDisplay[jobType] }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}{# for jobType in ['full-time', 'part-time', 'internship'] #}
-                            </ul>
-                        </div>
-                    </li>
-                    {% if jobResults.company == '' and jobResults.companies|length > 1 %}
-                    <li class="add-fltr-wrap">
-                        <div class="add-filter">
-                            <div class="filter-cat"><span>Companies</span></div>
-                            <ul>
-                            {% for company in jobResults.companies %}
-                                {% if loop.index == 5 and jobResults.companies|length > 5 %}
-                                    </ul>
-                                    <ul id="company-hd" class="hide">
-                                {% endif %}{# if loop.index == 5 #}
-                                        <li><a href="{{ path('mi_jobs_results', urlBase|merge({'company': company|e})) }}" rel="nofollow">{{ company|e }}</a></li>
-                                {% if loop.last %}
-                                    </ul>
-                                    {% if jobResults.companies|length > 5 %}
-                                    <div id="company-more" class="more">
-                                        <span>more &raquo;</span>
-                                    </div>
-                                    {% endif %}{# if loop.index > 4 #}
-                                {% endif %}{# if loop.last #}
-                            {% endfor %}{# for company in jobResults.companies #}
-                        </div>
-                    </li>
-                    {% endif %}{# if jobResults.company == '' and jobResults.companies|length > 1 #}
-                    {% if jobResults.locations|length > 1 %}
-                    <li class="add-fltr-wrap">
-                        <div class="add-filter">
-                            <div class="filter-cat"><span>Locations</span></div>
-                            <ul>
-                            {% for locationFilter in jobResults.locations %}
-                                {% if loop.index == 5 and jobResults.locations|length > 5 %}
-                                    </ul>
-                                    <ul id="locfilter-hd" class="hide">
-                                {% endif %}{# if loop.index == 5 #}
-                                        <li>
-                                            <a href="{{ path('mi_jobs_results', urlBase|merge({'location': locationFilter|e|dash})) }}" rel="nofollow">{{ locationFilter|e }}</a>
-                                        </li>
-                                {% if loop.last %}
-                                    </ul>
-                                    {% if jobResults.locations|length > 5 %}
-                                    <div id="locfilter-more" class="more">
-                                        <span>more &raquo;</span>
-                                    </div>
-                                    {% endif %}{# if loop.index > 4 #}
-                                {% endif %}{# if loop.last #}
-                            {% endfor %}{# for locationFilter in jobResults.locations #}
-                        </div>
-                    </li>
-                    {% endif %}{# if jobResults.locations|length > 1 #}
-                </ol>
-            </div>
-        </div>
-        <div id="results-column" class="span-center">
-            <div id="results-header">
-                {% set rangeStart = jobResults.currentPage * 10 - 9 %}
-                {% set rangeEnd = (jobResults.currentPage * 10 > jobResults.totalViewable) ? jobResults.totalViewable : jobResults.currentPage * 10 %}
-                <div id="resultStats">Jobs {{ rangeStart|number_format }}-{{ rangeEnd|number_format }} of {{ jobResults.totalResults|number_format }}</div>
-                <div id="results-sort">
-                    <span>Sort by:</span>
-                    {% if jobResults.sortBy == 'rd' %}
-                    <span class="sort-active">Relevance</span>
-                    {% else %}
-                    <a href="{{ path('mi_jobs_results', urlBase|diff({'sort': jobResults.sortBy})) }}" rel="nofollow">Relevance</a>
-                    {%  endif %}
-                    <span> - </span>
-                    {% if jobResults.sortBy == 'dd' %}
-                    <span class="sort-active">Date</span>
-                    {% else %}
-                    <a href="{{ path('mi_jobs_results', urlBase|merge({'sort': 'dd'})) }}" rel="nofollow">Date</a>
-                    {% endif %}
-                </div>
-            </div>
-            <h1 class="hidden">{% if jobResults.jobType == 'internship' %}Internships{% else %}Entry Level Jobs{% endif %}{% if major != 'undeclared' %} for {{ major|e|ucwords }} Majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}.</h1>
-            <div id="search">
-                <ol id="jobs" {% if disableRemove %}class={% if jobResults.cached %}"cache-hit"{% else %}"cache-miss"{% endif %}{% endif %}>
-                {% for jobListing in jobResults.jobListings %}
-                    {% spaceless %}
-                    <li class="job-wrap">
-                        <div class="job {{ jobListing.type }}">
-                        {% if 'hour' in jobListing.age %}
-                            <div class="new-wrapper">
-                                <span class="new-job"> - NEW</span>
-                        {% endif %}
-                                <h3 class="job-title"><a href="{{ jobListing.url|e }}" target="_blank" rel="nofollow" onMouseDown="xml_sclk(this);">{{ jobListing.title|e }}</a></h3>
-                        {% if 'hour' in jobListing.age %}
-                            </div>
-                        {% endif %}
-                            {# TESTING Job info in front for IE7 compatibility #}
-                            <div class="job-info">
-                                {% if jobListing.age == 'error' %}
-                                {% else %}
-                                    <span class="job-age">{{ jobListing.age|e }} ago</span>
-                                {% endif %}{# if jobListing.age == 'error' #}
-                                <span class="job-company">
-                                    <a href="{{ path('mi_jobs_results', urlBase|merge({'company': jobListing.company|e})) }}" rel="nofollow">{{ jobListing.company|e }}</a>
-                                </span>
-                                <span> - </span>
-                                <span class="job-location">
-                                    <a href="{{ path('mi_jobs_results', urlBase|merge({'location': jobListing.location|dash})) }}">{{ jobListing.location|e }}</a>
-                                </span>
-                            </div>
-                            <p class="job-excerpt">{{ jobListing.excerpt|slice(0,jobListing.excerpt|length - 1)|e }}</p>
-                        </div>
-                    </li>
-                    {#  if (jobResults.jobListings|length > 5 and loop.index == 3) %}
-                    <li class="ad-wrap visible-phone">
-                        <div class="adsense-body">
-                            <script type="text/javascript"><!--
-                            if (majoredin.globals.isMobile) {
-                                google_ad_client = "ca-pub-9995124179332681";
-                                /* Results Mobile Link Unit */
-                                google_ad_slot = "8921560459";
-                                google_ad_width = 200;
-                                google_ad_height = 90;
-                                document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                            }
-                            //-->
-                            </script>
-                        </div>
-                    </li>
-                    {%  elseif jobResults.jobListings|length > 7 and loop.index == 4 %}
-                    <li class="ad-wrap hidden-phone">
-                        <div class="adsense-body">
-                            <script type="text/javascript"><!--
-                            if (!majoredin.globals.isMobile) {
-                                google_ad_client = "ca-pub-9995124179332681";
-                                /* Results Link Unit */
-                                google_ad_slot = "1834102458";
-                                google_ad_width = 468;
-                                google_ad_height = 15;
-                                document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                            }
-                            //-->
-                            </script>
-                        </div>
-                    </li>
-                    {% endif #}
-                    {% endspaceless %}
-                {% endfor %}{# for jobListing in jobResults.jobListings #}
-                </ol>
-                <p class="jobs-warn visible-phone">Results not that great? Try the <a href="{{ path('mi_jobs_advanced', advancedBase) }}"{% if advancedBase %}  rel="nofollow"{% endif %}>advanced search</a>.</p>
-            {% if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 %}
-                <p class="jobs-warn">
-                    <span>Looked through 1,000 jobs already?  You are quite the proficient job hunter!  Unfortunately our servers can't keep up with you; we can only serve 1,000
-                    results per search. Try using the filters to the left to narrow down your search. Happy job hunting!</span>
-                </p>
-            {% elseif jobResults.hidden == '' and jobResults.currentPage == jobResults.maxPage and jobResults.totalViewable != jobResults.totalResults %}
-                <p class="jobs-warn">
-                    <span>In order to show the most relevant jobs, we have hidden jobs that are very similar to the {{ jobResults.totalViewable }} already shown.</span>
-                    <br/>
-                    <span>If you want, you can <a href="{{ path('mi_jobs_results', urlBase|merge({'hidden': 'comboxp0'})) }}" rel="nofollow">repeat this search with hidden jobs included.</a></span>
-                </p>
-            {% endif %}{# if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 #}
-            </div>
-            {% if jobResults.maxPage != 1 %}
-            <div class="pagination hidden-phone">
-                <ul>
-            {% if jobResults.currentPage != 1 %}
-                {% set prev = jobResults.currentPage - 1 %}
-                {% if prev == 1 %}
-                    <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}" rel="nofollow">Prev</a></li>
-                {% else %}
-                    <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': prev})) }}" rel="nofollow">Prev</a></li>
-                {% endif %}{# if prev == 1 #}
-            {% endif %}{# if jobResults.currentPage != 1 #}
-            
-            {% if jobResults.currentPage < 7 %}
-                {% set pageRange = range(1, (10 < jobResults.maxPage) ? 10 : jobResults.maxPage) %}
-            {% elseif jobResults.currentPage > jobResults.maxPage - 4 %}
-                {% set pageRange = range((1 > jobResults.maxPage - 9) ? 1 : jobResults.maxPage - 9, jobResults.maxPage) %}
-            {% else %}
-                {% set pageRange = range(jobResults.currentPage - 5, jobResults.currentPage + 4) %}
-            {% endif %}{# if jobResults.currentPage < 7 #}
-                
-            {% for page in pageRange %}
-                {% if page == jobResults.currentPage  %}
-                    <li class="active"><a href="{{ path('mi_jobs_results', pageUrlBase) }}" rel="nofollow">{{ page }}</a></li>
-                {% elseif page == 1 %}
-                    <li><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}" rel="nofollow">{{ page }}</a></li>
-                {% else %}
-                    <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': page})) }}" rel="nofollow">{{ page }}</a></li>
-                {% endif %}{# if page == jobResults.currentPage  #}
-            {% endfor %}{# for page in pageRange #}
-            
-            {% if jobResults.currentPage != jobResults.maxPage %}
-                {% set next = jobResults.currentPage + 1 %}
-                    <li class="next"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': next})) }}" rel="nofollow">Next</a></li>
-            {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
-                </ul>
-            </div>
-            <div class="pagination visible-phone">
-                <ul>
-            {% if jobResults.currentPage != 1 %}
-                {% set prev = jobResults.currentPage - 1 %}
-                {% if prev == 1 %}
-                    <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}" rel="nofollow">&laquo;</a></li>
-                {% else %}
-                    <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': prev})) }}" rel="nofollow">&laquo;</a></li>
-                {% endif %}{# if prev == 1 #}
-            {% endif %}{# if jobResults.currentPage != 1 #}
-            
-            {% if jobResults.currentPage < 4 %}
-                {% set pageRange = range(1, (5 < jobResults.maxPage) ? 5 : jobResults.maxPage) %}
-            {% elseif jobResults.currentPage > jobResults.maxPage - 2 %}
-                {% set pageRange = range((1 > jobResults.maxPage - 4) ? 1 : jobResults.maxPage - 4, jobResults.maxPage) %}
-            {% else %}
-                {% set pageRange = range(jobResults.currentPage - 2, jobResults.currentPage + 2) %}
-            {% endif %}{# if jobResults.currentPage < 7 #}
-                
-            {% for page in pageRange %}
-                {% if page == jobResults.currentPage  %}
-                    <li class="active"><a href="{{ path('mi_jobs_results', pageUrlBase) }}" rel="nofollow">{{ page }}</a></li>
-                {% elseif page == 1 %}
-                    <li><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}" rel="nofollow">{{ page }}</a></li>
-                {% else %}
-                    <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': page})) }}" rel="nofollow">{{ page }}</a></li>
-                {% endif %}{# if page == jobResults.currentPage  #}
-            {% endfor %}{# for page in pageRange #}
-            
-            {% if jobResults.currentPage != jobResults.maxPage %}
-                {% set next = jobResults.currentPage + 1 %}
-                    <li class="next"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': next})) }}" rel="nofollow">&raquo;</a></li>
-            {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
-                </ul>
-            </div>
-            {% endif %}{# if jobResults.maxPage != 1 #}
-            {% if jobResults.jobListings|length == 10 %}
-            <div class="ad-wrap-footer visible-phone">
-                <div class="adsense-footer">
-                    <script type="text/javascript"><!--
-                    if (majoredin.globals.isMobile) {
-                    	google_ad_client = "ca-pub-9995124179332681";
-                    	/* Results Mobile Footer */
-                    	google_ad_slot = "3352704857";
-                    	google_ad_width = 320;
-                    	google_ad_height = 50;
-                        document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                    }
-                    //-->
-                    </script>
-                </div>
-            </div>
-            <div class="ad-wrap-footer hidden-phone">
-                <div class="adsense-footer">
-                    <script type="text/javascript"><!--
-                    if (!majoredin.globals.isMobile) {
-                    	google_ad_client = "ca-pub-9995124179332681";
-                        /* Results Bottom Smaller */
-                        google_ad_slot = "9776171654";
-                        google_ad_width = 300;
-                        google_ad_height = 250;
-                        document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                    }
-                    //-->
-                    </script>
-                </div>
-            </div>
-    {% endif %}
-        </div>
-        <div id="ads-column" class="span-right">
-            {% include 'MajoredInMainBundle:Social:socialfollow.html.twig' %}
-            <div class="google-adsense-300x250">
-                <script type="text/javascript"><!--
-                if (majoredin.globals.isDesktop) {
-                    google_ad_client = "ca-pub-9995124179332681";
-                    /* Sidebar Rectangle */
-                    google_ad_slot = "1839702858";
-                    google_ad_width = 300;
-                    google_ad_height = 250;
-                    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"><\/script>');
-                }
-                //-->
-                </script>
-            </div>
-            {# include 'MajoredInMainBundle:Adsense:adsense300x250.html.twig' #}
-        </div>
-    </div>
-    {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
-        with {'simplyhired': true}
-    %}
+{% block opengraph %}
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ canonical }}" />
+    <meta property="og:image" content="{{ asset('img/majoredin_180x180.png') }}" />
+    <meta property="og:site_name" content="MajoredIn" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="fb:app_id" content="621030121246066" />
     
-    {% include 'MajoredInMainBundle:Modal:share.html.twig' %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Majored_In">
+    <meta name="twitter:url" content="{{ canonical }}">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ asset('img/twitter_hat.png') }}">
+{% endblock %}
+
+{% block body %}
+
+{{ render(controller('MajoredInMainBundle:Layout:header', { 'major': major, 'location': location })) }}
+
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div id="main" class="span8">
+            
+                {{ render(controller('MajoredInJobSearchBundle:MajorGuide:index', { 'major': major, 'urlBase': urlBase })) }}
+                
+                <div id="results-header" class="row">
+                    <div id="results-stats" class="span6">
+                        {% set rangeStart = jobResults.currentPage * 10 - 9 %}
+                        {% set rangeEnd = (jobResults.currentPage * 10 > jobResults.totalViewable) ? jobResults.totalViewable : jobResults.currentPage * 10 %}
+                        <span>{{ rangeStart|number_format }}-{{ rangeEnd|number_format }} of {{ jobResults.totalResults|number_format }} </span><h1>{% if jobResults.jobType == 'internship' %}Internships{% else %}Jobs{% endif %} {% if major != 'undeclared' %}for {{ major|e|ucwords }} Majors{% endif %}{% if location != 'everywhere' %} in {{ location|e|ucwords }}{% endif %}</h1>
+                    </div>
+                    <button id="advanced-button" class="btn span2">Advanced</button>
+                </div>
+                <div id="search">
+                    <ol id="jobs" class={% if jobResults.cached %}"cache-hit"{% else %}"cache-miss"{% endif %}>
+                    {% for jobListing in jobResults.jobListings %}
+                        {% spaceless %}
+                        <li class="job-wrap">
+                            <div class="job {{ jobListing.type }}">
+                                <h3 class="job-title"><a href="{{ jobListing.url|e }}" target="_blank" rel="nofollow" onMouseDown="xml_sclk(this);">{{ jobListing.title|e }}</a>{% if 'hour' in jobListing.age %}<span class="new-job"> - NEW</span>{% endif %}</h3>
+                                <div class="job-info">
+                                    <span class="job-company">
+                                        <a href="{{ path('mi_jobs_results', urlBase|merge({'company': jobListing.company|e})) }}" rel="nofollow">{{ jobListing.company|e }}</a>
+                                    </span>
+                                    <span> - </span>
+                                    <span class="job-location">
+                                        <a href="{{ path('mi_jobs_results', urlBase|merge({'location': jobListing.location|dash})) }}">{{ jobListing.location|e }}</a>
+                                    </span>
+                                    {% if jobListing.age == 'error' %}
+                                    {% else %}
+                                        <span class="job-age">{{ jobListing.age|e }} ago</span>
+                                    {% endif %}{# if jobListing.age == 'error' #}
+                                </div>
+                                <p class="job-excerpt">{{ jobListing.excerpt|slice(0,jobListing.excerpt|length - 1)|e }}</p>
+                            </div>
+                        </li>
+                        {% endspaceless %}
+                    {% endfor %}{# for jobListing in jobResults.jobListings #}
+                    </ol>
+                {% if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 %}
+                    <p class="jobs-warn">
+                        <span>Looked through 1,000 jobs already?  You are quite the proficient job hunter!  Unfortunately our servers can't keep up with you; we can only serve 1,000
+                        results per search. Try using the filters to the left to narrow down your search. Happy job hunting!</span>
+                    </p>
+                {% elseif jobResults.hidden == '' and jobResults.currentPage == jobResults.maxPage and jobResults.totalViewable != jobResults.totalResults %}
+                    <p class="jobs-warn">
+                        <span>In order to show the most relevant jobs, we have hidden jobs that are very similar to the {{ jobResults.totalViewable }} already shown.</span>
+                        <br/>
+                        <span>If you want, you can <a href="{{ path('mi_jobs_results', urlBase|merge({'hidden': 'comboxp0'})) }}" rel="nofollow">repeat this search with hidden jobs included.</a></span>
+                    </p>
+                {% endif %}{# if jobResults.currentPage == jobResults.maxPage and jobResults.currentPage == 100 #}
+                </div>
+                
+                {% if jobResults.maxPage != 1 %}
+                <div class="pagination">
+                    <ul>
+                {% if jobResults.currentPage != 1 %}
+                    {% set prev = jobResults.currentPage - 1 %}
+                    {% if prev == 1 %}
+                        <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}">&laquo;<span class="hidden-phone"> Prev</span></a></li>
+                    {% else %}
+                        <li class="prev"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': prev})) }}">&laquo;<span class="hidden-phone"> Prev</span></a></li>
+                        
+                    {% endif %}{# if prev == 1 #}
+                {% endif %}{# if jobResults.currentPage != 1 #}
+                
+                {% if jobResults.currentPage < 4 %}
+                    {% set pageRange = range(1, (5 < jobResults.maxPage) ? 5 : jobResults.maxPage) %}
+                {% elseif jobResults.currentPage > jobResults.maxPage - 2 %}
+                    {% set pageRange = range((1 > jobResults.maxPage - 4) ? 1 : jobResults.maxPage - 4, jobResults.maxPage) %}
+                {% else %}
+                    {% set pageRange = range(jobResults.currentPage - 2, jobResults.currentPage + 2) %}
+                {% endif %}{# if jobResults.currentPage < 4 #}
+                    
+                {% for page in pageRange %}
+                    {% if page == jobResults.currentPage  %}
+                        <li class="active"><a href="{{ path('mi_jobs_results', pageUrlBase) }}">{{ page }}</a></li>
+                    {% elseif page == 1 %}
+                        <li><a href="{{ path('mi_jobs_results', pageUrlBase|diff({'page': jobResults.currentPage})) }}">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': page})) }}">{{ page }}</a></li>
+                    {% endif %}{# if page == jobResults.currentPage  #}
+                {% endfor %}{# for page in pageRange #}
+                
+                {% if jobResults.currentPage != jobResults.maxPage %}
+                    {% set next = jobResults.currentPage + 1 %}
+                        <li class="next"><a href="{{ path('mi_jobs_results', pageUrlBase|merge({'page': next})) }}"><span class="hidden-phone">Next </span>&raquo;</a></li>
+                {% endif %}{# if jobResults.currentPage != jobResults.maxPage #}
+                    </ul>
+                </div>
+                {% endif %}{# if jobResults.maxPage != 1 #}
+                
+                {{ render(controller('MajoredInJobSearchBundle:Layout:footer')) }}
+
+            </div>
+            <div id="sidebar" class="span4">
+            
+                 {{ render(controller('MajoredInJobSearchBundle:Layout:sidebar')) }}
+            
+            </div>
+        </div>
+        
+        {% include 'MajoredInJobSearchBundle:Modal:advanced.html.twig' with {'major': major, 'location': location, 'queryString': queryString, 'defaults': defaults} %}
+        
+        {% include 'MajoredInJobSearchBundle:Modal:share.html.twig' %}
+
+    </div>
 </div>
+
+{{ render(controller('MajoredInMainBundle:Layout:footer')) }}
 
 {% endblock %}

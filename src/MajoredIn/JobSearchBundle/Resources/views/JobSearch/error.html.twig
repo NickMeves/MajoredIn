@@ -8,9 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    {% include 'MajoredInMainBundle:Header:searchbar.html.twig' 
-        with {'major': 'undeclared', 'location': 'everywhere', 'advancedBase': {}, 'layoutType': 'container-article'}
-    %}
+
 <div class="container-article error500">
     <div class="article-body row">
         <div class="span2"></div>
@@ -27,8 +25,5 @@
 {% endblock %}
         </div>
     </div>
-    {% include 'MajoredInMainBundle:Footer:footer.html.twig' 
-        with {'simplyhired': true}
-    %}
 </div>
 {% endblock %}

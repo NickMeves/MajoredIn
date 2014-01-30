@@ -52,16 +52,13 @@ class CanonicalizeCommand extends ContainerAwareCommand
                 $output->writeln("\"" . $major->getName() . "\" canonicalized as \"" . $major->getNameCanonical() . "\".");
             }
             
-            $majorsSize = count($majors);
-            for ($i = 0; $i < $majorsSize; ++$i) {
-                for ($j = $i + 1; $j < $majorsSize; ++$j) {
-                    if ($majors[$i]->getNameCanonical() === $majors[$j]->getNameCanonical()) {
-                        if ($flush) {
-                            $output->writeln("\n\nERROR:\n\n");
-                            $flush = false;
-                        }
-                        $output->writeln($majors[$i]->getId() . $majors[$i]->getName() . " has the same canonical name as " . $majors[$j]->getId() . $majors[$j]->getName());
-                    }
+            foreach ($majors as $major) {
+                if (isset($majorCollision[$major->getNameCanonical()])) {
+                    $flush = false;
+                    $output->writeln("ERROR: " . $major->getId() . " " . $major->getName() . " has the same canonical name as " . $majorCollision[$major->getNameCanonical()]->getId() . " " . $majorCollision[$major->getNameCanonical()]->getName());
+                }
+                else {
+                    $majorCollision[$major->getNameCanonical()] = $major;
                 }
             }
         }
@@ -69,7 +66,7 @@ class CanonicalizeCommand extends ContainerAwareCommand
         if ($table === 'majoralias' || $table === 'all') {
             $majorAliases = $majorAliasManager->findMajorAliases();
             
-            $output->writeln("MajorAliases:");
+            $output->writeln("\nMajorAliases:");
             
             foreach ($majorAliases as $majorAlias) {
                 if ($majorAlias->getNameCanonical() === $majorAliasManager->canonicalizeName($majorAlias->getName())) {
@@ -79,16 +76,13 @@ class CanonicalizeCommand extends ContainerAwareCommand
                 $output->writeln("\"" . $majorAlias->getName() . "\" canonicalized as \"" . $majorAlias->getNameCanonical() . "\".");
             }
             
-            $majorAliasesSize = count($majorAliases);
-            for ($i = 0; $i < $majorAliasesSize; ++$i) {
-                for ($j = $i + 1; $j < $majorAliasesSize; ++$j) {
-                    if ($majorAliases[$i]->getNameCanonical() === $majorAliases[$j]->getNameCanonical()) {
-                        if ($flush) {
-                            $output->writeln("\n\nERROR:\n\n");
-                            $flush = false;
-                        }
-                        $output->writeln($majorAliases[$i]->getId() . $majorAliases[$i]->getName() . " has the same canonical name as " . $majorAliases[$j]->getId() . $majorAliases[$j]->getName());
-                    }
+            foreach ($majorAliases as $majorAlias) {
+                if (isset($majorAliasCollision[$majorAlias->getNameCanonical()])) {
+                    $flush = false;
+                    $output->writeln("ERROR: " . $majorAlias->getId() . " " . $majorAlias->getName() . " has the same canonical name as " . $majorAliasCollision[$majorAlias->getNameCanonical()]->getId() . " " . $majorAliasCollision[$majorAlias->getNameCanonical()]->getName());
+                }
+                else {
+                    $majorAliasCollision[$majorAlias->getNameCanonical()] = $majorAlias;
                 }
             }
         }
@@ -106,22 +100,25 @@ class CanonicalizeCommand extends ContainerAwareCommand
                 $output->writeln("\"" . $location->getName() . "\" canonicalized as \"" . $location->getNameCanonical() . "\".");
             }
             
-            $locationsSize = count($locations);
-            for ($i = 0; $i < $locationsSize; ++$i) {
-                for ($j = $i + 1; $j < $locationsSize; ++$j) {
-                    if ($locations[$i]->getNameCanonical() === $locations[$j]->getNameCanonical()) {
-                        if ($flush) {
-                            $output->writeln("\n\nERROR:\n\n");
-                            $flush = false;
-                        }
-                        $output->writeln($locations[$i]->getId() . $locations[$i]->getName() . " has the same canonical name as " . $locations[$j]->getId() . $locations[$j]->getName());
-                    }
+            foreach ($locations as $location) {
+                if (isset($locationCollision[$location->getNameCanonical()])) {
+                    $flush = false;
+                    $output->writeln("ERROR: " . $location->getId() . " " . $location->getName() . " has the same canonical name as " . $locationCollision[$location->getNameCanonical()]->getId() . " " . $locationCollision[$location->getNameCanonical()]->getName());
+                }
+                else {
+                    $locationCollision[$location->getNameCanonical()] = $location;
                 }
             }
         }
+        
         if ($flush) {
-            $this->getContainer()->get('doctrine.orm.entity_manager')->flush();
-            $output->writeln("\nChanges flushed to the database.");
+            try {
+                $this->getContainer()->get('doctrine.orm.entity_manager')->flush();
+                $output->writeln("\nChanges flushed to the database.");
+            }
+            catch (\PDOException $e) {
+                $output->writeln("\nAn error occured while attempting to flush the changes to the database.");
+            }
         }
         else {
             $output->writeln("\nDue to the canonical name conflicts the proposed changes will not be commited to the database.");

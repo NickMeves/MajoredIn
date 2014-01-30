@@ -1,8 +1,14 @@
 MajoredInMainBundle:
     resource: "@MajoredInMainBundle/Resources/config/routing.yml"
+    prefix:   /
 
 MajoredInJobSearchBundle:
     resource: "@MajoredInJobSearchBundle/Resources/config/routing.yml"
+    prefix:   /
+
+MajoredInWordpressBundle:
+    resource: "@MajoredInWordpressBundle/Resources/config/routing.yml"
+    prefix:   /
 
 # Internal routing configuration to handle ESI
 #_internal:

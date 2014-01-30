@@ -16,8 +16,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Liip\DoctrineCacheBundle\LiipDoctrineCacheBundle(),
             new MajoredIn\JobSearchBundle\MajoredInJobSearchBundle(),
             new MajoredIn\MainBundle\MajoredInMainBundle(),
+            new MajoredIn\WordpressBundle\MajoredInWordpressBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

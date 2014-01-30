@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for location in locations %}
-        {% set weight = (location.population / maxPopulation) %}
+    {% for url in locationUrls %}
         <url>
-            <loc>{{ url('mi_jobs_results', {'major': 'undeclared', 'location': location.name|dash}) }}</loc>
+            <loc>{{ url }}</loc>
             <changefreq>weekly</changefreq>
-            <priority>{{ (weight|number_format(8) < 0.00000001) ? 0.00000001 : weight|number_format(8) }}</priority>
+            <priority>0.7</priority>
         </url>
+    {% endfor %}
+    {% for url in locationUrlsIntern %}
         <url>
-            <loc>{{ url('mi_jobs_results', {'major': 'undeclared', 'location': location.name|dash, 'jobtype': 'internship'}) }}</loc>
+            <loc>{{ url }}</loc>
             <changefreq>weekly</changefreq>
-            <priority>{{ (weight|number_format(8) < 0.00000001) ? 0.00000001 : weight|number_format(8) }}</priority>
+            <priority>0.6</priority>
         </url>
     {% endfor %}
 </urlset>

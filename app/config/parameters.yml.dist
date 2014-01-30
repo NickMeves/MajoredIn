@@ -9,6 +9,15 @@ parameters:
     slave_host:        127.0.0.1
     slave_port:        3306
     
+    wp_auth_key:         ThisTokenIsNotSoSecretChangeIt
+    wp_secure_auth_key:  ThisTokenIsNotSoSecretChangeIt
+    wp_logged_in_key:    ThisTokenIsNotSoSecretChangeIt
+    wp_nonce_key:        ThisTokenIsNotSoSecretChangeIt
+    wp_auth_salt:        ThisTokenIsNotSoSecretChangeIt
+    wp_secure_auth_salt: ThisTokenIsNotSoSecretChangeIt
+    wp_logged_in_salt:   ThisTokenIsNotSoSecretChangeIt
+    wp_nonce_salt:       ThisTokenIsNotSoSecretChangeIt
+    
     memcached_driver:  memcached
     memcached_host:    127.0.0.1
     memcached_port:    11211

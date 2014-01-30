@@ -1,21 +1,58 @@
-#search-header {
-    padding: 25px 0;
-    background: #f8f8f8;
-    border-bottom: 1px solid @headerBorderColor;
-}
-
-#header-logo {
-    a {
-        display: block;
-        width: 175px;
-        height: 37px;
-        margin: 0 auto;
-        background-image: url("../img/logo_sprite.png");
-        background-position: 0px -73px;
+#nav-header {
+    padding: 10px 0 5px 0;
+    background-color: @navHeaderBackground;
+    margin: 0;
+    
+    .navbar {
+        .brand {
+            width: 220px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav {
+            float: right;
+            margin-right: @gridColumnWidth;
+        }
+        
+        .nav > .active > a,
+        .nav > .active > a:hover,
+        .nav > .active > a:focus {
+            .box-shadow(none);
+        }
+        
+        .nav > li > a:hover {
+            border-bottom: 5px solid @navColorHover;
+        }
+        
+        .nav > li > a {
+            color: lighten(@gray, 15%);
+            font-size: @baseFontSize + 6;
+            padding: 7px 0px;
+            border-bottom: 5px solid @navHeaderBackground;
+        }
+        
+        .nav > li {
+            padding: 6px 15px 0 15px;
+        }
     }
 }
 
-#search-bar {
+#search-header-wrap {
+    border-top: 1px solid darken(@searchHeaderBackground, 10%);
+    width: 100%;
+    position: relative;
+    z-index: @zindexFixedNavbar;
+}
+
+#search-header {
+    #gradient > .vertical(@searchHeaderBackground, darken(@searchHeaderBackground, 5%));
+    border-top: 1px solid lighten(@searchHeaderBackground, 10%);
+    border-bottom: 1px solid darken(@searchHeaderBackground, 15%);
+    .box-shadow(0px 4px 8px rgba(0, 0, 0, 0.5));
+    padding: 15px 0;
+    .reset-filter(); //IE8 filter z-index dropdown bug fix
+    
     form {
         margin: 0;
     }
@@ -23,48 +60,47 @@
     .placeholding-input {
         input {
             position: relative;
-            border-color: @searchInputBorder;
-            .box-shadow(inset 1px 1px 2px rgba(0, 0, 0, .3));
+            border-color: darken(@searchHeaderBackground, 10%);
+            .box-shadow(~"inset 1px 1px 2px rgba(0, 0, 0, .3), 1px 1px 0 rgba(255, 255, 255, 0.3)");
             font-size: @baseFontSize + 2;
-            height: @baseLineHeight + 3;
-            line-height: @baseLineHeight + 3;
-            padding: @inputPaddingTB @inputPaddingLR;
-            margin-right: @inputMarginR;
-            width: (@resultsWidth - (@inputPaddingLR * 4 + @inputMarginR + 4)) / 2;
+            height: @baseLineHeight + 5;
+            line-height: @baseLineHeight + 5;
             .transition(box-shadow 0.1s linear 0s);
             
             &:hover {
-                border-color: @searchInputHover;
+                border-color: darken(@searchHeaderBackground, 20%);
             }
             
             &:focus {
-                border-color: @linkColor;
-                .box-shadow(~"inset 1px 1px 2px rgba(0, 0, 0, .3), 0 0 4px rgba(82, 168, 236, .6)");
+                border-color: darken(@searchHeaderBackground, 20%);
             }
         }
         
         .ie-input-focus {
-            border: @linkColor;
+            border-color: darken(@searchHeaderBackground, 20%);
             &:hover {
-                border-color: @linkColor;
+                border-color: darken(@searchHeaderBackground, 20%);
             }
         }
         
         .placeholder {
-            right: @inputMarginR + 1; //account for search input margin
-            font-size: @baseFontSize + 1;
-            height: @baseLineHeight + 3;
-            line-height: @baseLineHeight + 3;
-            padding: @inputPaddingTB @inputPaddingLR; //must match input padding
-            .transition(opacity 0.1s linear 0s, font-size 0.1s linear 0s);
+            font-size: @baseFontSize + 2;
+            height: @baseLineHeight + 5;
+            line-height: @baseLineHeight + 5;
         }
     }
     .btn {
-        .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight, #fff, 0 -1px 1px rgba(0, 0, 0, .7));
-        margin-left: @gridGutterWidth - @inputMarginR;
-        font-size: @baseFontSize + 1;
+        .buttonBackground(@btnHeaderBackground, @btnHeaderBackgroundHighlight, @btnHeaderColor, 0 1px 1px rgba(0,0,0,.75));
+        border: 1px solid @btnHeaderBorder;
+        border-bottom-color: darken(@btnHeaderBorder, 10%);
+        font-size: @baseFontSize + 2;
         font-weight: bold;
-        line-height: @baseLineHeight + 3;
+        line-height: @baseLineHeight + 5;
+        
+        &:hover,
+        &:focus {
+            color: @btnHeaderColor;
+        }
     }
     .dropdown-menu {
         &:before {
@@ -89,10 +125,12 @@
             left: 10px;
         }
         
-        min-width: (@resultsWidth - (@inputPaddingLR * 4 + @inputMarginR + 2)) / 2 + @inputPaddingLR * 2;
+        .box-shadow(0px 5px 10px rgba(0, 0, 0, 0.3));
+        min-width: (5 * @gridColumnWidth) + (@gridGutterWidth * 4);
         
         li > a {
             color: @textColor;
+            font-size: @baseFontSize + 1;
             border: 1px solid @dropdownBackground;
             padding: 3px 15px;
             margin: 0 1px;
@@ -103,85 +141,90 @@
         li > a:hover,
         li > a:focus {
             text-decoration: none;
-            border: 1px solid lighten(@linkColor, 35%);
+            border: 1px solid lighten(#1144cc, 35%);
             color: @textColor;
-            #gradient > .vertical(lighten(@linkColor, 55%), lighten(@linkColor, 52%));
+            #gradient > .vertical(lighten(#1144cc, 53%), lighten(#1144cc, 50%));
         }
         
         .active > a,
         .active > a:hover {
             color: @textColor;
-            border: 1px solid lighten(@linkColor, 35%);
+            border: 1px solid lighten(#1144cc, 35%);
             text-decoration: none;
             outline: 0;
-            #gradient > .vertical(lighten(@linkColor, 55%), lighten(@linkColor, 52%));
+            #gradient > .vertical(lighten(#1144cc, 53%), lighten(#1144cc, 50%));
         }
     }
     .typeahead {
         margin-top: 2px; // give it some space to breathe
         .border-radius(@baseBorderRadius);
+        left: -1px !important;
     }
 }
 
-#search-inputs {
-    position: relative;
-}
-
-#advanced-search {
-    position: absolute;
-    right: 6px;
-    top: 37px;
-    font-size: @baseFontSize - 1;
-    line-height: 1;
-}
-
-@media only screen and (max-width: @tabletMedia) {
-    #header-logo {
-        padding-bottom: 10px;
-        
-        a {
-            display: block;
-            width: 220px;
-            height: 46px;
-            margin: 0 auto;
-            background-image: url("../img/logo_sprite.png");
-            background-position: 0px -110px;
-        }
-    }
-}
-
-@media only screen and (max-width: @phoneMedia) {
-    #search-header {
-        padding: 15px 0;
-    }
+.superflag {
+    background-image: url(../img/slide-02.jpg);
+    background-repeat: no-repeat;
+    background-position: center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    behavior: url(/htc/background-size.htc);
+    width: 100%;
+    height: 600px;
     
-    #search-bar {
-        .placeholding-input {
-            input {
-                font-size: @baseFontSize + 3;
-                line-height: @baseLineHeight + 5;
-                height: @baseLineHeight + 5 + @inputPaddingTB * 2;
-                margin-right: 0;
-                float: none;
-                display: block;
-                width: 100%;
-                margin-left: 0;
-                .box-sizing(border-box);
-            }
-            .placeholder {
-                font-size: @baseFontSize + 2;
-                height: @baseLineHeight + 5;
-                line-height: @baseLineHeight + 5;
+    .jumbotron {
+        margin: 100px 0;
+        padding: 40px;
+        color: @white;
+        font-size: @baseFontSize + 4;
+        line-height: @baseLineHeight + 10;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, .75);
+        
+        .border-radius(@baseBorderRadius);
+        .box-shadow(0 0 10px rgba(0, 0, 0, .5));
+        
+        background: rgba(20, 20, 20, .5);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#88111111, endColorstr=#88111111); /* IE 6/7 */
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88111111, endColorstr=#88111111)"; /* IE8 */
+    }
+}
+
+@media (max-width: 979px) {
+    #nav-header {
+        .nav-collapse {
+            .nav > li > a {
+                display: inline-block;
+                .border-radius(0);
             }
         }
-        .btn {
-            float: none;
-            display: block;
-            width: 100%;
-            margin-left: 0;
-            .box-sizing(border-box);
-            font-size: @baseFontSize + 2;
-            line-height: @baseLineHeight + 5;
+        .navbar {
+            margin: 0;
+            
+            .nav {
+                float: none;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #search-header {
+        .dropdown-menu {
+            min-width: (5 * @gridColumnWidth768) + (@gridGutterWidth768 * 4);
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #search-header {
+        .placeholding-input {
+            padding-bottom: 10px;
+            input {
+                height: @baseLineHeight + 15; //border-box sizing, add 10px padding + border
+            }
         }
         .dropdown-menu {
             min-width: 0;
@@ -196,8 +239,13 @@
             }
         }
     }
-    
-    #advanced-search {
-        display: none;
+    .superflag {
+        background-image: url(../img/slide-02.jpg);
+        height: auto;
+        
+        .jumbotron {
+            margin: 50px 0;
+            padding: 20px;
+        }
     }
 }

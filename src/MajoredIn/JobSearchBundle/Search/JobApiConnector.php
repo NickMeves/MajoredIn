@@ -3,7 +3,8 @@
 namespace MajoredIn\JobSearchBundle\Search;
 
 use MajoredIn\JobSearchBundle\Util\FeedReaderInterface;
-use MajoredIn\JobSearchBundle\Util\CacheInterface;
+use Doctrine\Common\Cache\Cache;
+
 use MajoredIn\JobSearchBundle\Exception\NoResultsException;
 use MajoredIn\JobSearchBundle\Exception\InvalidParamException;
 use MajoredIn\JobSearchBundle\Exception\LocationRedirectException;
@@ -23,7 +24,7 @@ class JobApiConnector implements JobApiConnectorInterface
      * @param array $defaultParams Default values for filter array
      * @param DateTime $currentTime The time used for calculating age of job postings. (default current time).
      */
-    public function __construct(FeedReaderInterface $feedReader, CacheInterface $cache, $defaultParams, \DateTime $currentTime = null)
+    public function __construct(FeedReaderInterface $feedReader, Cache $cache, $defaultParams, \DateTime $currentTime = null)
     {
         $this->feedReader = $feedReader;
         $this->cache = $cache;
@@ -66,19 +67,12 @@ class JobApiConnector implements JobApiConnectorInterface
         
         //Hash the URL to avoid keys >250 or invalid characters.
         $urlMd5 = md5($url);
-        if ($this->cache->contains($urlMd5)) {
-            $xmlstr = $this->cache->fetch($urlMd5);
+        if ($xmlstr = $this->cache->fetch($urlMd5)) {
             $jobResults->setCached(true);
         }
         else {
-            $xmlstr = $this->feedReader->readUrl($url);
-            if ($xmlstr) {
-                $this->cache->save($urlMd5, $xmlstr, 300);
-            }
-        }
-        
-        if (! $xmlstr) {
-            throw new GatewayTimeoutException;
+            $xmlstr = (string) $this->feedReader->get($url);
+            $this->cache->save($urlMd5, $xmlstr, 300);
         }
         
         $xml = new \SimpleXMLElement($xmlstr);
@@ -170,6 +164,7 @@ class JobApiConnector implements JobApiConnectorInterface
             }
             
             $result_src_attr = $result->src->attributes();
+            //TODO: PHP 5.4+ can use ENT_XML1
             $jobResults->addJobListing(new JobListing(
                 htmlspecialchars_decode($result->jt, ENT_QUOTES),
                 htmlspecialchars_decode($result->cn, ENT_QUOTES),
@@ -202,12 +197,12 @@ class JobApiConnector implements JobApiConnectorInterface
             return true;
         }
         
-        $xmlstr = $this->feedReader->readUrl($url);
-        if ($xmlstr) {
+        try {
+            $xmlstr = (string) $this->feedReader->get($url);
             $this->cache->save($urlMd5, $xmlstr, 300);
             return true;
         }
-        else {
+        catch (\Exception $e) {
             return false;
         }
     }

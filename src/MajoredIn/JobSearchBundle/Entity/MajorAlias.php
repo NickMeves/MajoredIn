@@ -9,7 +9,7 @@ use MajoredIn\JobSearchBundle\Model\MajorAliasInterface;
 /**
  * MajoredIn\JobSearchBundle\Entity\MajorAlias
  *
- * @ORM\Table()
+ * @ORM\Table(indexes={@ORM\index(name="name_canonical_idx", columns={"name_canonical"})})
  * @ORM\Entity(repositoryClass="MajoredIn\JobSearchBundle\Entity\MajorAliasRepository")
  */
 class MajorAlias implements MajorAliasInterface

@@ -23,16 +23,18 @@ class MajoredInJobSearchExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('advanced_search_defaults.yml');
-        $loader->load('autocomplete.yml');
-        $loader->load('cache.yml');
-        $loader->load('canonicalizer.yml');
-        $loader->load('feed_reader.yml');
-        $loader->load('job_api_connector.yml');
-        $loader->load('job_query_factory.yml');
-        $loader->load('location_manager.yml');
-        $loader->load('major_alias_manager.yml');
-        $loader->load('major_manager.yml');
-        $loader->load('twig.yml');
+        $loader->load('Controller/advanced_search_defaults.yml');
+        $loader->load('Controller/autocomplete.yml');
+        $loader->load('EventListener/exclude_url_listener.yml');
+        $loader->load('Model/location_manager.yml');
+        $loader->load('Model/major_alias_manager.yml');
+        $loader->load('Model/major_manager.yml');
+        $loader->load('Model/excluded_url_manager.yml');
+        $loader->load('Search/job_api_connector.yml');
+        $loader->load('Search/job_query_factory.yml');
+        $loader->load('Twig/twig.yml');
+        $loader->load('Util/canonicalizer.yml');
+        $loader->load('Util/feed_reader.yml');
+        $loader->load('Util/exclude_queue.yml');
     }
 }

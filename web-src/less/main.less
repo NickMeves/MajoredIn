@@ -23,7 +23,7 @@
 @import "bootstrap/type.less";
 @import "majoredin/type.less"; //Override
 
-// @import "bootstrap/code.less";
+@import "bootstrap/code.less";
 
 @import "bootstrap/forms.less";
 @import "majoredin/forms.less"; //Override
@@ -31,65 +31,88 @@
 @import "bootstrap/tables.less";
 
 // Components: common
-// @import "bootstrap/sprites.less";
+@import "bootstrap/sprites.less";
 @import "bootstrap/dropdowns.less";
-// @import "bootstrap/wells.less";
+@import "bootstrap/wells.less";
 @import "bootstrap/component-animations.less";
 @import "bootstrap/close.less";
 
 // Components: Buttons & Alerts
 @import "bootstrap/buttons.less";
 @import "bootstrap/button-groups.less";
-// @import "bootstrap/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+@import "bootstrap/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
 
 // Components: Nav
-// @import "bootstrap/navs.less";
-// @import "bootstrap/navbar.less";
-// @import "bootstrap/breadcrumbs.less";
+@import "bootstrap/navs.less";
+@import "bootstrap/navbar.less";
+@import "bootstrap/breadcrumbs.less";
 
 @import "bootstrap/pagination.less";
 @import "majoredin/pagination.less"; //Override
 
-// @import "bootstrap/pager.less";
+@import "bootstrap/pager.less";
 
 // Components: Popovers
 @import "bootstrap/modals.less";
 @import "majoredin/modals.less"; //Override
 
-// @import "bootstrap/tooltip.less";
-// @import "bootstrap/popovers.less";
+@import "bootstrap/tooltip.less";
+@import "bootstrap/popovers.less";
 
 // Components: Misc
-// @import "bootstrap/thumbnails.less";
-// @import "bootstrap/media.less";
-// @import "bootstrap/labels-badges.less";
-// @import "bootstrap/progress-bars.less";
-// @import "bootstrap/accordion.less";
-// @import "bootstrap/carousel.less";
-// @import "bootstrap/hero-unit.less";
+@import "bootstrap/thumbnails.less";
+@import "bootstrap/media.less";
+@import "bootstrap/labels-badges.less";
+@import "bootstrap/progress-bars.less";
+@import "bootstrap/accordion.less";
+@import "bootstrap/carousel.less";
+@import "bootstrap/hero-unit.less";
+
+// RESPONSIVE CLASSES
+// ------------------
+
+@import "bootstrap/responsive-utilities.less";
+
+
+// MEDIA QUERIES
+// ------------------
+
+// Large desktops
+// @import "bootstrap/responsive-1200px-min.less";
+
+// Tablets to regular desktops
+@import "bootstrap/responsive-768px-979px.less";
+
+// Phones to portrait tablets and narrow desktops
+@import "bootstrap/responsive-767px-max.less";
+
+
+// RESPONSIVE NAVBAR
+// ------------------
+
+// From 979px and below, show a button to toggle navbar contents
+@import "bootstrap/responsive-navbar.less";
 
 //************* Majored In Begin ****************************
-
-// Homepage
-@import "majoredin/homepage.less";
-@import "majoredin/social.less";
 
 // Input
 @import "majoredin/placeholder.less";
 
 //Layout
 @import "majoredin/layout.less";
+@import "majoredin/social.less";
+@import "majoredin/advertisements.less";
 
 // Generic Pages
-@import "majoredin/advanced.less";
-@import "majoredin/article.less";
-
-// Search Results
 @import "majoredin/header.less";
-@import "majoredin/filters.less";
-@import "majoredin/results.less";
-@import "majoredin/advertisements.less";
 @import "majoredin/footer.less";
+//@import "majoredin/advanced.less";
+
+// Search Jobs
+@import "majoredin/jobs.less";
+
+// Blog
+@import "majoredin/blog.less";
 
 //************* Majored In End ****************************
 

@@ -1,57 +1,38 @@
-.google-adsense-160x600 {
-    width: 160px;
-}
-
-.google-adsense-300x250 {
+.adsense-sidebar {
     width: 300px;
+    height: 250px;
 }
 
-.google-adsense-320x50 {
-    width: 320px;
-    margin: 0 auto;
-}
-
-.google-adsense-336x280 {
-    width: 336px;
-}
-
-.google-adsense-468x15 {
-    width: 468px;
-}
-
-.google-adsense-468x60 {
-    width: 468px;
-    margin: 0 auto;
-}
-
-.google-adsense-250x250 {
-    width: 250px;
-}
-
-.ad-wrap {
-    list-style: none outside none;
-    margin-bottom: 23px;
-}
-
-.adsense-body {
-    width: 468px;
-}
-
-.adsense-footer {
+.adsense-content-footer {
     width: 300px;
+    height: 250px;
 }
 
-@media only screen and (max-width: @phoneMedia) {
-    .adsense-body {
-        width: 200px;
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .adsense-sidebar {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 767px) { 
+    .adsense-wrapper {
+        margin: 0 -20px 23px -20px;
     }
     
-    .ad-wrap-footer {
-        margin: 0 -15px 23px -15px;
-    }
-    
-    .adsense-footer {
+    .adsense-sidebar {
         width: 320px;
+        height: 50px;
+        margin: 0 auto;
+    }
+    
+    .adsense-content-footer {
+        width: 320px;
+        height: 50px;
         margin: 0 auto;
     }
 }

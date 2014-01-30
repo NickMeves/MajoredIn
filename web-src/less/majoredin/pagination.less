@@ -1,4 +1,7 @@
-
+.pagination {
+    margin: @baseLineHeight + 10 0;
+}
+    
 .pagination ul {
     // Visuals
     .border-radius(0);
@@ -6,71 +9,40 @@
 }
 .pagination ul > li > a,
 .pagination ul > li > span {
-    padding: 4px 11px;
-    border: 0;
-    border-left-width: 0;
-}
-
-.pagination ul > .active > a,
-.pagination ul > .active > span {
-    color: @black;
+    color: @white;
+    background-color: lighten(@searchHeaderBackground, 10%);
+    padding: 8px 12px;
+    border: 2px solid @white;
+    .border-radius(4px);
+    
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: darken(@searchHeaderBackground, 10%);
+    }
 }
 
 .pagination ul > li:first-child > a,
 .pagination ul > li:first-child > span {
-    border-left-width: 0;
-    .border-left-radius(0);
+    border-left: 0;
+    .border-radius(4px);
 }
+
 .pagination ul > li:last-child > a,
 .pagination ul > li:last-child > span {
-    .border-right-radius(0);
+    border-right: 0;
+    .border-radius(4px);
 }
 
-.pagination ul > .prev > a {
-    padding-left: 0px;
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+    color: @white;
+    background-color: darken(@searchHeaderBackground, 10%);
 }
 
-.pagination ul > .prev > a:hover,
-.pagination ul > .next > a:hover {
-    text-decoration: underline;
-    background-color: @white;
-}
-
-// Sizing
-// --------------------------------------------------
-
-// Large
-.pagination-large {
-    ul > li:first-child > a,
-    ul > li:first-child > span {
-        .border-left-radius(0);
-    }
-    ul > li:last-child > a,
-    ul > li:last-child > span {
-        .border-right-radius(0);
-    }
-}
-
-// Small and mini
-.pagination-mini,
-.pagination-small {
-    ul > li:first-child > a,
-    ul > li:first-child > span {
-        .border-left-radius(0);
-    }
-    ul > li:last-child > a,
-    ul > li:last-child > span {
-        .border-right-radius(0);
-    }
-}
-
-@media only screen and (max-width: @phoneMedia) {
-    .pagination {
-        margin: @baseLineHeight + 10 0;
-    }
-    
+@media only screen and (max-width: 767px) {
     .pagination ul > li > a,
     .pagination ul > li > span {
-        font-size: @baseFontSize + 3;
+        font-size: @baseFontSize + 2;
     }
 }

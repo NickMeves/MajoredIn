@@ -16,25 +16,32 @@ class FeedReaderTest extends \PHPUnit_Framework_TestCase
     {
         $feedReader = $this->getFeedReader();
         $url = 'http://api.simplyhired.com/a/jobs-api/xml-v2';
-        $this->assertInternalType('string', $feedReader->readUrl($url));
+        $this->assertInternalType('string', $feedReader->get($url)->__toString());
     }
     
-    public function testReadUrlFail()
+    /**
+     * @expectedException MajoredIn\JobSearchBundle\Exception\GatewayTimeoutException
+     */
+    public function testReadUrlFailTimeout()
     {
-        $feedReader = $this->getFeedReader();
         $url = 'http://www.website.fail:1337';
-        $this->assertEquals(false, $feedReader->readUrl($url));
+        $this->getFeedReader()->get($url);
+    }
+    
+    /**
+     * @expectedException MajoredIn\JobSearchBundle\Exception\PageNotFoundException
+     */
+    public function testReadUrlFail404()
+    {
+        $url = 'http://api.simplyhired.com/a/jobs-api/xml-v404Me';
+        $this->getFeedReader()->get($url);
     }
     
     protected function getFeedReader()
     {
         $options = array(
-            'CURLOPT_HEADER' => false,
-            'CURLOPT_RETURNTRANSFER' => true,
-            'CURLOPT_FOLLOWLOCATION' => true,
-            'CURLOPT_MAXREDIRS' => 3,
-            'CURLOPT_CONNECTTIMEOUT' => 2,
-            'CURLOPT_TIMEOUT' => 5
+            'timeout' => 10,
+            'connect_timeout' => 1.5
         );
         return new FeedReader($options);
     }

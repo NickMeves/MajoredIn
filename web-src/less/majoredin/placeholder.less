@@ -1,5 +1,5 @@
 
-.form-horizontal {
+.form-inline {
     .placeholding-input {
         display: inline-block;
         .ie7-inline-block();
@@ -21,10 +21,11 @@
         .user-select(none);
         color: @placeholderText;
         cursor: text;
-        font-size: @baseFontSize - 1;
+        font-size: @baseFontSize;
         height: @baseLineHeight;
         line-height: @baseLineHeight;
         padding: 4px 6px; //must match input padding
+        margin: 0;
         .transition(opacity 0.1s ease 0s, font-size 0.1s ease 0s);
         white-space: nowrap;
         z-index: 1;

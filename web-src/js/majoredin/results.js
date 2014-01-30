@@ -1,11 +1,4 @@
 $(document).ready(function () {
-	//Hack to fix IE8 max-width overflow hidden bug.
-	if (majoredin.utils.ie == 8) {
-		$('.new-wrapper .new-job + .job-title').each(function () {
-				$(this).width($(this).width());
-		});
-	}
-	
 	$('.pagination .next a').waypoint(function() {
 		majoredin.utils.preloadUrl($(this).attr('href'));
 	}, {
@@ -39,5 +32,12 @@ $(document).ready(function () {
 		    	}
 		    }, 300);
 		}
+	});
+	
+	$('#advanced-button').click(function () {
+		var modal = $('#advancedModal');
+		modal.hide();
+		modal.removeClass('hidden');
+		modal.modal({});
 	});
 });

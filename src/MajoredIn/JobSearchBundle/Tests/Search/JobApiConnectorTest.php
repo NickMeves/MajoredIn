@@ -46,32 +46,11 @@ class JobApiConnectorTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('MajoredIn\JobSearchBundle\Search\JobApiConnectorInterface', $this->jobApiConnector);
     }
     
-    public function testAccessApiUrlFail()
-    {
-        try {
-            $this->jobQuery->expects($this->once())
-                ->method('getApiUrl')
-                ->will($this->returnValue('http://www.testfail.com'));
-            $this->jobQuery->expects($this->once())
-                ->method('getParams')
-                ->will($this->returnValue(array()));
-            $this->feedReader->expects($this->once())
-                ->method('readUrl')
-                ->with('http://www.testfail.com')
-                ->will($this->returnValue(false));
-            $this->jobApiConnector->accessApi($this->jobQuery);
-        }
-        catch (GatewayTimeoutException $e) {
-            return;
-        }
-        
-        $this->fail('An expected exception has not been raised.');
-    }
-    
+    /**
+     * @expectedException MajoredIn\JobSearchBundle\Exception\NoResultsException
+     */
     public function testAccessApiNoResultsError()
     {
-        $this->setExpectedException('\MajoredIn\JobSearchBundle\Exception\NoResultsException');
-        
         $xml = <<<XML
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
 <!DOCTYPE shrs SYSTEM "http://api.simplyhired.com/c/jobs-api/html/sr2.dtd">
@@ -93,11 +72,11 @@ XML;
             ->method('getParams')
             ->will($this->returnValue(array()));
         $this->feedReader->expects($this->once())
-            ->method('readUrl')
+            ->method('get')
             ->with('http://www.testnoresults.com')
             ->will($this->returnValue($xml));
         $this->cache->expects($this->once())
-            ->method('contains')
+            ->method('fetch')
             ->with(md5('http://www.testnoresults.com'))
             ->will($this->returnValue(false));
         $this->cache->expects($this->once())
@@ -106,10 +85,11 @@ XML;
         $this->jobApiConnector->accessApi($this->jobQuery);
     }
     
+    /**
+     * @expectedException MajoredIn\JobSearchBundle\Exception\InvalidParamException
+     */
     public function testAccessApiInvalidParamError()
     {
-        $this->setExpectedException('\MajoredIn\JobSearchBundle\Exception\InvalidParamException');
-        
         $xml = <<<XML
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
 <!DOCTYPE shrs SYSTEM "http://api.simplyhired.com/c/jobs-api/html/sr2.dtd">
@@ -131,11 +111,11 @@ XML;
             ->method('getParams')
             ->will($this->returnValue(array()));
         $this->feedReader->expects($this->once())
-            ->method('readUrl')
+            ->method('get')
             ->with('http://www.testinvalidparam.com')
             ->will($this->returnValue($xml));
         $this->cache->expects($this->once())
-            ->method('contains')
+            ->method('fetch')
             ->with(md5('http://www.testinvalidparam.com'))
             ->will($this->returnValue(false));
         $this->cache->expects($this->once())
@@ -194,11 +174,11 @@ XML;
                 ->method('getParams')
                 ->will($this->returnValue(array()));
             $this->feedReader->expects($this->once())
-                ->method('readUrl')
+                ->method('get')
                 ->with('http://www.testinstruction.com')
                 ->will($this->returnValue($xml));
             $this->cache->expects($this->once())
-                ->method('contains')
+                ->method('fetch')
                 ->with(md5('http://www.testinstruction.com'))
                 ->will($this->returnValue(false));
             $this->cache->expects($this->once())
@@ -214,6 +194,9 @@ XML;
         $this->fail('An expected LocationRedirectException has not been raised.');
     }
     
+    /**
+     * @expectedException \Exception
+     */
     public function testAccessApiUnknownError()
     {   
         $xml = <<<XML
@@ -229,31 +212,24 @@ XML;
  </error>
 </sherror>
 XML;
-        try {
-            $this->jobQuery->expects($this->once())
-                ->method('getApiUrl')
-                ->will($this->returnValue('http://www.testunknowntype.com'));
-            $this->jobQuery->expects($this->once())
-                ->method('getParams')
-                ->will($this->returnValue(array()));
-            $this->feedReader->expects($this->once())
-                ->method('readUrl')
-                ->with('http://www.testunknowntype.com')
-                ->will($this->returnValue($xml));
-            $this->cache->expects($this->once())
-                ->method('contains')
-                ->with(md5('http://www.testunknowntype.com'))
-                ->will($this->returnValue(false));
-            $this->cache->expects($this->once())
-                ->method('save')
-                ->with(md5('http://www.testunknowntype.com'), $xml, $this->ttl);
-            $this->jobApiConnector->accessApi($this->jobQuery);
-        }
-        catch (\Exception $e) {
-            return;
-        }
-        
-        $this->fail('An expected exception has not been raised.');
+        $this->jobQuery->expects($this->once())
+            ->method('getApiUrl')
+            ->will($this->returnValue('http://www.testunknowntype.com'));
+        $this->jobQuery->expects($this->once())
+            ->method('getParams')
+            ->will($this->returnValue(array()));
+        $this->feedReader->expects($this->once())
+            ->method('get')
+            ->with('http://www.testunknowntype.com')
+            ->will($this->returnValue($xml));
+        $this->cache->expects($this->once())
+            ->method('fetch')
+            ->with(md5('http://www.testunknowntype.com'))
+            ->will($this->returnValue(false));
+        $this->cache->expects($this->once())
+            ->method('save')
+            ->with(md5('http://www.testunknowntype.com'), $xml, $this->ttl);
+        $this->jobApiConnector->accessApi($this->jobQuery);
     }
     
     public function testAccessApiDefaultParams()
@@ -267,11 +243,11 @@ XML;
             ->method('getParams')
             ->will($this->returnValue(array()));
         $this->feedReader->expects($this->once())
-            ->method('readUrl')
+            ->method('get')
             ->with('http://www.testdefaultparams.com')
             ->will($this->returnValue($xml));
         $this->cache->expects($this->once())
-            ->method('contains')
+            ->method('fetch')
             ->with(md5('http://www.testdefaultparams.com'))
             ->will($this->returnValue(false));
         $this->cache->expects($this->once())
@@ -350,11 +326,11 @@ XML;
             ->method('getParams')
             ->will($this->returnValue($queryParams));
         $this->feedReader->expects($this->once())
-            ->method('readUrl')
+            ->method('get')
             ->with('http://www.testqueryparams.com')
             ->will($this->returnValue($xml));
         $this->cache->expects($this->once())
-            ->method('contains')
+            ->method('fetch')
             ->with(md5('http://www.testqueryparams.com'))
             ->will($this->returnValue(false));
         $this->cache->expects($this->once())
@@ -433,10 +409,6 @@ XML;
             ->method('getParams')
             ->will($this->returnValue($queryParams));
         $this->cache->expects($this->once())
-            ->method('contains')
-            ->with(md5('http://www.testqueryparams.com'))
-            ->will($this->returnValue(true));
-        $this->cache->expects($this->once())
             ->method('fetch')
             ->with(md5('http://www.testqueryparams.com'))
             ->will($this->returnValue($xml));
@@ -487,10 +459,11 @@ XML;
         $this->assertEquals('This candidate will be working in the mortgage dept. Reviews applications and supporting qualifying documents submitted ... clerical errors.Enters initial information into EasyLender Mortgage to create an electronic Loan File for all consumer...', $jobListings[9]->getExcerpt());
     }
 
+    /**
+     * @expectedException MajoredIn\JobSearchBundle\Exception\NoResultsException
+     */
     public function testAccessApiNoResultSetTag()
     {
-        $this->setExpectedException('\MajoredIn\JobSearchBundle\Exception\NoResultsException');
-        
         $xml = <<<XML
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
 <!DOCTYPE shrs SYSTEM "http://api.simplyhired.com/c/jobs-api/html/sr2.dtd">
@@ -520,11 +493,11 @@ XML;
             ->method('getParams')
             ->will($this->returnValue(array()));
         $this->feedReader->expects($this->once())
-            ->method('readUrl')
+            ->method('get')
             ->with('http://www.testnoresults.com')
             ->will($this->returnValue($xml));
         $this->cache->expects($this->once())
-            ->method('contains')
+            ->method('fetch')
             ->with(md5('http://www.testnoresults.com'))
             ->will($this->returnValue(false));
         $this->cache->expects($this->once())
@@ -533,10 +506,11 @@ XML;
         $this->jobApiConnector->accessApi($this->jobQuery);
     }
     
+    /**
+     * @expectedException MajoredIn\JobSearchBundle\Exception\NoResultsException
+     */
     public function testAccessApiEmptyResultSetTag()
     {
-        $this->setExpectedException('\MajoredIn\JobSearchBundle\Exception\NoResultsException');
-        
         $xml = <<<XML
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
 <!DOCTYPE shrs SYSTEM "http://api.simplyhired.com/c/jobs-api/html/sr2.dtd">
@@ -568,11 +542,11 @@ XML;
             ->method('getParams')
             ->will($this->returnValue(array()));
         $this->feedReader->expects($this->once())
-            ->method('readUrl')
+            ->method('get')
             ->with('http://www.testnoresults.com')
             ->will($this->returnValue($xml));
         $this->cache->expects($this->once())
-            ->method('contains')
+            ->method('fetch')
             ->with(md5('http://www.testnoresults.com'))
             ->will($this->returnValue(false));
         $this->cache->expects($this->once())
@@ -588,7 +562,7 @@ XML;
     
     protected function getCache()
     {
-        return $this->getMock('MajoredIn\JobSearchBundle\Util\CacheInterface');
+        return $this->getMock('Doctrine\Common\Cache\Cache');
     }
     
     protected function getJobQuery()

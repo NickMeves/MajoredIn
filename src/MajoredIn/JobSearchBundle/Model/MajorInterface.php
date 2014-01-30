@@ -63,5 +63,15 @@ interface MajorInterface
      * @return integer
      */
     public function getPopularity();
+    
+    /**
+     * Set related Major description page (Post entity)
+     */
+    public function setPost($post);
+    
+    /**
+     * Get related Major description page (Post entity)
+     */
+    public function getPost();
 
 }
