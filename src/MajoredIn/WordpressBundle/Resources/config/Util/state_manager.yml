@@ -1,0 +1,3 @@
+services:
+    mi_wordpress.state_manager:
+        class: MajoredIn\WordpressBundle\Util\StateManager

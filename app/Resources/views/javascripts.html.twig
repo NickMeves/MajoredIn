@@ -1,0 +1,47 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script src="{{ asset("lib/jquery-1.10.2.min.js") }}"><\/script>')</script>
+<script type="text/javascript">window.JSON || document.write('<script src="{{ asset("lib/json2.min.js") }}"><\/script>')</script>
+{% if app.environment == 'prod' %}
+    {# javascripts
+            'js/vendor/amplify.store.js'
+            'js/vendor/waypoints.js'
+            'js/vendor/socialite.js'
+            'js/bootstrap/bootstrap-transition.js'
+            'js/bootstrap/bootstrap-collapse.js'
+            'js/bootstrap/bootstrap-modal.js'
+            'js/bootstrap/bootstrap-typeahead.js'
+            'js/majoredin/utils.js'
+            'js/majoredin/search-bar.js'
+            'js/majoredin/filters.js'
+            'js/majoredin/results.js'
+            'js/majoredin/social.js'
+            'js/majoredin/event-tracking.js'
+            filter='closure' output='js/main.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts #}
+{% else %}
+    {% javascripts
+            'js/vendor/amplify.store.js'
+            'js/vendor/waypoints.js'
+            'js/vendor/socialite.js'
+            'js/bootstrap/bootstrap-transition.js'
+            'js/bootstrap/bootstrap-collapse.js'
+            'js/bootstrap/bootstrap-modal.js'
+            'js/bootstrap/bootstrap-typeahead.js'
+            'js/majoredin/utils.js'
+            'js/majoredin/search-bar.js'
+            'js/majoredin/filters.js'
+            'js/majoredin/results.js'
+            'js/majoredin/social.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endif %}
+<script type="text/javascript">
+  (function() {
+    var sh = document.createElement('script'); sh.type = 'text/javascript'; sh.async = true;
+    sh.src = "http://api.simplyhired.com/c/jobs-api/js/xml-v2.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sh, s);
+  })();
+</script>

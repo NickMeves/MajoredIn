@@ -1,0 +1,5 @@
+services:
+    mi_search.excluded_url.manager:
+        class: MajoredIn\JobSearchBundle\Model\ExcludedUrlManager
+        arguments:
+            - @doctrine.orm.entity_manager

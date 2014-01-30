@@ -1,0 +1,10 @@
+<script>
+(function (majoredin) {
+	var globals = majoredin.globals = majoredin.globals || {};
+
+    globals.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    globals.isDesktop = (globals.width > 979) ? true : false;
+    globals.isTablet = (globals.width <= 979 && globals.width > 767) ? true : false;
+    globals.isMobile = (globals.width <= 767) ? true : false;
+})(this.majoredin = this.majoredin || {});
+</script>

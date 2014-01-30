@@ -1,0 +1,10 @@
+parameters:
+    mi_search.feed_reader.request_options:
+        timeout: 30,
+        connect_timeout: 10
+
+services:
+    mi_search.feed_reader:
+        class: MajoredIn\JobSearchBundle\Util\FeedReader
+        arguments:
+            - %mi_search.feed_reader.request_options%

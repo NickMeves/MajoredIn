@@ -1,0 +1,22 @@
+parameters:
+    mi_search.job_api_connector.default_params:
+        mi: ''
+        pn: 1
+        fdb: ''
+        sb: rd
+        fjt: ''
+        fsr: ''
+        fem: ''
+        fcz: ''
+        fcr: ''
+        c: ''
+        t: ''
+        clst: ''
+
+services:
+    mi_search.job_api_connector:
+        class: MajoredIn\JobSearchBundle\Search\JobApiConnector
+        arguments:
+            - @mi_search.feed_reader
+            - @liip_doctrine_cache.ns.precache
+            - %mi_search.job_api_connector.default_params%

@@ -1,0 +1,11 @@
+mi_wordpress_admin:
+    pattern:  /cms/wp-admin{slash}
+    defaults: { _controller: MajoredInWordpressBundle:Wordpress:admin }
+    requirements:
+        slash: "\/*"
+        
+mi_wordpress_index:
+    pattern: /{path}
+    defaults: { _controller: MajoredInWordpressBundle:Wordpress:index }
+    requirements:
+        path: ".*"

@@ -1,0 +1,12 @@
+<div id="shareModal" class="modal hidden" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+    <div class="modal-header clearfix">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="shareModalLabel">Spread the Word!</h3>
+    </div>
+    <div class="modal-body">
+        <p>You and your friends face unemployment of 13.1% while at the same time the average college student is graduating with nearly $27,000 of student debt. Your friends need a job now, and you can help by letting them know about us.</p>
+        <p>MajoredIn hopes to be a beacon of light in the darkness and help college students find jobs they are qualified for.</p>
+        <p>We can't reach everyone alone -- <strong>please help us spread the word!</strong></p>
+        {% include 'MajoredInMainBundle:Social:socialshare.html.twig' with {'shareUrl': 'http://www.majoredin.com'} %}
+    </div>
+</div>

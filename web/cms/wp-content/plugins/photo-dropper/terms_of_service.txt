@@ -1,0 +1,93 @@
+We make every effort to update the Terms of Service here as frequently 
+as necessary. For the absolute most up to date document, please visit
+http://photodropper.com/tos
+
+---------
+
+PHOTODROPPER
+TERMS OF SERVICE AND LICENSE AGREEMENT
+
+INTRODUCTION.
+We here at PhotoDropper would like to welcome you (“User”), but first, we have to make a few things clear before you use our super-awesome WordPress plugin (“Plugin”)—specifically, the terms and conditions (“Terms” or “Agreement”) that you are agreeing to when you use our website (“Site”) or Plugin.  That being said, we’re going to keep the caps lock on for the next paragraph so you know we mean business:
+THE FOLLOWING “TERMS OF SERVICE” GOVERN YOUR USE OF THE PHOTODROPPER WEBSITE AND PLUGIN MADE AVAILABLE BY PHOTODROPPER.  USE OF THE PLUGIN AND WEBSITE REQUIRES CONSIDERATION FOR AND AS A CONDITION OF ALLOWING YOU TO VIEW, USE, OR REGISTER FOR THIS WEBSITE AND DOWNLOAD AND/OR USE OUR PLUGIN.  THAT CONSIDERATION CONSISTS OF YOUR HAVING READ AND ACCEPTED THESE TERMS OF USE (“Agreement”), AS WELL AS ANY OTHER AGREEMENTS FROM PHOTOGRAPHERS OR STOCK PHOTO COMPANIES. PLEASE READ THE AGREEMENT CAREFULLY AS YOUR ACCEPTANCE OF THIS AGREEMENT IS BINDING AS A CONTRACT ON YOU, OR ANY ENTITY THAT YOU MAY REPRESENT.
+CHANGES IN OUR PLUGIN AND PRICING
+
+Everybody likes new shiny objects, which is why we are constantly updating and revising our Plugin and Site, including the Photos that we offer.  The Photos on our Site or available through our Plugin are licensed pursuant to this Agreement.  We may discontinue providing any of the photos or services at any time without notice and without refund.  We cannot guarantee the availability of any particular photo, or guarantee the accuracy of its depiction, and you waive us from liability for this lack of availability, or for misrepresentations or inaccuracies for which we may otherwise be liable. In addition, our prices are subject to change at any time due to changing market conditions, photo availability, licensor price changes, errors in prices, and other extenuating circumstances like our desire to build a pool full of Jello in our office.
+
+INTELLECTUAL PROPERTY: OURS, THEIRS, AND YOURS.
+Ours.  Through our Plugin, you may be allowed to access or purchase images and use them in accordance with this Agreement. This Agreement grants you a nonexclusive, nontransferable, revocable license to use photos acquired in accordance with this Agreement, and you also agree that you have no claim to any intellectual property rights to any photo or image. You also agree to not use our Plugin or website for illegal purposes, or we’ll have to send Uncle Sal (i.e. our or someone else’s lawyers) after you…you don’t want Uncle Sal to come after you.
+Yours.  Your rights to any photos are limited to those granted to you by this Agreement and can be revoked at any time, for any reason, and without notice.  Any photo that you obtain via our Plugin or website is a limited sublicense and you cannot resell, sublicense, or assign that license to anyone else.  You agree to not do anything that would violate this Agreement, any law, mislead anyone, or do anything that increases our liability or jeopardizes our relationship with any other User or photo provider, with any violation being determined and adjudged by us at our sole discretion.  
+Theirs.  The components of the PhotoDropper Plugin and Site are subject to copyrights and other proprietary rights of PhotoDropper and its licensors.  All rights, title and interest in and to the Plugin, photos, the Site and any and all modifications to the foregoing which are prepared by or for PhotoDropper shall not pass to the User, but shall remain with PhotoDropper and its licensors.
+Infringement. The Digital Millennium Copyright Act (“DMCA”) provides copyright owners who believe that their rights have been infringed upon on a website an expedient remedy.  If you believe that your work has been copied in a way that constitutes copyright infringement, or that your intellectual property rights have been otherwise violated, please provide our Copyright Agent with the following information:
+
+1. An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright or other intellectual property interest;
+FORM
+2. A description of the copyrighted work or other intellectual property that you claim has been infringed;
+
+3. A description of where the material that you claim is infringing is located on the web site, with enough detail that we may find it on the web site;
+
+4. Your address, telephone number, and email address;
+
+5. Your statement that you have a good faith belief that the disputed use is not authorized by the copyright or intellectual property owner, its agent, or the law;
+
+6. Your statement, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright or intellectual property owner or authorized to act on the copyright or intellectual property owner’s behalf.
+
+Our Agent for Notice of claims of copyright or other intellectual property
+infringement can be reached as follows:
+
+Aaron Kelly Law
+13430 N. Scottsdale Rd. 
+Suite 106
+Scottsdale, AZ 85254
+e. aaron@aaronkellylaw.com
+p. 480-331-9397
+
+ACCESS AND USE
+You are permitted to access our website, Plugin, and the licensed photos only if you are an Authorized User.  What is an “Authorized User?” you may ask.  Well, it means an individual who has registered with our site, agreed to these Terms, and continues to abide by these Terms.  Authorized Users are required to provide their full legal name, a valid email address, and any other information that is requested by us.  You are prohibited from accessing our site, plugin, or any of the photos via robots, scripts, programs, space aliens, or other automated means.
+APPLICATION PROGRAM INTERFACE (API)
+
+Notwithstanding the provisions found in this Agreement, Authorized Users are permitted to access, purchase, and download using an Application Program Interface (“API”), subject to the following conditions:
+(a)  Use of any API created for this Website or Licensed Photo, whether through PhotoDropper or a third-party developer, is governed by these Terms of Service
+(b)  PhotoDropper, or any third party, will not be liable for any direct, indirect, incidental, consequential, special or exemplary damages, including, but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses, resulting from any use of an API or third-party products that access and use the Website or Licensed Software via an API;
+(c)  PhotoDropper reserves the right at any time to modify or discontinue, temporarily or permanently, access and use of the Website or Licensed Software via an API, with or without notice.
+(d) If any particular photo requires attribution to the author, you will provide such attribution as required.
+
+PROHBITED USE
+PhotoDropper reserves the right, in its sole discretion, to determine whether anyone has violated this Agreement.  The following is a list of conduct, behavior, and use that is prohibited, as determined by us in our sole discretion, as well as your agreeing that:
+You will not use, develop or distribute any automated software programs (bots), scripts, or other applications that are designed to modify, interact, or use the Site and/or Network;
+You will abide by all local, state, federal, international or other applicable laws, including but not limited to, rules regarding acceptable online conduct; 
+You will neither actually nor assist or attempt to disrupt, prohibit, or diminish any visitor or registered user’s experience or interaction with our Plugin, Site, or other related service;
+You will not reproduce, modify, reverse engineer, disassemble, distribute, transmit, copy, or otherwise create any derivative works of any portion of the Plugin, Site or any Licensed work or Photo;
+You will not collect, or use any software to collect, personal information of any kind, impersonate, or create a false identity for any reason, including for the purpose of misleading others;
+You will not use, upload, transmit, or distribute any content, images, or photographs to which you do not own the rights;
+You will not directly or indirectly cause any unsolicited commercial messages to be sent;
+You will not post, request, distribute or engage in conduct that is patently offensive;
+You will not post, request, distribute or engage in conduct that is sexually explicit or that can be construed as obscene or pornographic;
+You will not post, request, distribute or engage in conduct that is or promotes violence, terrorism, profanity, racial, bigotry, hatred, or otherwise objectionable content;
+You will not post, request, distribute, or engage in conduct that concerns illegal substances or activities;
+ You will not post, request, distribute, or engage in conduct that furthers or promotes warez, cracking, phishing, phreaking, or other similar activity;
+You will not develop, post, or distribute any material or websites that contain viruses or any other computer code, file, or program that is designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications device;
+You will not share any Licensed photos; 
+You will not solicit the login information of any other user of the Site or Network;
+You will not use your login information, sell any Photo, for commercial gain (i.e. selling your account to others); and
+You will not engage in any other prohibited use or prohibited content.  What is prohibited is determined by us  in our sole discretion; 
+
+
+	
+ 
+LIMITED WARRANTY; DISCLAIMER.
+	 
+PhotoDropper provides this Site, the Plugin, and its contents “AS IS.”  We make no express warranties or guarantees about anything. TO THE EXTENT PERMITTED BY LAW, WE DISCLAIM IMPLIED WARRANTIES INCLUDING ANY WARRANTY THAT OUR PLUGIN, SITE, OR CONTENTS IS OR WILL BE MERCHANTABLE, OF SATISFACTORY QUALITY, ACCURATE, TIMELY, FIT FOR A PARTICULAR PURPOSE OR NEED, OR NON-INFRINGING. Because some states do not permit a disclaimer of implied warranties, you may have additional consumer rights under your local laws, to the extent that the choice of New York law provision below does not limit such rights.
+
+WE WILL NOT BE RESPONSIBLE FOR ANY DAMAGES, WHETHER DIRECT OR INDIRECT, SPECIAL, CONSEQUENTIAL, EXEMPLARY, PUNITIVE, OR OTHER, EVEN IF WE KNEW OR SHOULD HAVE KNOWN OR HAVE A PSYCHIC THAT TOLD US THAT IT COULD OCCUR. OUR LIABILITY IN ANY JURISDICTION THAT DOES NOT ALLOW FOR THE EXCLUSION OF LIABILITY WILL BE LIMITED TO THE EXTENT PERMITTED BY LAW. 
+Neither party shall be liable for any damages or penalty for any delay in performance of, or failure to perform, any obligation hereunder or for failure to give the other party prior notice thereof when such delay or failure is due to the elements, acts of God, government regulation, political instability, acts of war, acts of terrorism, power outages, zombie attacks, changes in law, Internet disruption or other causes beyond that party's reasonable control.
+
+THINGS THAT WILL INVOLVE ANGRY LAWYERS AND RULES OF FISTICUFFS
+The parties hereby undertake to use good faith efforts to settle all disputes arising under or related to this Agreement and the services that this Agreement governs.  Failing settlement, all disputes will be governed by the laws of the State of New York.    The prevailing party in any dispute shall be reimbursed by the losing party for all expenses incurred in connection with the dispute, including but not limited to court costs and reasonable attorneys' fees. Each party to this Agreement also agrees to submit to the exclusive personal jurisdiction and venue in the State of New York.  In addition, any action brought by you against us must be brought within one year after the cause of action arises or it will be deemed forever waived and barred.
+INDEMNIFICATION (YOU BREAK IT, YOU BUY IT)
+
+You agree to defend, indemnify, and hold harmless PhotoDropper, its affiliates, Licensors, suppliers, vendors, and our respective employees, contractors, officers, directors, and agents from all liability, claims, and expenses, including attorneys’ fees, that arise from your use or misuse of the Plugin, Site, or any photo.  You also agree to indemnify us for any negligent or intentional wrongdoing by anyone who uses your account, or any act or omission of yours with respect to the payment of any fees owing to us.
+
+GENERAL TERMS.
+Neither this Agreement nor any rights granted hereby may be assigned by you without the prior written consent of PhotoDropper.  If any provision of this Agreement shall be held to be invalid, illegal or unenforceable for any reason, the validity, legality and enforceability of the remaining provisions shall not in any way be affected or impaired thereby. No express or implied waiver by either party of any event of default hereunder shall in any way be, or be construed as, a waiver of any future or subsequent event of default.  The respective rights and obligations of the parties under this Agreement, specifically the indemnification, confidentiality, intellectual property, etc. shall survive the termination of this Agreement. 
+The User shall not export or re-export PhotoDropper or any of the software or information related to PhotoDropper in violation of U.S. export laws. 

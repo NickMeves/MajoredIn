@@ -1,0 +1,21 @@
+.pdrp_captionAttribution .pdrp_link {
+	font-size:85%;
+}
+.pdrp_visitLink {
+	text-decoration: none;
+	color:inherit !important;
+}
+.pdrp_visitLink:hover {
+	text-decoration:none !important;
+	color: inherit !important;
+}
+#pdrp_endAttribution{
+	padding:5px 0;
+}
+.pdrp_captionAttribution{
+	margin-left:8px;
+	padding-left:5px;
+}
+.pdrp_sharedCaption{
+	border-left:1px dotted;
+}

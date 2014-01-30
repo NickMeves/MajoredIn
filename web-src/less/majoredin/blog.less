@@ -1,0 +1,126 @@
+.article {    
+    .featured-image {
+        float: left;
+        width: (@gridColumnWidth * 3) + (@gridGutterWidth * 2);
+        margin: 5px 15px 10px 0;
+    }
+    
+    p {
+        margin: 0 0 18px;
+    }
+}
+
+.article-header {
+    border-bottom: 1px solid darken(@white,15%);
+    margin-bottom: 15px;
+}
+
+.archive-entry {
+    border-bottom: 1px solid darken(@white,15%);
+    padding-bottom: 15px;
+}
+
+.archive-top-header {
+    border-bottom: 1px solid darken(@white,15%);
+    padding-bottom: 15px;
+}
+
+.archive-top-header-author {
+    padding-bottom: 15px;
+}
+
+.archive-header {
+    margin-bottom: 15px;
+    h2 {
+        a {
+            color: @textColor;
+            &:hover {
+                text-decoration: none;
+                color: @linkColor;
+            }
+        }
+    }
+}
+
+.archive-image {
+    margin-bottom: 10px;
+}
+
+.breadcrumbs {
+    color: @grayLight;
+    font-size: @baseFontSize + 1;
+    line-height: @baseLineHeight + 2;
+    
+    h1, h2, h3, h4, h5, h6 {
+        display: inline;
+        color: @grayLight;
+        font-size: @baseFontSize + 1;
+        line-height: @baseLineHeight + 2;
+        margin: 0;
+        font-weight: normal;
+    }
+}
+
+.image-attribution {
+    font-size: @baseFontSize;
+    line-height: @baseLineHeight;
+    margin: 5px 0;
+    
+    a {
+        color: @textColor;
+        &:hover {
+            color: @linkColor;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .article {
+        .featured-image {
+            width: (@gridColumnWidth768 * 3) + (@gridGutterWidth768 * 2);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .article {
+        .featured-image {
+            display: block;
+            width: 50%;
+            .box-sizing(border-box);
+        }
+    }
+    
+    .archive-top-header {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .archive-entry {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .archive-header {
+        .clearfix();
+        margin-bottom: 0px;
+        
+        h2 {
+            margin: 0;
+            font-size: @baseFontSize + 4;
+            line-height: @baseLineHeight + 4;
+        }
+        
+        .archive-image {
+                float: left;
+                display: block;
+                width: 25%;
+                margin: 0 10px 0 0;
+                .box-sizing(border-box);
+        }
+    }
+    
+    .author-avatar {
+        margin-bottom: 10px;
+    }
+}

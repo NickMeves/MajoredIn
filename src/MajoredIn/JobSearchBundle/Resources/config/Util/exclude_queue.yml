@@ -1,0 +1,3 @@
+services:
+    mi_search.exclude_queue:
+        class: MajoredIn\JobSearchBundle\Util\ExcludeQueue

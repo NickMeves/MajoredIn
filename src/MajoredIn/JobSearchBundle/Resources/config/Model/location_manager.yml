@@ -1,0 +1,6 @@
+services:
+    mi_search.location.manager:
+        class: MajoredIn\JobSearchBundle\Model\LocationManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @mi_search.canonicalizer

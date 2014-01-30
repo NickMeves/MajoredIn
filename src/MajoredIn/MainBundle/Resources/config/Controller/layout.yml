@@ -1,0 +1,5 @@
+services:
+    mi_main.layout_controller:
+        class: MajoredIn\MainBundle\Controller\LayoutController
+        calls:
+            - [setContainer, ["@service_container"]]

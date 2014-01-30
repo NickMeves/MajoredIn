@@ -1,0 +1,14 @@
+services:
+    mi_search.exclude_url.listener:
+        class: MajoredIn\JobSearchBundle\EventListener\ExcludeUrlListener
+        arguments:
+            - @mi_search.exclude_queue
+            - @router
+            - @mi_search.canonicalizer
+            - @mi_search.major.manager
+            - @mi_search.location.manager
+            - @mi_search.excluded_url.manager
+            - @doctrine.orm.entity_manager
+            - @logger
+        tags:
+            - { name: kernel.event_listener, event: kernel.terminate, method: onKernelTerminate }

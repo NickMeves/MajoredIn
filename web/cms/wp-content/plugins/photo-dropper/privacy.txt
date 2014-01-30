@@ -1,0 +1,100 @@
+We make every effort to update the Privacy Policy here as frequently 
+as necessary. For the absolute most up to date document, please visit
+http://photodropper.com/privacy
+
+---------
+
+PHOTODROPPER PRIVACY POLICY
+
+PhotoDropper respects your privacy, and is providing this Privacy Policy to let you know what we do
+with the information that we collect. This Privacy Policy will govern both your use of the Site and the
+Plugin. Your privacy rights when using PhotoDropper are listed in this Privacy Policy.
+
+2. Your Personal Information
+
+As a condition of joining PhotoDropper, you may be required to provide us with certain information,
+such as your name, e-mail address, username, website, as well as billing address and information related
+to payment for any purchases through our Plugin or Site. This, and other information about you, is
+defined as “personal information” for the purposes of our Privacy Policy.
+
+We will only share personal information with third parties in accordance with this Privacy Policy, or in
+furtherance of a provision of any other agreement that you may have entered into with us, or may enter
+into with us in the future, or if we specifically inform you in the future and you agree to share it as a
+condition of “opting in” to an offer.
+
+We also use your personal information to assist in billing, record keeping purposes, and to provide
+Licensors with information about those who may have purchased photos. Our Plugin also may also
+collect certain information about your website, including its URL, user stats, query data, usage data,
+photo data, hover data, and page views.
+
+We may share your information with third parties in accordance with this Agreement, and we may also
+transfer and assign your information in the event we are sold, acquired, or a majority of our business is
+acquired by a third party.
+
+3. Securing Your Account
+
+You must never share your account information with any other person. If your PhotoDropper account,
+or the e-mail account associated with your PhotoDropper account, becomes compromised, you should
+immediately change the login You will be responsible for any loss or damages that occurs as a result of
+your account being compromised, whether or not it was your fault.
+
+We need to earn money in order to keep PhotoDropper alive, and to buy shiny objects. So to that end,
+we may have advertising on our Site, or work with third parties in order to target advertisements that
+you may find interesting. To accomplish this, we may use cookies which will help us to determine your
+preferences, distinguish you amongst other users (because you’re special to us), and to help maintain
+your accounts integrity.
+
+Therefore, the use of cookies is mandatory in order to use PhotoDropper, and you must accept this as a
+
+condition of accessing and using our website.
+
+We send out e-mails to interested users which may include, among other things, offers from third
+parties that you may be interested in. If you are not interested in receiving these e-mails any longer,
+you may unsubscribe using a link provided within the e-mail for doing so.
+
+PhotoDropper may utilize an API from a third party that our Plugin interfaces with in order to deliver
+photos. This API may collect some information about you or your computer, and is subject to that third
+party Privacy Policy. You agree to hold harmless and indemnify us for any damages arising from your
+use of these API’s.
+
+We endeavor to keep your personal information secure, and we will only share it to the extent that
+is authorized by this Privacy Policy or necessary to maintain our operations. More specifically, but
+without limiting the generality of the foregoing, we use a third party to provide us with server space
+for PhotoDropper, where our website and its users’ personal information are stored. We may also
+need to bring in outside assistance to help us work on PhotoDropper, and they may have access to your
+personal information. We will try to ensure that only reputable third parties are involved in this process,
+as we have as much to lose as you by letting the wrong person access our systems, but we will not take
+responsibility for damages caused by third parties. We value our reputation as a secure business and
+will never do anything that we think would harm it.
+
+We may choose to disclose your personal information if we believe it is reasonable to do so in order
+to protect persons or property, assist law enforcement in a bona fide investigation into allegations of
+illegal activity, or protect the rights of third parties, such as people whose intellectual property has been
+infringed on.
+
+We comply fully with the Children’s Online Privacy Protection Act. We do not allow any users under
+the age of thirteen to use our service. However, if you become aware of the existence of a user who is
+under the age of thirteen, please contact us immediately at legal@PhotoDropper.com with full details.
+Include as much information as possible, including why you believe that the person is under thirteen.
+
+If you have been reported as being below thirteen by another person, we may request a copy of your
+photo ID as a condition of your continued use of our service.
+
+10. California Online Privacy Protection Act
+
+PhotoDropper complies fully with California’s online privacy legislation. We don’t disclose your personal
+information unless it is for a purpose described in this Privacy Policy or you have specifically opted in to
+do so. If you have any questions about how we collect, use, or disclose your information, please contact
+legal@PhotoDropper.com.
+
+We may change our Privacy Policy from time to time. Therefore, we encourage you to visit our “Privacy
+Policy” page frequently to ensure that you are aware of the current version in effect. We may also e-
+mail you to notify of changes, though we are not required to do so. The fact that you were not notified
+by e-mail of a change in the Privacy Policy will not affect the validity of that change, so you should be
+sure to check the Privacy Policy each time you visit our website.
+
+12. International Privacy Issues
+
+Our Site is intended to target U.S. based users. However, others may access or download our Plugin
+from other countries, or host the Plugin on a Site that is located in another country including the EU. If
+you are from a country that prohibits the collection of data please notify us immediately.

@@ -1,0 +1,20 @@
+{% if major != 'undeclared' %}
+    {% set majorFormatted = major|e|ucwords|dash %}
+{% else %}
+    {% set majorFormatted = 'undeclared' %}
+{% endif %}
+
+<div id="major-guide" class="well hidden-phone">
+    <h2 class="thin">The {{ major|e|ucwords }} Major:</h2>
+    <p>{{ excerpt|e }}&hellip; <a href="{{ permalink|e }}">Read the Guide</a></p>
+    {% for location in locations %}
+        {% if loop.first %}
+            <h5>Willing to move? These cities are best for this major:</h5>
+            <div class="row">
+        {% endif %}
+                <div class="span2"><a href="{{ path('mi_jobs_results', urlBase|merge({'major': majorFormatted, 'location': location|e|formatLoc|dash})) }}">{{ location|e }}</a></div>
+        {% if loop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

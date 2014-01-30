@@ -1,0 +1,111 @@
+/*
+* search_results.less
+* Styles for search results page main content (the results)
+*/
+
+#major-guide {
+    h2 {
+        margin: 0 0 10px 0;
+    }
+    .span2 {
+        width: @gridColumnWidth * 2 + @gridGutterWidth - 10;
+    }
+}
+
+#results-header {
+    div, button {
+        margin-bottom: 10px;
+    }
+}
+
+#results-stats {
+    span, h1 {
+        display: inline;
+        color: @grayLight;
+        font-size: @baseFontSize;
+        line-height: @baseLineHeight;
+        margin: 0;
+        font-weight: normal;
+    }
+}
+
+#jobs {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.job-wrap {
+    list-style: none outside none;
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: @baseFontSize + 2;
+    line-height: @baseLineHeight;
+    padding-bottom: 5px;
+    margin: 0;
+    word-wrap: break-word;
+    font-weight: normal;
+    a {
+        text-decoration: underline;
+    }
+}
+
+.new-job {
+    color: @filterLink;
+    font-size: @baseFontSize - 4;
+    font-weight: bold;
+}
+
+.job-info {
+    color: @subLinkGreen;
+    a {
+        color: @subLinkGreen;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.job-age {
+    float: right;
+    color: @grayLight;
+}
+
+.job-excerpt {
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.jobs-warn {
+    font-size: @baseFontSize + 2;
+    font-style: italic;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #major-guide {
+        .span2 {
+            width: @gridColumnWidth768 * 2 + @gridGutterWidth768 - 10;
+        }
+    }
+}
+
+@media (max-width: 767px) { 
+    .job-title {
+        font-size: @baseFontSize + 4;
+    }
+    
+    .job-age {
+        display: none;
+    }
+    
+    #major-guide {
+        .span2 {
+            width: 100%;
+        }
+    }
+}
+  
+    

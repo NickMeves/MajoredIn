@@ -1,0 +1,35 @@
+<div id="footer-wrap">
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span9">
+                    <div class="row">
+                        {% for menu in menus %}
+                            {{ menu|raw }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="row">
+                        <div class="span3">
+                            <div class="social-follow">
+                                {% spaceless %}
+                                <a class="facebook-follow" href="https://www.facebook.com/MajoredIn" target="_blank"></a>
+                                <a class="twitter-follow" href="https://twitter.com/Majored_In" target="_blank"></a>
+                                <a class="googleplus-follow" href="https://plus.google.com/b/105096370487794174619/105096370487794174619/posts" target="_blank"></a>
+                                <a class="linkedin-follow" href="http://www.linkedin.com/company/majoredin" target="_blank"></a>
+                                <a class="pinterest-follow" href="http://pinterest.com/majoredinpinnin" target="_blank"></a>
+                                {% endspaceless %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span3">
+                            <span class="copyright">&copy; {{ "now"|date("Y") }} Majored In, LLC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+services:
+    mi_wordpress.wordpress_api:
+        class: MajoredIn\WordpressBundle\Util\WordpressApi
+        arguments:
+            - %mi_wordpress.install_path%
+            - @mi_wordpress.state_manager
+            - @mi_wordpress.constant_definer

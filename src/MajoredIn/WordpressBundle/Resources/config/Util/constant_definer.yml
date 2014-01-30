@@ -1,0 +1,5 @@
+services:
+    mi_wordpress.constant_definer:
+        class: MajoredIn\WordpressBundle\Util\WordpressConstantDefiner
+        arguments:
+            - @service_container
