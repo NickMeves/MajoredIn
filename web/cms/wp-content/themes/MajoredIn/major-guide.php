@@ -24,11 +24,11 @@ get_header(); ?>
                     </div>
                 </div>
                 <div>
-                    <?php the_post_thumbnail('medium', array('class' => 'featured-image')); ?>
+                    <?php if (has_post_thumbnail()) { the_post_thumbnail('medium', array('class' => 'featured-image')); } ?>
                     <?php the_content(); ?>
                 </div>
             <?php endwhile; ?>
-            <?php if ( function_exists('photodropper_attribution') ) { photodropper_attribution(false); } ?>
+            <?php mi_attribution(false); ?>
             </div>
             <?php get_sidebar(); ?>
         </div>

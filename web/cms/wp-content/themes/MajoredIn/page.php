@@ -8,10 +8,11 @@
                     <h1 class="article-title thin top"><?php the_title(); ?></h1>
                 </div>
                 <div>
-                    <?php the_post_thumbnail('large', array('class' => 'featured-image')); ?>
+                    <?php if (has_post_thumbnail()) { the_post_thumbnail('medium', array('class' => 'featured-image')); } ?>
                     <?php the_content(); ?>
                 </div>
             <?php endwhile; ?>
+            <?php mi_attribution(false); ?>
             </div>
             <?php get_sidebar(); ?>
         </div>
