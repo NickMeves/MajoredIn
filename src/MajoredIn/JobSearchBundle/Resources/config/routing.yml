@@ -3,7 +3,7 @@ mi_jobs_results:
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:results, location: everywhere }
 
 mi_jobs_api_results:
-    pattern:  /jobs-api/{major}/{location}
+    pattern:  /jobs-api/v1/{major}/{location}
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:resultsApi, location: everywhere }
     
 mi_jobs_precache:

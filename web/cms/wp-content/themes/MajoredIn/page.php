@@ -4,6 +4,7 @@
         <div class="row">
             <div id="main" class="span8 article">
             <?php while (have_posts()) : the_post(); ?>
+                <?php global $_current_ID; $_current_ID = get_the_ID(); ?>
                 <div class="article-header">
                     <h1 class="article-title thin top"><?php the_title(); ?></h1>
                 </div>

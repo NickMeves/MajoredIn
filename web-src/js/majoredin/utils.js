@@ -159,5 +159,66 @@
 		$.get(url);
 		return;
 	};
+	
+	utils.populateApiJobs = function (element, callback) {
+		var major = element.data('major');
+		if (!major) {
+			major = 'undeclared';
+		}
+		var location = element.data('location');
+		var jobtype = element.data('jobtype');
+		
+		var url = '/jobs-api/v1/' + utils.dash(major);
+		if (location) {
+			url += '/' + utils.dash(location);
+		}
+		if (jobtype) {
+			url += '?jobtype=' + encodeURI(jobtype) + '&callback=?';
+		}
+		else {
+			url += '?callback=?';
+		}
+		
+		var limit = element.data('limit');
+		if (limit == null) {
+			limit = 10;
+		}
+		
+		$.getJSON(url, function (data) {
+			$.each(data, function (index, listing) {
+				if (index < limit) {
+					var decoder = $('<div/>'); //used with html().text() hack
+					var job = {
+						wrapper: $('<div/>', {
+							class: 'api-job'
+						}),
+						title: $('<h3/>', {
+							class: 'api-job-title'
+						}),
+						titleLink: $('<a/>', {
+							href: decoder.html(listing['url']).text(),
+							rel: 'nofollow',
+							target: '_blank',
+							onmousedown: 'xml_sclk(this);',
+							text: decoder.html(listing['title']).text()
+						}),
+						info: $('<div/>', {
+							class: 'api-job-info',
+							text: decoder.html(listing['company'] + ' - ' + listing['location']).text(),
+						})
+					};
+					
+					job.title.appendTo(job.wrapper);
+					job.titleLink.appendTo(job.title);
+					job.info.appendTo(job.wrapper);
+					job.wrapper.appendTo(element);
+				}
+			});
+			
+			callback(element);
+		});
+		
+		return;
+	};
 
 })(this.majoredin = this.majoredin || {});

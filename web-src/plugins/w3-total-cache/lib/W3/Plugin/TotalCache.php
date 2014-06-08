@@ -690,6 +690,7 @@ class W3_Plugin_TotalCache extends W3_Plugin {
             }
         }
         
+        //TODO: MAJOREDIN EDIT HERE.  MERGE ON ALL UPDATES.
         if ($restoreScope) {
             $kernel->getContainer()->get('mi_wordpress.wordpress_api')->scopeOff();
         }

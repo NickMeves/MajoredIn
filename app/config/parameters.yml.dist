@@ -18,7 +18,9 @@ parameters:
     wp_logged_in_salt:   ThisTokenIsNotSoSecretChangeIt
     wp_nonce_salt:       ThisTokenIsNotSoSecretChangeIt
     
-    memcached_driver:  memcached
+    wp_table_prefix:     miwp_
+    
+    memcached_driver:  memcache
     memcached_host:    127.0.0.1
     memcached_port:    11211
     

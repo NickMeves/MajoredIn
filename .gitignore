@@ -10,6 +10,7 @@
 /.settings
 /.buildpath
 /.project
+/.externalToolBuilders
 /*.bat
 /phpunit.php
 /app/console.bat
