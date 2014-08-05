@@ -4,7 +4,7 @@
         <div class="row">
             <div id="main" class="span8 article">
             <?php while (have_posts()) : the_post(); ?>
-                <?php global $_current_ID; $_current_ID = get_the_ID(); ?>
+                <?php global $mi_current_ID; $mi_current_ID = get_the_ID(); ?>
                 <div class="article-header">
                     <div class="breadcrumbs">
                         <a href="<?php echo bloginfo('url'); ?>">MajoredIn</a>

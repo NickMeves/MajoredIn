@@ -2,6 +2,7 @@ mi_jobs_results:
     pattern:  /jobs/{major}/{location}
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:results, location: everywhere }
 
+# Changes to this must also be in jobs-api.js
 mi_jobs_api_results:
     pattern:  /jobs-api/v1/{major}/{location}
     defaults: { _controller: MajoredInJobSearchBundle:JobSearch:resultsApi, location: everywhere }

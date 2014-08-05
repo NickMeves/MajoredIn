@@ -1,6 +1,17 @@
+(function (majoredin) {
+	var results = majoredin.results = majoredin.results || {};
+	
+	results.preloadUrl = function (url, store) {
+		url = url.replace(/^\/jobs/, '/precache');
+		$.get(url);
+		return;
+	};
+	
+})(this.majoredin = this.majoredin || {});
+
 $(document).ready(function () {
 	$('.pagination .next a').waypoint(function() {
-		majoredin.utils.preloadUrl($(this).attr('href'));
+		majoredin.results.preloadUrl($(this).attr('href'));
 	}, {
 		triggerOnce: true,
 		offset: 'bottom-in-view'

@@ -27,11 +27,47 @@ class RelatedJobs extends WP_Widget
     
         // these are our widget options
         $title = isset($instance['title']) ? esc_attr($instance['title']) : '';
-        $limit = isset($instance['limit']) ? esc_attr($instance['count']) : 10;
+        $limit = isset($instance['limit']) ? esc_attr($instance['limit']) : 10;
     
-        //TODO: RENDER
-        global $_current_ID;
-        echo '<div>'.$_current_ID.'</div>';
+        global $mi_current_ID;
+        global $kernel;
+        
+        $params = array(
+            'major' => get_post_meta($mi_current_ID, "major", true),
+            'location' => get_post_meta($mi_current_ID, "location", true),
+            'jobtype' => get_post_meta($mi_current_ID, "jobtype", true)
+        );
+        
+        $canonicalizer = $kernel->getContainer()->get('mi_search.canonicalizer');
+        
+        if (empty($params['major'])) {
+            $params['major'] = 'undeclared';
+        }
+        else {
+            $major = htmlspecialchars($major, ENT_QUOTES);
+            $major = ucwords($major);
+            $major = $canonicalizer->dash($major);
+        }
+        if (empty($params['location'])) {
+            unset($params['location']);
+        }
+        else {
+            $location = htmlspecialchars($location, ENT_QUOTES);
+            $location = $canonicalizer->formatLocation($location);
+            $location = $canonicalizer->dash($location);
+        }
+        if (empty($params['jobtype'])) {
+            unset($params['jobtype']);
+        }
+        
+        $url = $kernel->getContainer()->get('router')->generate('mi_jobs_api_results', $params);
+        
+        ?>
+        <div class="module">
+            <h4 class="thin"><?php echo $title; ?></h4>
+            <div class="jobs-api-box hidden" data-href="<?php echo $url; ?>" data-limit="<?php echo $limit; ?>"></div>
+        </div>
+        <?php
     }
     
     /**

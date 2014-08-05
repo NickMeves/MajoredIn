@@ -2,7 +2,7 @@
 <script type="text/javascript">window.jQuery || document.write('<script src="{{ asset("lib/jquery-1.10.2.min.js") }}"><\/script>')</script>
 <script type="text/javascript">window.JSON || document.write('<script src="{{ asset("lib/json2.min.js") }}"><\/script>')</script>
 {% if app.environment == 'prod' %}
-    {# javascripts
+    {% javascripts
             'js/vendor/amplify.store.js'
             'js/vendor/waypoints.js'
             'js/vendor/socialite.js'
@@ -15,12 +15,12 @@
             'js/majoredin/filters.js'
             'js/majoredin/results.js'
             'js/majoredin/social.js'
-            'js/majoredin/jobs-api-box.js'
+            'js/majoredin/jobs-api.js'
             'js/majoredin/event-tracking.js'
             filter='closure' output='js/main.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts #}
+    {% endjavascripts %}
 {% else %}
     {% javascripts
             'js/vendor/amplify.store.js'
@@ -35,7 +35,7 @@
             'js/majoredin/filters.js'
             'js/majoredin/results.js'
             'js/majoredin/social.js'
-            'js/majoredin/jobs-api-box.js'
+            'js/majoredin/jobs-api.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
