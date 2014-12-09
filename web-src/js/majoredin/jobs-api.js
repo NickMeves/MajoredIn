@@ -22,7 +22,7 @@
 						'wrapper': $('<div/>', {
 							'class': 'api-job'
 						}),
-						'title': $('<h3/>', {
+						'title': $('<h5/>', {
 							'class': 'api-job-title'
 						}),
 						'titleLink': $('<a/>', {

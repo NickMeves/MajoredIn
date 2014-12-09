@@ -84,6 +84,30 @@
     font-style: italic;
 }
 
+.api-job {
+    padding-bottom: 10px;
+    border-bottom: 1px solid darken(@white,15%);
+    margin: 0px 5px 10px 5px;
+    &:last-child {
+        border: 0px;
+    }
+}
+
+.module .api-job-title, .jobs-api-box .api-job-title {
+    font-size: @baseFontSize;
+    background-color: @bodyBackground;
+    border-radius: 0px;
+    color: @textColor;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.api-job-info {
+    font-size: @baseFontSize;
+    color: @subLinkGreen;
+}
+
 @media (min-width: 768px) and (max-width: 979px) {
     #major-guide {
         .span2 {
