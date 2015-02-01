@@ -163,7 +163,7 @@
         
         {% include 'MajoredInJobSearchBundle:Modal:advanced.html.twig' with {'major': major, 'location': location, 'queryString': queryString, 'defaults': defaults} %}
         
-        {% include 'MajoredInJobSearchBundle:Modal:share.html.twig' %}
+        {{ render(controller('MajoredInJobSearchBundle:Layout:popup')) }}
 
     </div>
 </div>

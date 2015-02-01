@@ -117,6 +117,16 @@ function mi_widgets_init() {
 	));
 	
 	register_sidebar(array(
+    	'name'          => 'Jobs Popup',
+    	'id'            => 'jobs-popup',
+    	'description'   => 'Widget for easy editing of jobs spam popup',
+    	'before_widget' => '<?xml version="1.0" encoding="UTF-8"?><popup><title><![CDATA[',
+    	'after_widget'  => ']]></body></popup>',
+    	'before_title'  => '',
+    	'after_title'   => ']]></title><body><![CDATA[',
+	));
+	
+	register_sidebar(array(
     	'name'          => 'Homepage Jumbotron',
     	'id'            => 'homepage-jumbotron',
     	'description'   => 'Homepage Jumbotron Area (HTML Only)',

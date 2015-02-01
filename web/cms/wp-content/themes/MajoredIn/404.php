@@ -1,31 +1,26 @@
 <?php
-/**
- * The template for displaying 404 pages (Not Found).
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
- */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+<div id="content">
+    <div class="container error404">
+        <div class="row">
+            <div id="main" class="span8 offset2">
+            
+                <h1 class="article-title">404. Are you lost?</h1>
+                <p>Whoops, we have no idea where you were trying to go.  Whatever this page is, we don't know about it.</p>
+                <p>Try hitting the back button or using the links on this page to navigate back to real pages.</p>
+                <p>If a broken link sent you here please <a href="mailto:support@majoredin.com">email us</a> which link it was.  We'll try to fix it ASAP.</p>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php _e( 'Not found', 'twentythirteen' ); ?></h1>
-			</header>
+            </div>
+        </div>
+    </div>
+</div>
 
-			<div class="page-wrapper">
-				<div class="page-content">
-					<h2><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'twentythirteen' ); ?></h2>
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentythirteen' ); ?></p>
-
-					<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</div><!-- .page-wrapper -->
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-<?php get_footer(); ?>
+<?php
+    global $kernel;
+    echo $kernel->getContainer()->get('templating')->render('::javascripts.html.twig');
+?>
+<?php wp_footer(); ?>
+</body>
+</html>
