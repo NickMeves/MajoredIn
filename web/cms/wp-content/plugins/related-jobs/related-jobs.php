@@ -61,11 +61,14 @@ class RelatedJobs extends WP_Widget
         }
         
         $url = $kernel->getContainer()->get('router')->generate('mi_jobs_api_results', $params);
+        $moreUrl = $kernel->getContainer()->get('router')->generate('mi_jobs_results', $params);
         
         ?>
         <div class="module">
             <h4 class="thin"><?php echo $title; ?></h4>
-            <div class="jobs-api-box hidden" data-href="<?php echo $url; ?>" data-limit="<?php echo $limit; ?>"></div>
+            <div class="jobs-api-box" data-href="<?php echo $url; ?>" data-limit="<?php echo $limit; ?>">
+                <div class="api-job"><a href="<?php echo $moreUrl; ?>" class="pull-right">See More <?php echo ($params['major'] === 'undeclared') ? "" : ucfirst($params['major'])." " ?>Jobs &raquo;</a></div>
+            </div>
         </div>
         <?php
     }

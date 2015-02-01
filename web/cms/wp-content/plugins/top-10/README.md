@@ -2,7 +2,7 @@
 
 __Requires:__ 3.0
 
-__Tested up to:__ 4.0
+__Tested up to:__ 4.2
 
 __License:__ [GPL-2.0+](http://www.gnu.org/licenses/gpl-2.0.html)
 
@@ -42,7 +42,7 @@ If you're looking for a plugin to display related, look no further than my other
 
 
 ## Screenshots
-![General Options](https://raw.github.com/ajaydsouza/top-10/master/screenshot-1.png)
+![General Options](https://raw.github.com/ajaydsouza/top-10/master/assets/screenshot-1.png)
 _Top 10 settings page - General Options._
 
 For more screenshots visit the <a href="http://wordpress.org/plugins/top-10/screenshots/">WordPress plugin page</a>

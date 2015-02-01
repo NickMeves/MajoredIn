@@ -649,12 +649,12 @@ class W3_Plugin_TotalCache extends W3_Plugin {
                 $buffer = w3tc_do_ob_callbacks(array('minify', 'newrelic', 'cdn', 'browsercache', 'pagecache'), $buffer);
             }
         }
-        
+
         //TODO: MAJOREDIN EDIT HERE.  MERGE ON ALL UPDATES.
         if ($restoreScope) {
             $kernel->getContainer()->get('mi_wordpress.wordpress_api')->scopeOff();
         }
-
+        
         return $buffer;
     }
 

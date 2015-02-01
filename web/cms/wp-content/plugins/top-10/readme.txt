@@ -4,7 +4,7 @@ Contributors: Ajay
 Donate link: http://ajaydsouza.com/donate/
 Stable tag: trunk
 Requires at least: 3.3
-Tested up to: 4.0
+Tested up to: 4.2
 License: GPLv2 or later
 
 
@@ -43,24 +43,51 @@ If you're looking for a plugin to display related, look no further than my other
 == Screenshots ==
 
 1. Top 10 options - General options
-2. Top 10 options - Output options
-3. Top 10 options - Custom styles
-4. Top 10 options - Maintenance
-5. Top 10 options - Reset count
-6. Top 10 widget options
-7. Top 10 Meta box on the Edit Post screen
+2. Top 10 options - Counter and Tracker options
+3. Top 10 options - Popular post list options
+4. Top 10 options - Thumbnail options
+5. Top 10 options - Custom styles
+6. Top 10 options - Maintenance
+7. Top 10 widget options
+8. Top 10 Meta box on the Edit Post screen
+9. WordPress Multisite: Import Top 10 v1.x counts
 
 
 == Upgrade Notice ==
 
-= 1.9.10.1 =
-Fixed: Initialisation error for new installs
+= 2.0.3 =
+* Fixed: Metabox update did not work properly in v2.0; New option to keep data on uninstall.
 
-= 1.9.10 =
-New meta box to set thumbnails; Edit total view count; Stop tracking Editors; Shortcode accepts all parameters as options page;
-Refer to the Changelog for full list of changes.
 
 == Changelog ==
+
+= 2.0.3 =
+* New: Options to choose if you want to delete the Top 10 options and/or data when deleting the plugin
+* Fixed: Metabox update did not work properly in v2.0
+* Fixed: Duplicate include files
+* Modified: In the mySQL tables, the blog_id default value is set to 1
+
+= 2.0.2 =
+* New: Option to display the daily posts count from midnight. This is enabled by default and mimics the original behaviour of the counter in Top 10 v1.x
+* Modified: Posts are tracked hourly based on the time of the blog and not GMT. This was also the default behaviour of the counter in Top 10 v1.x
+* Fixed: Default thumbnail location saved correctly on the Settings page.
+
+= 2.0.1 =
+* Bug fix release: Fixes 500/503 errors caused by 2.0.0
+
+= 2.0.0 =
+* New: Multisite support. If you're using multisite and have previously activated Top 10 on individual blogs in the network, then head over to **Top 10 Settings** and import the counts from the old Top 10 1.x tables to the new Top 10 v2.0 tables
+* New: Fully extendable lookup query for the top lists. Now you can create your own functions in functions.php or in addon plugins to modify the mySQL query
+* New: Option to use any of the inbuilt thumbnail sizes or create your own custom image size. If a custom size is chosen, then the plugin uses `add_image_size` to register the custom size. I recommend using <a href="https://wordpress.org/plugins/force-regenerate-thumbnails/">Force Regenerate Thumbnails</a>
+* New: Actions and filters in the Top 10 Settings page and in the widget which allows for addons to add more settings
+* Modified: Post tracking is now done on an hourly basis. Date limiting is also on an hourly basis. So, 1 day is actually the last 24 hours and not from midnight anymore!
+* Modified: Update and View counts now use query variables instead of external JavaScript files. Check http://goo.gl/yemvyM for sample functions to restore the old method
+* Modified: Activating the default styles option will automatically set the thumbnail width and height to 65px, disable author and excerpt and enable crop mode for the thumbnails
+* Fixed: Fix schedule overwrite for the cron job
+* Fixed: Incorrect permission lookup in the metabox
+
+= 1.9.10.2 =
+* Fixed: Schedules were overwritten when activating the maintenance cron job
 
 = 1.9.10.1 =
 * Fixed: Initialisation error for new installs

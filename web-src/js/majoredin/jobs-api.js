@@ -41,7 +41,7 @@
 					job.title.appendTo(job.wrapper);
 					job.titleLink.appendTo(job.title);
 					job.info.appendTo(job.wrapper);
-					job.wrapper.appendTo(element);
+					job.wrapper.prependTo(element);
 				}
 			});
 			

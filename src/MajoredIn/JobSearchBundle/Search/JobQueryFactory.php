@@ -14,7 +14,7 @@ class JobQueryFactory implements JobQueryFactoryInterface
     protected $baseUrl;
     protected $allowableParams;
     protected $publisherId;
-    protected $jobamaticDomain;
+    protected $authKey;
     protected $searchStyle;
     protected $configFlag;
     
@@ -25,18 +25,18 @@ class JobQueryFactory implements JobQueryFactoryInterface
      * @param string $baseUrl The base URL of the Simply Hired API
      * @param array $allowableParams The GET parameters and rules allowed
      * @param string $publisherId Simply Hired publisher ID
-     * @param string $jobamaticDomain Simply Hired jobamatic domain
+     * @param string $authKey Simply Hired Authentication Key
      * @param string $searchStyle Simply Hired required API value (unknown use)
      * @param string $configFlag Simply Hired required API value (unknown use)
      */
-    public function __construct(MajorManagerInterface $majorManager, MajorAliasManagerInterface $majorAliasManager, $baseUrl, array $allowableParams, $publisherId, $jobamaticDomain, $searchStyle, $configFlag)
+    public function __construct(MajorManagerInterface $majorManager, MajorAliasManagerInterface $majorAliasManager, $baseUrl, array $allowableParams, $publisherId, $authKey, $searchStyle, $configFlag)
     {
         $this->majorManager = $majorManager;
         $this->majorAliasManager = $majorAliasManager;
         $this->baseUrl = $baseUrl;
         $this->allowableParams = $allowableParams;
         $this->publisherId = $publisherId;
-        $this->jobamaticDomain = $jobamaticDomain;
+        $this->authKey = $authKey;
         $this->searchStyle = $searchStyle;
         $this->configFlag = $configFlag;
     }
@@ -93,7 +93,7 @@ class JobQueryFactory implements JobQueryFactoryInterface
         }
         
         $jobQuery->addRequiredParam('pshid', $this->publisherId);
-        $jobQuery->addRequiredParam('jbd', $this->jobamaticDomain);
+        $jobQuery->addRequiredParam('auth', $this->authKey);
         $jobQuery->addRequiredParam('ssty', $this->searchStyle);
         $jobQuery->addRequiredParam('cflg', $this->configFlag);
         $jobQuery->addRequiredParam('clip', $request->getClientIp());

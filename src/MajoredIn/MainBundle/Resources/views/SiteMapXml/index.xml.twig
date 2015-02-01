@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>{{ url('mi_main_sitemap_main', {'_format': 'xml'}) }}</loc>
+        <loc>{{ url('mi_wordpress_index', {'path': 'post-sitemap.xml'}) }}</loc>
+    </sitemap>
+    <sitemap>
+        <loc>{{ url('mi_wordpress_index', {'path': 'page-sitemap.xml'}) }}</loc>
+    </sitemap>
+    <sitemap>
+        <loc>{{ url('mi_wordpress_index', {'path': 'category-sitemap.xml'}) }}</loc>
+    </sitemap>
+    <sitemap>
+        <loc>{{ url('mi_wordpress_index', {'path': 'post_tag-sitemap.xml'}) }}</loc>
+    </sitemap>
+    <sitemap>
+        <loc>{{ url('mi_wordpress_index', {'path': 'author-sitemap.xml'}) }}</loc>
     </sitemap>
     <sitemap>
         <loc>{{ url('mi_main_sitemap_locations', {'_format': 'xml'}) }}</loc>

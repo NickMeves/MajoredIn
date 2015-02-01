@@ -8,61 +8,23 @@
 {% endblock %}
 
 {% block body %}
-<div id="nav-header">
+
+{{ render(controller('MajoredInMainBundle:Layout:header', { 'major': major, 'location': location })) }}
+
+<div id="content">
     <div class="container">
-        <div class="navbar">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="{{ path('mi_main_about') }}"><img alt="MajoredIn" src="{{ asset("img/majoredin_350x73.png") }}"></img></a>
-            <!-- Everything you want hidden at 940px or less, place within here -->
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li><a href="#">Find Jobs</a></li>
-                    <li><a href="#">Employment Guides</a></li>
-                    <li><a href="#">News & Articles</a></li>
-                </ul>
+        <div class="row">
+            <div id="main" class="span8 offset2">
+            
+                <h1 class="article-title">Sorry.  We couldn't find any jobs for you.</h1>
+                <p>Is everything spelled correctly? You're probably a good speller, but it doesn't hurt to make sure.</p>
+                <p>Did you go a little overboard with the advanced filters? Try removing a few of those if you have too many.</p>
+                <p>If you're willing to commute a bit farther, try expanding your search radius by increasing the distance filter.</p>
+                <p>Our servers might've screwed things up too; nothing you can do about that one.</p>
+
             </div>
         </div>
     </div>
 </div>
-{% spaceless %}
-<div id="search-header-wrap">
-    <div id="search-header">
-        <div class="container">
-            <div class="row form-inline">
-                <form id="search-bar-form" action="{{ path('mi_jobs_redirect') }}" method="get">
-                    <div id="search-inputs" class="span10">
-                        <div class="row">
-                            <div class="placeholding-input span5">
-                                <input id="search-major"  class="span5" type="text" name="major" {% if major != 'undeclared' %}value="{{ major|e }}" {% endif %}autocomplete="off" />
-                                <label class="placeholder{% if major != 'undeclared' %} hide{% endif %}" for="search-major">College major</label>
-                            </div>
-                            <div class="placeholding-input span5">
-                                <input id="search-location" class="span5" type="text" name="location" {% if location != 'everywhere' %}value="{{ location|e }}" {% endif %}autocomplete="off" />
-                                <label class="placeholder{% if location != 'everywhere' %} hide{% endif %}" for="search-location">Where to work</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="search-submit" class="btn span2" type="submit">Find Jobs</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{% endspaceless %}
-<div class="container">
-    <div class="row">
-        <div class="span12">
-<h1 class="article-title">Sorry.  We couldn't find any jobs for you.</h1>
-<p>Is everything spelled correctly? You're probably a good speller, but it doesn't hurt to make sure.</p>
-<p>Did you go a little overboard with the advanced filters? Try removing a few of those if you have too many.</p>
-<p>If you're willing to commute a bit farther, try expanding your search radius by increasing the distance filter.</p>
-<p>Our servers might've screwed things up too; nothing you can do about that one.</p>
-        </div>
-    </div>
-</div>
+
 {% endblock %}

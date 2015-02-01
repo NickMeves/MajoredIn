@@ -51,8 +51,8 @@ parameters:
             translation: clst
             requirements: /^comboxp0$/
             
-    mi_search.job_query.publisher_id: 49326
-    mi_search.job_query.jobamatic_domain: majoredin.jobamatic.com
+    mi_search.job_query.publisher_id: 91234
+    mi_search.job_query.authkey: 137a466c686b7a13024d1e35cfa9dfecce72dc23.91234
     mi_search.job_query.search_style: 2
     mi_search.job_query.configuration_flag: r
 
@@ -65,7 +65,7 @@ services:
             - %mi_search.job_query.base_url%
             - %mi_search.job_query.allowable_params%
             - %mi_search.job_query.publisher_id%
-            - %mi_search.job_query.jobamatic_domain%
+            - %mi_search.job_query.authkey%
             - %mi_search.job_query.search_style%
             - %mi_search.job_query.configuration_flag%
             

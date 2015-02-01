@@ -1,36 +1,73 @@
 .tptn_posts {
     ul {
         margin: 0px;
+        
     }
     li {
         .clearfix();
         list-style: none outside none;
-        padding-bottom: @baseFontSize;
+        padding-bottom: @baseFontSize - 3;
         border-bottom: 1px solid darken(@white,15%);
-        margin: 0px 5px @baseFontSize 5px;
+        margin: 0px 5px @baseFontSize - 3 5px;
         &:last-child {
             border: 0px;
+            padding-bottom: 0;
         }
     }
     
     li > .tptn_link {
         display: block;
-        float: right;
-        width: @gridColumnWidth + @gridGutterWidth;
+        float: left;
         min-height: 1px;
+        width: 27%;
+        padding-right: 3%;
+    }
+    
+    .tptn_after_thumb, .tptn_no_thumb {
+        display: block;
+        float: left;
+        min-height: 1px;
+        .tptn_link {
+            display: block;
+            float: left;
+            min-height: 1px;
+            width: 100%;
+            color: @gray;
+            font-size: @baseFontSize + 2;
+            line-height: @baseLineHeight + 2;
+            word-wrap: break-word;
+            &:hover {
+                color: @linkColor;
+            }
+        }
+    }
+    .tptn_after_thumb {
+        width: 70%;
+    }
+    .tptn_no_thumb {
+        width: 100%;
+    }
+    
+    .tptn_date {
+        display: block;
+        float: left;
+        min-height: 1px;
+        width: 100%;
+        color: @grayLight;
+        font-size: @baseFontSize - 1;
+    }
+}
+
+@media (max-width: 767px) { 
+
+.tptn_posts {
+    li > .tptn_link {
+        width: 17%;
     }
     
     .tptn_after_thumb {
-        display: block;
-        margin-right: @gridColumnWidth + 2 * @gridGutterWidth;
-        min-height: 1px;
+        width: 80%;
     }
-    
-    .tptn_title {
-        color: @gray;
-        font-size: @baseFontSize + 4;
-        line-height: @baseLineHeight + 6;
-        font-weight: bold;
-        word-wrap: break-word;
-    }
+}
+
 }
