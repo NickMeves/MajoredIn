@@ -21,7 +21,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "guzzle/guzzle": "~3.7",
         "liip/doctrine-cache-bundle": "~1.0",
-        "leafo/lessphp": "~0.4",
+        "leafo/lessphp": "0.4.0",
         "phpunit/phpunit": "~3.7"
     },
     "scripts": {

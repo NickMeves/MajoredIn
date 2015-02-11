@@ -1,7 +1,7 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">window.jQuery || document.write('<script src="{{ asset("lib/jquery-1.10.2.min.js") }}"><\/script>')</script>
 <script type="text/javascript">window.JSON || document.write('<script src="{{ asset("lib/json2.min.js") }}"><\/script>')</script>
-{# if app.environment == 'prod' %}
+{% if app.environment == 'prod' %}
     {% javascripts
             'js/vendor/amplify.store.js'
             'js/vendor/waypoints.js'
@@ -21,7 +21,7 @@
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-{% else #}
+{% else %}
     {% javascripts
             'js/vendor/amplify.store.js'
             'js/vendor/waypoints.js'
@@ -39,7 +39,7 @@
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-{# endif #}
+{% endif %}
 <script type="text/javascript">
   (function() {
     var sh = document.createElement('script'); sh.type = 'text/javascript'; sh.async = true;
