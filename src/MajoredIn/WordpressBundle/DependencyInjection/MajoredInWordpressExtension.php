@@ -25,9 +25,9 @@ class MajoredInWordpressExtension extends Extension
         $config = $processor->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('Util\constant_definer.yml');
-        $loader->load('Util\state_manager.yml');
-        $loader->load('Util\wordpress_api.yml');
+        $loader->load('Util/constant_definer.yml');
+        $loader->load('Util/state_manager.yml');
+        $loader->load('Util/wordpress_api.yml');
         
         $container->setParameter('mi_wordpress.install_path', $config['install_path']);
         
