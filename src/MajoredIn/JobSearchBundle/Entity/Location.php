@@ -8,7 +8,7 @@ use MajoredIn\JobSearchBundle\Model\LocationInterface;
 /**
  * MajoredIn\JobSearchBundle\Entity\Location
  *
- * @ORM\Table(indexes={@ORM\index(name="name_canonical_idx", columns={"name_canonical"}), @ORM\index(name="population_idx", columns={"population"})})
+ * @ORM\Table(indexes={@ORM\Index(name="name_canonical_idx", columns={"name_canonical"}), @ORM\Index(name="population_idx", columns={"population"})})
  * @ORM\Entity(repositoryClass="MajoredIn\JobSearchBundle\Entity\LocationRepository")
  */
 class Location implements LocationInterface

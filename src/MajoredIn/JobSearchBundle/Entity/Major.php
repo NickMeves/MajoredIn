@@ -8,7 +8,7 @@ use MajoredIn\JobSearchBundle\Model\MajorInterface;
 /**
  * MajoredIn\JobSearchBundle\Entity\Major
  *
- * @ORM\Table(indexes={@ORM\index(name="name_canonical_idx", columns={"name_canonical"}), @ORM\index(name="popularity_idx", columns={"popularity"})})
+ * @ORM\Table(indexes={@ORM\Index(name="name_canonical_idx", columns={"name_canonical"}), @ORM\Index(name="popularity_idx", columns={"popularity"})})
  * @ORM\Entity(repositoryClass="MajoredIn\JobSearchBundle\Entity\MajorRepository")
  */
 class Major implements MajorInterface

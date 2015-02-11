@@ -8,7 +8,7 @@ use MajoredIn\JobSearchBundle\Model\ExcludedUrlInterface;
 /**
  * MajoredIn\JobSearchBundle\Entity\ExcludedUrl
  *
- * @ORM\Table(indexes={@ORM\index(name="url_idx", columns={"url"})})
+ * @ORM\Table(indexes={@ORM\Index(name="url_idx", columns={"url"})})
  * @ORM\Entity(repositoryClass="MajoredIn\JobSearchBundle\Entity\ExcludedUrlRepository")
  */
 class ExcludedUrl implements ExcludedUrlInterface
