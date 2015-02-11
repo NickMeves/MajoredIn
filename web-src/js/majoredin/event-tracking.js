@@ -17,22 +17,6 @@ $(document).ready(function () {
 		_gaq.push(['_trackEvent', 'Jobs', 'Organic Click', major]);
 	});
 	
-	//Filter events
-	$('#add-filters').mouseenter(function () {
-		_gaq.push(['_trackEvent', 'Filters', 'Hover Enter']);
-	});
-	
-	$('#add-filters').mouseleave(function () {
-		_gaq.push(['_trackEvent', 'Filters', 'Hover Leave']);
-	});
-	
-	
-	$('.add-filter ul li a').click(function() {
-		if (!$(this).hasClass('active')) {
-			_gaq.push(['_trackEvent', 'Filters', 'Click', $(this).html()]);
-		}
-	});
-	
 	//Cache logging
 	if ($('#search .cache-hit').length) {
 		_gaq.push(['_trackEvent', 'Cache', 'Hit', major]);
@@ -81,7 +65,7 @@ $(document).ready(function () {
 	});
 	
 	var timeout;
-	$('#homepage .social-sharing .facebook').mouseenter(function () {
+	$('.social-wrapper-front .social-sharing .facebook').mouseenter(function () {
 		timeout = setTimeout(function () {
 			_gaq.push(['_trackEvent', 'Share - Homepage', 'Facebook']);
 		}, 500);
@@ -95,7 +79,7 @@ $(document).ready(function () {
 	}).mouseleave(function () {
 		clearTimeout(timeout);
 	});
-	$('#homepage .social-sharing .twitter').mouseenter(function () {
+	$('.social-wrapper-front .social-sharing .twitter').mouseenter(function () {
 		timeout = setTimeout(function () {
 			_gaq.push(['_trackEvent', 'Share - Homepage', 'Twitter']);
 		}, 500);
@@ -109,7 +93,7 @@ $(document).ready(function () {
 	}).mouseleave(function () {
 		clearTimeout(timeout);
 	});
-	$('#homepage .social-sharing .googleplus').mouseenter(function () {
+	$('.social-wrapper-front .social-sharing .googleplus').mouseenter(function () {
 		timeout = setTimeout(function () {
 			_gaq.push(['_trackEvent', 'Share - Homepage', 'Google+']);
 		}, 500);
@@ -123,7 +107,7 @@ $(document).ready(function () {
 	}).mouseleave(function () {
 		clearTimeout(timeout);
 	});
-	$('#homepage .social-sharing .linkedin').mouseenter(function () {
+	$('.social-wrapper-front .social-sharing .linkedin').mouseenter(function () {
 		timeout = setTimeout(function () {
 			_gaq.push(['_trackEvent', 'Share - Homepage', 'LinkedIn']);
 		}, 500);
