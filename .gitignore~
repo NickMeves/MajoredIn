@@ -5,7 +5,6 @@
 /app/cache/*
 /app/logs/*
 /vendor/
-/bin/
 /app/config/parameters.yml
 /rsync_exclude.txt
 /.settings
