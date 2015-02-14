@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
         <?php
-    	    echo $kernel->getContainer()->get('templating')->render('MajoredInMainBundle:Social:socialshare.html.twig', array('shareUrl' => get_site_url()));
+    	    echo $kernel->getContainer()->get('templating')->render('MajoredInMainBundle:Social:socialshare.html.twig', array('shareUrl' => 'http://www.majoredin.com'));
     	?>
         </div>
     </div>
