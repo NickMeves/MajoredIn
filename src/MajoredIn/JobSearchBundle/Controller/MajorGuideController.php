@@ -12,7 +12,8 @@ class MajorGuideController extends Controller
         $majorGuideCache = $this->get('liip_doctrine_cache.ns.majorguide');
         
         unset($urlBase['location']);
-        $cacheKey = md5(serialize(ksort($urlBase)));
+        ksort($urlBase);
+        $cacheKey = md5(serialize($urlBase));
         
         if ($guide = $majorGuideCache->fetch($cacheKey)) {
             return new Response($guide);
