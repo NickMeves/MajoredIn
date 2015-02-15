@@ -19,12 +19,6 @@ class SiteMapXmlController extends Controller
         return $response;
     }
     
-    public function mainAction()
-    {
-        $response = $this->render('MajoredInMainBundle:SiteMapXml:main.xml.twig');
-        return $response;
-    }
-    
     public function locationsAction()
     {
         $locationManager = $this->get('mi_search.location.manager');
