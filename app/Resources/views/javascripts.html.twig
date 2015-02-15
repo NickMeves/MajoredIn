@@ -43,7 +43,7 @@
 <script type="text/javascript">
   (function() {
     var sh = document.createElement('script'); sh.type = 'text/javascript'; sh.async = true;
-    sh.src = "http://api.simplyhired.com/c/jobs-api/js/xml-v2.js";
+    sh.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'api.simplyhired.com/c/jobs-api/js/xml-v2.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sh, s);
   })();
 </script>
