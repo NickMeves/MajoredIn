@@ -15,7 +15,7 @@
                         <h1><?php the_author(); ?></h1>
                     </div>
                 </div>
-                <?php if (get_the_author_meta('description') && is_multi_author()) : ?>
+                <?php if (get_the_author_meta('description')) : ?>
             		<?php get_template_part('author-bio'); ?>
                 <?php endif; ?>
             <?php if (have_posts()) : ?>

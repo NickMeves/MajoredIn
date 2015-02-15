@@ -33,7 +33,7 @@
                     <?php the_content(); ?>
                 </div>
                 <?php mi_link_pages(); ?>
-                <?php if (is_single() && get_the_author_meta('description') && is_multi_author()) : ?>
+                <?php if (is_single() && get_the_author_meta('description')) : ?>
             		<?php get_template_part('author-bio'); ?>
             	<?php endif; ?>
             <?php endwhile; ?>
