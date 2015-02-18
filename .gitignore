@@ -1,6 +1,7 @@
 /web/bundles/
 /web/js/*
 /web/css/*
+/web/cms/wp-content/uploads/*
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
