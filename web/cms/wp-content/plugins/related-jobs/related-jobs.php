@@ -67,7 +67,7 @@ class RelatedJobs extends WP_Widget
         
         ?>
         <div class="module">
-            <h4 class="thin"><?php echo $title; ?></h4>
+            <h4><?php echo ($major === 'undeclared') ? "Latest Jobs" : $title; ?></h4>
             <div class="jobs-api-box" data-href="<?php echo $url; ?>" data-limit="<?php echo $limit; ?>">
                 <div class="api-job"><a href="<?php echo $moreUrl; ?>" class="pull-right">See More <?php echo ($major === 'undeclared') ? "" : $major." " ?>Jobs &raquo;</a></div>
             </div>

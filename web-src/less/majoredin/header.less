@@ -27,7 +27,7 @@
         
         .nav > li > a {
             color: lighten(@gray, 15%);
-            font-size: @baseFontSize + 6;
+            font-size: @baseFontSize + 5;
             padding: 7px 0px;
             border-bottom: 5px solid @navHeaderBackground;
         }
@@ -191,6 +191,12 @@
     }
 }
 
+.marketing {
+    p {
+        padding: 0 10px;
+    }
+}
+
 @media (max-width: 979px) {
     #nav-header {
         .nav-collapse {
@@ -211,6 +217,11 @@
     
     .superflag {
         background-image: url(../img/graduation_selfie_900x600.jpg);
+    }
+    .marketing {
+        p {
+            padding: 0 8px;
+        }
     }
 }
 
@@ -250,6 +261,11 @@
         .jumbotron {
             margin: 50px 0;
             padding: 20px;
+        }
+    }
+    .marketing {
+        p {
+            padding: 0;
         }
     }
 }
