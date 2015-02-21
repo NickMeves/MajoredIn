@@ -44,7 +44,7 @@
                 ?>
                 <div class="archive-entry">
                     <div class="archive-header">
-                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium', array('class' => 'archive-image visible-phone')); ?></a>
+                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small', array('class' => 'archive-image visible-phone')); ?></a>
                         <h2 class="thin"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div>
                             <span>By </span><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo get_the_author(); ?></a><span> | <?php the_time(get_option('date_format')); ?></span>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="row hidden-phone">
                     <?php if (has_post_thumbnail()) : ?>
-                        <div class="span2"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium', array('class' => 'archive-image')); ?></a></div>
+                        <div class="span2"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small', array('class' => 'archive-image')); ?></a></div>
                         <div class="span6"><?php the_excerpt(); ?></div>
                     <?php else : ?>
                         <div class="span8"><?php the_excerpt(); ?></div>
