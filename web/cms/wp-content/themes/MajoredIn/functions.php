@@ -46,11 +46,12 @@ function mi_deregister_styles() {
 }
 add_action('wp_print_styles', 'mi_deregister_styles', 100);
 
-
-function mi_deregister_scripts() {
-    wp_deregister_script('jquery');
-}
-add_action('wp_enqueue_scripts', 'mi_deregister_scripts', 100);
+/**
+*function mi_deregister_scripts() {
+*    wp_deregister_script('jquery');
+*}
+*add_action('wp_enqueue_scripts', 'mi_deregister_scripts', 100);
+*/
 
 function mi_wp_title($title, $sep) {
 	global $paged, $page;

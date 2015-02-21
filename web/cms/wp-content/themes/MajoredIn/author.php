@@ -19,8 +19,14 @@
             		<?php get_template_part('author-bio'); ?>
                 <?php endif; ?>
             <?php if (have_posts()) : ?>
+                <?php global $mi_current_ID; ?>
                 <?php /* Start the Loop */ ?>
                 <?php while (have_posts()) : the_post(); ?>
+                <?php
+                    if (!isset($mi_current_ID) && get_post_meta(get_the_ID(), "major", true)) {
+                        $mi_current_ID = get_the_ID();
+                    }
+                ?>
                 <div class="archive-entry">
                     <div class="archive-header">
                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium', array('class' => 'archive-image visible-phone')); ?></a>

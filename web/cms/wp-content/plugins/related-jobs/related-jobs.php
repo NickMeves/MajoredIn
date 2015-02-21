@@ -42,19 +42,21 @@ class RelatedJobs extends WP_Widget
         
         if (empty($params['major'])) {
             $params['major'] = 'undeclared';
+            $major = $params['major'];
         }
         else {
-            $major = htmlspecialchars($major, ENT_QUOTES);
-            $major = ucwords($major);
-            $major = $canonicalizer->dash($major);
+            $major = ucwords($params['major']);
+            $params['major'] = htmlspecialchars($params['major'], ENT_QUOTES);
+            $params['major'] = ucwords($params['major']);
+            $params['major'] = $canonicalizer->dash($params['major']);
         }
         if (empty($params['location'])) {
             unset($params['location']);
         }
         else {
-            $location = htmlspecialchars($location, ENT_QUOTES);
-            $location = $canonicalizer->formatLocation($location);
-            $location = $canonicalizer->dash($location);
+            $params['location'] = htmlspecialchars($params['location'], ENT_QUOTES);
+            $params['location'] = $canonicalizer->formatLocation($params['location']);
+            $params['location'] = $canonicalizer->dash($params['location']);
         }
         if (empty($params['jobtype'])) {
             unset($params['jobtype']);
@@ -67,7 +69,7 @@ class RelatedJobs extends WP_Widget
         <div class="module">
             <h4 class="thin"><?php echo $title; ?></h4>
             <div class="jobs-api-box" data-href="<?php echo $url; ?>" data-limit="<?php echo $limit; ?>">
-                <div class="api-job"><a href="<?php echo $moreUrl; ?>" class="pull-right">See More <?php echo ($params['major'] === 'undeclared') ? "" : ucfirst($params['major'])." " ?>Jobs &raquo;</a></div>
+                <div class="api-job"><a href="<?php echo $moreUrl; ?>" class="pull-right">See More <?php echo ($major === 'undeclared') ? "" : $major." " ?>Jobs &raquo;</a></div>
             </div>
         </div>
         <?php

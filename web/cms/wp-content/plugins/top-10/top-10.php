@@ -153,16 +153,27 @@ function tptn_add_viewed_count( $content ) {
 
 			if ( $activate_counter > 0 ) {
 				if ( $tptn_settings['cache_fix'] ) {
-					$output = '<script type="text/javascript">jQuery.ajax({url: "' . $home_url . '", data: {top_ten_id: ' . $id . ', top_ten_blog_id: ' . $blog_id . ', activate_counter: ' . $activate_counter . ', top10_rnd: (new Date()).getTime() + "-" + Math.floor(Math.random()*100000)}});</script>';
+					//TODO: MAJOREDIN EDIT HERE.  MERGE ON ALL UPDATES
+					$output = <<<EOT
+<script type="text/javascript">
+  (function() {
+    if (!(/\/\d+$/.test(window.location.href))) {
+        var tt = document.createElement('script'); tt.type = 'text/javascript'; tt.async = true;
+        tt.src = "/count-api/v1/$id/$blog_id/$activate_counter";
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tt, s);
+    }
+  })();
+</script>
+EOT;
 				} else {
 					//TODO: MAJOREDIN EDIT HERE.  MERGE ON ALL UPDATES
 					$output = <<<EOT
 <script type="text/javascript">
   (function() {
     if (!(/\/\d+$/.test(window.location.href))) {
-        var sh = document.createElement('script'); sh.type = 'text/javascript'; sh.async = true;
-        sh.src = "$tptn_url/top-10-addcount.js.php?top_ten_id=$id";
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sh, s);
+        var tt = document.createElement('script'); tt.type = 'text/javascript'; tt.async = true;
+        tt.src = "/count-api/v1/$id/$blog_id/$activate_counter";
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tt, s);
     }
   })();
 </script>
@@ -196,6 +207,8 @@ add_filter( 'the_content', 'tptn_add_viewed_count' );
  * @since	1.9.7
  *
  */
+//TODO: MAJOREDIN EDIT HERE.  MERGE ON ALL UPDATES
+/**
 function tptn_enqueue_scripts() {
 	global $tptn_settings;
 
@@ -204,7 +217,7 @@ function tptn_enqueue_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tptn_enqueue_scripts' ); // wp_enqueue_scripts action hook to link only on the front-end
-
+*/
 
 /**
  * Function to add additional queries to query_vars.

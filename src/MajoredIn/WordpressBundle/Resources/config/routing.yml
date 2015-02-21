@@ -3,6 +3,10 @@ mi_wordpress_admin:
     defaults: { _controller: MajoredInWordpressBundle:Wordpress:admin }
     requirements:
         slash: "\/*"
+      
+mi_topten_count:
+    pattern:  /count-api/v1/{id}/{blogId}/{activateCounter}
+    defaults: { _controller: MajoredInWordpressBundle:TopTen:count }
         
 mi_wordpress_index:
     pattern: /{path}
