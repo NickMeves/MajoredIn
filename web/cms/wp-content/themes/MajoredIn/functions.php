@@ -92,6 +92,12 @@ function mi_remove_widget_title($widget_title) {
 }
 add_filter('widget_title', 'mi_remove_widget_title', 10, 1);
 
+function customize_tinymce($in) {
+    $in['paste_preprocess'] = "function(pl,o){ o.content = o.content.replace(/p class=\"p[0-9]+\"/g,'p'); o.content = o.content.replace(/span class=\"s[0-9]+\"/g,'span'); }";
+    return $in;
+}
+add_filter('tiny_mce_before_init', 'customize_tinymce');
+
 function mi_widgets_init() {
 	register_sidebar(array(
 		'name'          => 'Blog Sidebar',
