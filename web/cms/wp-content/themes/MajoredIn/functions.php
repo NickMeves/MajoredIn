@@ -289,6 +289,7 @@ function mi_permalink_change($old, $new)
 {
     global $kernel;
     $kernel->getContainer()->get('liip_doctrine_cache.ns.majorguide')->deleteAll();
+    $kernel->getContainer()->get('liip_doctrine_cache.ns.layout')->deleteAll();
 }
 add_action('update_option_permalink_structure', 'mi_permalink_change', 10, 2);
 
