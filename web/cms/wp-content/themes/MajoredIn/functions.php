@@ -332,3 +332,14 @@ function mi_guide_meta_update($metaId, $postId, $key, $value)
 }
 add_action('added_post_meta', 'mi_guide_meta_update', 10, 4);
 add_action('updated_post_meta', 'mi_guide_meta_update', 10, 4);
+
+function mi_page_update($postId)
+{
+    if (get_post_type($postId) != 'page') {
+        return;
+    }
+    
+    global $kernel;
+    $kernel->getContainer()->get('liip_doctrine_cache.ns.majorguide')->deleteAll();
+}
+add_action('save_post', 'mi_page_update', 10, 4);
