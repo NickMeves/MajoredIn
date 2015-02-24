@@ -4,7 +4,7 @@ imports:
 framework:
     templating: 
         assets_base_urls:
-            http:   ['http://www.majoredin.com']
+            http:   ['http://cdn1.majdn.com']
             ssl:    ['https://www.majoredin.com']
 
 doctrine:

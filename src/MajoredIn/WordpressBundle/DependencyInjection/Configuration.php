@@ -56,6 +56,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('logged_in_salt')->isRequired()->end()
                 ->scalarNode('nonce_salt')->isRequired()->end()
                 ->scalarNode('table_prefix')->isRequired()->end()
+                ->scalarNode('force_ssl_admin')->isRequired()->end()
             ->end();
 
         return $treeBuilder;

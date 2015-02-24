@@ -55,5 +55,6 @@ class MajoredInWordpressExtension extends Extension
         $container->setParameter('mi_wordpress.nonce_salt', $config['nonce_salt']);
         
         $container->setParameter('mi_wordpress.table_prefix', $config['table_prefix']);
+        $container->setParameter('mi_wordpress.force_ssl_admin', $config['force_ssl_admin']);
     }
 }

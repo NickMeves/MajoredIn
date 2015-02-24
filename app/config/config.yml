@@ -97,6 +97,7 @@ majored_in_wordpress:
     nonce_salt:       %wp_nonce_salt%
     
     table_prefix:     %wp_table_prefix%
+    force_ssl_admin:  %wp_force_ssl_admin%
 
 # Swiftmailer Configuration
 swiftmailer:

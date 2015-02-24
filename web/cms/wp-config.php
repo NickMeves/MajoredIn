@@ -96,7 +96,11 @@ define('WPLANG', '');
  */
 define('WP_DEBUG', false);
 
-define('DISABLE_WP_CRON', 'true');
+define('DISABLE_WP_CRON', true);
+
+if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') $_SERVER['HTTPS']='on';
+define('FORCE_SSL_ADMIN', MI_FORCE_SSL_ADMIN);
+
 
 /* That's all, stop editing! Happy blogging. */
 

@@ -45,6 +45,8 @@ class WordpressConstantDefiner implements ConstantDefinerInterface
             
             define('MI_TABLE_PREFIX', $this->container->getParameter('mi_wordpress.table_prefix'));
             
+            define('MI_FORCE_SSL_ADMIN', $this->container->getParameter('mi_wordpress.force_ssl_admin'));
+            
             static::$defined = true;
         }
     }
