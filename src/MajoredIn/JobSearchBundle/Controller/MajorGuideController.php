@@ -46,30 +46,41 @@ class MajorGuideController extends Controller
         $title = $majorEntity->getName();
         
         $wordpressApi->scopeOn();
-            $post = get_post($postId);
-            $excerpt = ($post->post_excerpt) ? $post->post_excerpt : wp_trim_words($post->post_content, 55, '');
-            
-            $permalink = get_permalink($postId);
-            
-            $locations = array();
-            for ($i = 1; $i < 5; ++$i) {
-                $location = get_post_meta($postId, 'location'.$i, true);
-                if (trim($location) != '') {
-                    $locations[] = $location;
+            if ('publish' === get_post_status($postId)) {
+                $post = get_post($postId);
+                $excerpt = ($post->post_excerpt) ? $post->post_excerpt : wp_trim_words($post->post_content, 55, '');
+                
+                $permalink = get_permalink($postId);
+                
+                $locations = array();
+                for ($i = 1; $i < 5; ++$i) {
+                    $location = get_post_meta($postId, 'location'.$i, true);
+                    if (trim($location) != '') {
+                        $locations[] = $location;
+                    }
                 }
+                $showGuide = true;
+            }
+            else {
+                $showGuide = false;
             }
         $wordpressApi->scopeOff();
         
-        $variables = array(
-            'major' => $title,
-            'excerpt' => $excerpt,
-            'permalink' => $permalink,
-            'locations' => $locations,
-            'urlBase' => $urlBase
-        );
-        
-        $response = $this->render('MajoredInJobSearchBundle:JobSearch:majorguide.html.twig', $variables);
-        $majorGuideCache->save($cacheKey, $response->getContent());
-        return $response;
+        if ($showGuide) {
+            $variables = array(
+                'major' => $title,
+                'excerpt' => $excerpt,
+                'permalink' => $permalink,
+                'locations' => $locations,
+                'urlBase' => $urlBase
+            );
+            
+            $response = $this->render('MajoredInJobSearchBundle:JobSearch:majorguide.html.twig', $variables);
+            $majorGuideCache->save($cacheKey, $response->getContent());
+            return $response;
+        }
+        else {
+            return new Response();
+        }
     }
 }

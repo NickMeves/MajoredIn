@@ -3,29 +3,29 @@
     {% for url in majorUrl %}
         <url>
             <loc>{{ url }}</loc>
-            <changefreq>daily</changefreq>
-            <priority>0.7</priority>
+            <changefreq>weekly</changefreq>
+            <priority>0.5</priority>
         </url>
     {% endfor %}
     {% for url in majorUrlIntern %}
         <url>
             <loc>{{ url }}</loc>
-            <changefreq>daily</changefreq>
-            <priority>0.6</priority>
+            <changefreq>weekly</changefreq>
+            <priority>0.4</priority>
         </url>
     {% endfor %}
     {% for url in locationUrls %}
         <url>
             <loc>{{ url }}</loc>
             <changefreq>weekly</changefreq>
-            <priority>0.5</priority>
+            <priority>0.3</priority>
         </url>
     {% endfor %}
     {% for url in locationUrlsIntern %}
         <url>
             <loc>{{ url }}</loc>
             <changefreq>weekly</changefreq>
-            <priority>0.4</priority>
+            <priority>0.2</priority>
         </url>
     {% endfor %}
 </urlset>
