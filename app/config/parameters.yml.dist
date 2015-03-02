@@ -19,6 +19,7 @@ parameters:
     wp_nonce_salt:       ThisTokenIsNotSoSecretChangeIt
     
     wp_table_prefix:     miwp_
+    wp_force_ssl_admin:  false
     
     memcached_driver:  memcache
     memcached_host:    127.0.0.1
