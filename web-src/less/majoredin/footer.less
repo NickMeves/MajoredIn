@@ -1,6 +1,6 @@
 #simplyhired-footer {
-    background-color: darken(@white,5%);
-    border-top: 1px solid darken(@white,15%);
+    background-color: darken(@white,10%);
+    border-top: 1px solid darken(@white,20%);
     padding: 10px 0 10px;
     text-align: center;
 }
@@ -10,9 +10,12 @@
 }
 
 #footer {
-    #gradient > .vertical(@footerBackground, darken(@footerBackground, 5%));
-    border-top: 1px solid lighten(@footerBackground, 20%);
+    border-top: 1px solid lighten(@footerBackground, 15%);
+    background-color: @footerBackground;
     padding: 20px 0;
+    
+    font-size: @baseFontSize - 1;
+    line-height: @baseLineHeight - 1;
     
     a, span {
         color: @white;
