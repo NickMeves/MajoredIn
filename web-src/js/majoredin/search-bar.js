@@ -161,7 +161,7 @@ $(document).ready(function () {
 /***********************
  * Header Lock
  ***********************/
-	
+	/*
 	if (!majoredin.globals.isMobile) {
 		var nav = $('#nav-header');
 		var search = $('#search-header-wrap');
@@ -203,5 +203,5 @@ $(document).ready(function () {
 				}
 			}
 		});
-	}
+	}*/
 });
