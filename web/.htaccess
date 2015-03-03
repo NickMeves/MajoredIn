@@ -9,8 +9,8 @@ DirectoryIndex app.php
     RewriteEngine On
 
     # Nick Meves - Remove trailing slashes
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.+)/$ %{ENV:BASE}/$1 [R=301,L]
 
     # Determine the RewriteBase automatically and set it as environment variable.
