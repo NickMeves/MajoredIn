@@ -4,8 +4,9 @@ imports:
 framework:
     templating: 
         assets_base_urls:
-            http:   ['http://cdn1.majdn.com']
-            ssl:    ['https://www.majoredin.com']
+            http:    ['http://cdn1.majdn.com']
+            ssl:     ['https://www.majoredin.com']
+    trusted_proxies: [127.0.0.1]
 
 doctrine:
     orm:

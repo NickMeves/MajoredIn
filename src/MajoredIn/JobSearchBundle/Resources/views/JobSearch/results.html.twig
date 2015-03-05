@@ -92,7 +92,7 @@
                                         <span class="job-age">{{ jobListing.age|e }} ago</span>
                                     {% endif %}{# if jobListing.age == 'error' #}
                                 </div>
-                                <p class="job-excerpt">{{ jobListing.excerpt|slice(0,jobListing.excerpt|length - 1)|e }}</p>
+                                <p class="job-excerpt">{{ jobListing.excerpt|e }}</p>
                             </div>
                         </li>
                         {% endspaceless %}
