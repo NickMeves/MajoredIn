@@ -143,17 +143,17 @@ if (isset($_GET["simpledb"])) {
 			if (preg_match_all("~itemName\(\) = (('[^']*+')+)~", $queryWhere, $matches)) {
 				$return = array_map('idf_unescape', $matches[1]);
 			} else {
-				foreach (sdb_request_all('Select', 'Item', array('SelectExpression' => 'SELECT itemName() FROM ' . table($table) . $queryWhere . ($limit ? " LIMIT 1" : ""))) as $item) {
+				foreach (sdb_request_all('Select', 'Item', array('SelectExpression' => 'SELECT itemName() FROM ' . adminer_table($table) . $queryWhere . ($limit ? " LIMIT 1" : ""))) as $item) {
 					$return[] = $item->Name;
 				}
 			}
 			return $return;
 		}
 
-		function select($table, $select, $where, $group, $order = array(), $limit = 1, $page = 0, $print = false) {
+		function adminer_select($table, $select, $where, $group, $order = array(), $limit = 1, $page = 0, $print = false) {
 			global $connection;
 			$connection->next = $_GET["next"];
-			$return = parent::select($table, $select, $where, $group, $order, $limit, $page, $print);
+			$return = parent::adminer_select($table, $select, $where, $group, $order, $limit, $page, $print);
 			$connection->next = 0;
 			return $return;
 		}
@@ -331,7 +331,7 @@ if (isset($_GET["simpledb"])) {
 		return array();
 	}
 
-	function table($idf) {
+	function adminer_table($idf) {
 		return idf_escape($idf);
 	}
 

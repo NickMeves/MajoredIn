@@ -116,11 +116,7 @@ if (isset($_GET["mongo"])) {
 	class Min_Driver extends Min_SQL {
 		public $primary = "_id";
 		
-		function quote($value) {
-			return ($value === null ? $value : parent::quote($value));
-		}
-		
-		function select($table, $select, $where, $group, $order = array(), $limit = 1, $page = 0, $print = false) {
+		function adminer_select($table, $select, $where, $group, $order = array(), $limit = 1, $page = 0, $print = false) {
 			$select = ($select == array("*")
 				? array()
 				: array_fill_keys($select, true)
@@ -341,7 +337,7 @@ if (isset($_GET["mongo"])) {
 		return $connection->last_id;
 	}
 
-	function table($idf) {
+	function adminer_table($idf) {
 		return $idf;
 	}
 

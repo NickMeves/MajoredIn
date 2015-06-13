@@ -1,0 +1,1122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Limit Attempts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-08 13:28+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"Language-Team: Damian Dąbrowski <dabek1812@gmail.com>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n%10==1 && n%100!=11) ? 3 : ((n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2);\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../limit-attempts.php:34
+#: ../limit-attempts.php:553
+msgid "Limit Attempts Settings"
+msgstr "Limit Attempts - Ustawienia"
+
+#: ../limit-attempts.php:288
+msgid "Limit Attempts interaction with Htaccess was turned off since you are using an outdated Htaccess plugin version. If you want to keep using this interaction, please update Htaccess plugin at least to v 1.6.2."
+msgstr "Współpraca Limit Attempts z Htaccess została wyłączona ze względu na nieaktualną wersję Htaccess. Jeśli chcesz utrzymać współpracę między wtyczkami zainstaluj najnowszą wersję Htaccess - v 1.6.2"
+
+#: ../limit-attempts.php:336
+#: ../limit-attempts.php:352
+#: ../limit-attempts.php:565
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: ../limit-attempts.php:353
+#: ../limit-attempts.php:571
+msgid "FAQ"
+msgstr "FAQ"
+
+#: ../limit-attempts.php:354
+msgid "Support"
+msgstr "Pomoc"
+
+#: ../limit-attempts.php:528
+#: ../limit-attempts.php:535
+msgid "Allowed formats:"
+msgstr "Dozwolone formaty"
+
+#: ../limit-attempts.php:534
+msgid "Reason"
+msgstr "Powód"
+
+#: ../limit-attempts.php:535
+msgid "Allowed separators:"
+msgstr "Dozwolone separatory"
+
+#: ../limit-attempts.php:535
+msgid "a comma"
+msgstr "przecinek"
+
+#: ../limit-attempts.php:535
+msgid "semicolon"
+msgstr "średnik"
+
+#: ../limit-attempts.php:535
+msgid "ordinary space, tab, new line or carriage return"
+msgstr "spacja, tabulacja, znak nowej linii, powrót karetki"
+
+#: ../limit-attempts.php:542
+#: ../limit-attempts.php:675
+#: ../limit-attempts.php:971
+#: ../limit-attempts.php:1070
+msgid "Unlock premium options by upgrading to a PRO version."
+msgstr "Odblokuj dodatkowe opcje przez aktualizację do wersji PRO."
+
+#: ../limit-attempts.php:543
+#: ../limit-attempts.php:676
+#: ../limit-attempts.php:972
+#: ../limit-attempts.php:1071
+msgid "Learn More"
+msgstr "Czytaj dalej"
+
+#: ../limit-attempts.php:546
+#: ../limit-attempts.php:679
+#: ../limit-attempts.php:975
+#: ../limit-attempts.php:1073
+msgid "Go"
+msgstr "Przejdź na"
+
+#: ../limit-attempts.php:555
+#: ../limit-attempts.php:1416
+#: ../limit-attempts.php:1585
+#: ../limit-attempts.php:1592
+#: ../limit-attempts.php:1642
+#: ../limit-attempts.php:2830
+msgid "Notice:"
+msgstr "Uwaga:"
+
+#: ../limit-attempts.php:555
+msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
+msgstr "Ustawienia wtyczki zostały zmienione. Nie zapomnij kliknąć na przycisk 'Zapisz zmiany' przed opuszczeniem strony."
+
+#: ../limit-attempts.php:566
+msgid "Blocked IP"
+msgstr "Zablokowane adresy IP"
+
+#: ../limit-attempts.php:567
+msgid "Blacklist"
+msgstr "Czarna lista"
+
+#: ../limit-attempts.php:568
+msgid "Whitelist"
+msgstr "Biała lista"
+
+#: ../limit-attempts.php:569
+msgid "Log"
+msgstr "Dziennik"
+
+#: ../limit-attempts.php:570
+msgid "Statistics"
+msgstr "Statystyki"
+
+#: ../limit-attempts.php:572
+msgid "Go PRO"
+msgstr "Wersja PRO"
+
+#: ../limit-attempts.php:582
+msgid "Block address"
+msgstr "Blokada adresu"
+
+#: ../limit-attempts.php:585
+msgid "for"
+msgstr "na okres"
+
+#: ../limit-attempts.php:587
+#: ../limit-attempts.php:611
+#: ../limit-attempts.php:640
+msgid "day"
+msgid_plural "days"
+msgstr[0] "dnia"
+msgstr[1] "dni"
+msgstr[2] "dni"
+msgstr[3] "dni"
+
+#: ../limit-attempts.php:588
+#: ../limit-attempts.php:612
+#: ../limit-attempts.php:641
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "godziny"
+msgstr[1] "godzin"
+msgstr[2] "godzin"
+msgstr[3] "godzin"
+
+#: ../limit-attempts.php:589
+#: ../limit-attempts.php:613
+#: ../limit-attempts.php:642
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minuty"
+msgstr[1] "minut"
+msgstr[2] "minut"
+msgstr[3] "minut"
+
+#: ../limit-attempts.php:590
+#: ../limit-attempts.php:602
+#: ../limit-attempts.php:614
+#: ../limit-attempts.php:631
+#: ../limit-attempts.php:643
+msgid "Edit"
+msgstr "Edytuj"
+
+#: ../limit-attempts.php:593
+#: ../limit-attempts.php:617
+#: ../limit-attempts.php:646
+#: ../limit-attempts.php:661
+#: ../limit-attempts.php:688
+msgid "days"
+msgstr "dni"
+
+#: ../limit-attempts.php:594
+#: ../limit-attempts.php:618
+#: ../limit-attempts.php:647
+msgid "hours"
+msgstr "godziny"
+
+#: ../limit-attempts.php:595
+#: ../limit-attempts.php:619
+#: ../limit-attempts.php:648
+msgid "minutes"
+msgstr "minuty"
+
+#: ../limit-attempts.php:599
+#: ../limit-attempts.php:628
+msgid "after"
+msgstr "po"
+
+#: ../limit-attempts.php:601
+msgid "failed attempt"
+msgid_plural "failed attempts"
+msgstr[0] "nieudanej próbie"
+msgstr[1] "nieudanych próbach"
+msgstr[2] "nieudanych próbach"
+msgstr[3] "nieudanych próbach"
+
+#: ../limit-attempts.php:605
+msgid "failed attempts"
+msgstr "nieudanych próbach"
+
+#: ../limit-attempts.php:609
+#: ../limit-attempts.php:638
+msgid "per"
+msgstr "w ciągu"
+
+#: ../limit-attempts.php:625
+msgid "Add to the blacklist"
+msgstr "Dodaj do czarnej listy"
+
+#: ../limit-attempts.php:630
+msgid "block"
+msgid_plural "blocks"
+msgstr[0] "blokadzie"
+msgstr[1] "blokadach"
+msgstr[2] "blokadach"
+msgstr[3] "blokadach"
+
+#: ../limit-attempts.php:634
+msgid "blocks"
+msgstr "blokadach"
+
+#: ../limit-attempts.php:659
+msgid "Remove log entries that are over"
+msgstr "Usuń wpisy z dziennika po upływie"
+
+#: ../limit-attempts.php:662
+msgid "Set \"0\" if you do not want to clear the log."
+msgstr "Ustaw \"0\" jeśli nie chcesz czyścić wpisów w dzienniku."
+
+#: ../limit-attempts.php:663
+msgid "Current size of DB table"
+msgstr "Obecny rozmiar tablicy w bazie danych"
+
+#: ../limit-attempts.php:663
+msgid "Mb"
+msgstr "Mb"
+
+#: ../limit-attempts.php:668
+#: ../limit-attempts.php:963
+msgid "If you upgrade to Pro version all your settings will be saved."
+msgstr "Przy aktualizacji do wersji PRO wszystkie twoje ustawienia zostaną zapamiętane."
+
+#: ../limit-attempts.php:686
+msgid "Remove statistics entry in case no failed attempts occurred for"
+msgstr "Usuń adres ze statystyk w przypadku braku logowań zakończonych niepowodzeniem w przeciągu"
+
+#: ../limit-attempts.php:689
+msgid "Set \"0\" if you do not want to clear the statistics."
+msgstr "Ustaw \"0\" jeśli nie chcesz czyścić statystyk."
+
+#: ../limit-attempts.php:692
+msgid "Error messages"
+msgstr "Komunikat o błędach"
+
+#: ../limit-attempts.php:694
+#: ../limit-attempts.php:772
+msgid "Hide"
+msgstr "Ukryj"
+
+#: ../limit-attempts.php:695
+#: ../limit-attempts.php:773
+msgid "Show"
+msgstr "Pokaż"
+
+#: ../limit-attempts.php:699
+#: ../limit-attempts.php:704
+msgid "For invalid attempt"
+msgstr "Dla nieudanej próby"
+
+#: ../limit-attempts.php:700
+#: ../limit-attempts.php:705
+msgid "For blocked user"
+msgstr "Dla zablokowanego użytkownika"
+
+#: ../limit-attempts.php:701
+#: ../limit-attempts.php:706
+msgid "For blacklisted user"
+msgstr "Dla użytkownika z czarnej listy"
+
+#: ../limit-attempts.php:711
+#: ../limit-attempts.php:724
+#: ../limit-attempts.php:738
+#: ../limit-attempts.php:792
+#: ../limit-attempts.php:806
+#: ../limit-attempts.php:823
+#: ../limit-attempts.php:840
+msgid "Allowed Variables:"
+msgstr "Dozwolone zmienne:"
+
+#: ../limit-attempts.php:713
+msgid "display quantity of allowed attempts"
+msgstr "wyświetla ilość prób, które pozostały"
+
+#: ../limit-attempts.php:715
+#: ../limit-attempts.php:729
+#: ../limit-attempts.php:742
+#: ../limit-attempts.php:831
+#: ../limit-attempts.php:848
+msgid "Restore default message"
+msgstr "Przywróć wiadomość domyślną"
+
+#: ../limit-attempts.php:719
+#: ../limit-attempts.php:733
+#: ../limit-attempts.php:746
+#: ../limit-attempts.php:801
+#: ../limit-attempts.php:815
+#: ../limit-attempts.php:835
+#: ../limit-attempts.php:852
+msgid "You can use standart HTML tags and attributes."
+msgstr "Możesz wykorzystać standardowe tagi i atrybuty HTML."
+
+#: ../limit-attempts.php:726
+msgid "display date when block is removed"
+msgstr "wyświetla czas kiedy użytkownik zostanie odblokowany"
+
+#: ../limit-attempts.php:727
+msgid "display administrator&rsquo;s e-mail for feedback"
+msgstr "wyświetla adres administratora w celu udzielenia wsparcia"
+
+#: ../limit-attempts.php:740
+msgid "display administrators e-mail for feedback"
+msgstr "wyświetla adres e-mail administratora by móc udzielić wsparcia"
+
+#: ../limit-attempts.php:752
+msgid "Send email with notification"
+msgstr "Wyślij wiadomość z powiadomieniem"
+
+#: ../limit-attempts.php:757
+msgid "Email to user's address"
+msgstr "Wiadomość na adres użytkownika"
+
+#: ../limit-attempts.php:759
+msgid "Choose a username"
+msgstr "Wybierz użytkownika"
+
+#: ../limit-attempts.php:766
+msgid "Email to another address"
+msgstr "Wiadomość na inny adres"
+
+#: ../limit-attempts.php:770
+msgid "Additional options for email with notification"
+msgstr "Dodatkowe opcje do wiadomości z powiadomieniem"
+
+#: ../limit-attempts.php:779
+#: ../limit-attempts.php:783
+msgid "Email to admistrator when user is blocked"
+msgstr "Wiadomość do administratora kiedy użytkownik zostanie zablokowany"
+
+#: ../limit-attempts.php:780
+#: ../limit-attempts.php:784
+msgid "Email to admistrator when user is blacklisted"
+msgstr "Wiadomość do administratora kiedy użytkownik zostanie umieszczony na czarnej liście"
+
+#: ../limit-attempts.php:788
+msgid "Subject"
+msgstr "Temat"
+
+#: ../limit-attempts.php:794
+msgid "display blocked IP address"
+msgstr "wyświetla zablokowany adres IP"
+
+#: ../limit-attempts.php:795
+#: ../limit-attempts.php:809
+#: ../limit-attempts.php:828
+#: ../limit-attempts.php:845
+msgid "display name of your site"
+msgstr "wyświetla nazwę strony"
+
+#: ../limit-attempts.php:797
+#: ../limit-attempts.php:811
+msgid "Restore default subject"
+msgstr "Przywróć domyślny temat"
+
+#: ../limit-attempts.php:808
+msgid "display blacklisted IP address"
+msgstr "wyświetla zablokowane adresy IP"
+
+#: ../limit-attempts.php:819
+msgid "Message"
+msgstr "Wiadomość"
+
+#: ../limit-attempts.php:825
+msgid "display IP address that is blocked"
+msgstr "wyświetla adres IP, który został zablokowany"
+
+#: ../limit-attempts.php:826
+#: ../limit-attempts.php:843
+msgid "display link for Limit Attempts plugin on your site"
+msgstr "wyświetla link do wtyczki Limit Attempts na twojej stronie"
+
+#: ../limit-attempts.php:827
+msgid "display date and time when IP address was blocked"
+msgstr "wyświetla czas kiedy adres IP został zablokowany"
+
+#: ../limit-attempts.php:829
+#: ../limit-attempts.php:846
+msgid "display your site's URL"
+msgstr "wyświetla adres twojej strony"
+
+#: ../limit-attempts.php:842
+msgid "display IP address that is added to the blacklist"
+msgstr "wyświetla adres IP, który został dodany do czarnej listy"
+
+#: ../limit-attempts.php:844
+msgid "display date and time when IP address was blacklisted"
+msgstr "wyświetla czas kiedy adres IP został dodany do czarnej listy"
+
+#: ../limit-attempts.php:858
+msgid "Htaccess plugin"
+msgstr "Wtyczka Htaccess"
+
+#: ../limit-attempts.php:866
+#: ../limit-attempts.php:869
+#: ../limit-attempts.php:900
+#: ../limit-attempts.php:911
+#: ../limit-attempts.php:919
+#: ../limit-attempts.php:944
+msgid "Using"
+msgstr "Wykorzystaj"
+
+#: ../limit-attempts.php:866
+#: ../limit-attempts.php:869
+#: ../limit-attempts.php:900
+#: ../limit-attempts.php:911
+#: ../limit-attempts.php:919
+#: ../limit-attempts.php:944
+#: ../limit-attempts.php:954
+msgid "powered by"
+msgstr "stworzone przez"
+
+#: ../limit-attempts.php:872
+#: ../limit-attempts.php:876
+#: ../limit-attempts.php:880
+msgid "Using Htaccess powered by"
+msgstr "Wykorzystaj Htaccess stworzone przez"
+
+#: ../limit-attempts.php:872
+msgid "Update Htaccess at least to v.1.6.2"
+msgstr "Aktualizuj Htaccess do wersji v 1.6.2"
+
+#: ../limit-attempts.php:876
+msgid "Activate Htaccess"
+msgstr "Aktywuj Htaccess"
+
+#: ../limit-attempts.php:880
+msgid "Download Htaccess"
+msgstr "Pobierz Htaccess"
+
+#: ../limit-attempts.php:882
+msgid "Allow Htaccess plugin block IP to reduce the database workload."
+msgstr "Pozwól Htaccess na blokowanie adresów IP w celu zmniejszenia rozmiaru bazy danych."
+
+#: ../limit-attempts.php:886
+msgid "Captcha plugin"
+msgstr "Wtyczka Captcha"
+
+#: ../limit-attempts.php:898
+#: ../limit-attempts.php:909
+#: ../limit-attempts.php:917
+#: ../limit-attempts.php:1061
+msgid "Login form"
+msgstr "Formularz logowania"
+
+#: ../limit-attempts.php:903
+msgid "Using Captcha Pro powered by"
+msgstr "Wykorzystaj Captcha Pro stworzone przez"
+
+#: ../limit-attempts.php:903
+msgid "Update Captcha Pro at least to v.1.4.4"
+msgstr "Aktualizuj Captcha Pro do wersji v 1.4.4"
+
+#: ../limit-attempts.php:922
+#: ../limit-attempts.php:940
+msgid "Using Captcha powered by"
+msgstr "Wykorzystaj Captcha stworzone przez"
+
+#: ../limit-attempts.php:922
+msgid "Update Captcha at least to v.4.0.2"
+msgstr "Aktualizuj Captcha do wersji v 4.0.2"
+
+#: ../limit-attempts.php:935
+#, php-format
+msgid "Using %s powered by"
+msgstr "Wykorzystaj %s stworzone przez"
+
+#: ../limit-attempts.php:935
+#, php-format
+msgid "Activate %s"
+msgstr "Aktywuj %s"
+
+#: ../limit-attempts.php:940
+msgid "Download Captcha"
+msgstr "Pobierz Captcha"
+
+#: ../limit-attempts.php:942
+msgid "Consider the incorrect captcha input as an invalid attempt."
+msgstr "Zliczaj błędne kody Captcha jako nieudane próby."
+
+#: ../limit-attempts.php:951
+msgid "Registration form"
+msgstr "Formularz rejestracji"
+
+#: ../limit-attempts.php:952
+msgid "Reset Password form"
+msgstr "Formularz resetowania hasła"
+
+#: ../limit-attempts.php:953
+msgid "Comments form"
+msgstr "Formularz komentarzy"
+
+#: ../limit-attempts.php:954
+msgid "Contact form"
+msgstr "Formularz kontaktowy"
+
+#: ../limit-attempts.php:955
+msgid "Buddypress registration form"
+msgstr "Formularz rejestracji BuddyPress"
+
+#: ../limit-attempts.php:956
+msgid "Buddypress comments form"
+msgstr "Formularz komentarzy BuddyPress"
+
+#: ../limit-attempts.php:957
+msgid "Buddypress \"Create a Group\" form"
+msgstr "Formularz \"Stwórz grupę\" dla BuddyPress"
+
+#: ../limit-attempts.php:958
+msgid "Contact Form 7"
+msgstr "Contact Form 7"
+
+#: ../limit-attempts.php:964
+msgid "You also need Captcha PRO to use these options."
+msgstr "Potrzebujesz Captcha PRO by móc wykorzystać te opcje."
+
+#: ../limit-attempts.php:985
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: ../limit-attempts.php:996
+#: ../limit-attempts.php:1017
+#: ../limit-attempts.php:1038
+#: ../limit-attempts.php:1054
+#: ../limit-attempts.php:1095
+msgid "Search IP"
+msgstr "Szukaj adresu"
+
+#: ../limit-attempts.php:1010
+msgid "Add IP to blacklist"
+msgstr "Dodaj adres IP do czarnej listy"
+
+#: ../limit-attempts.php:1031
+msgid "Add IP to whitelist"
+msgstr "Dodaj adres IP do białej listy"
+
+#: ../limit-attempts.php:1055
+msgid "Clear Log"
+msgstr "Wyczyść dziennik"
+
+#: ../limit-attempts.php:1057
+#: ../limit-attempts.php:1064
+msgid "Delete log entry"
+msgstr "Usuń wpis dziennika"
+
+#: ../limit-attempts.php:1059
+#: ../limit-attempts.php:1060
+msgid "IP address"
+msgstr "Adresy IP"
+
+#: ../limit-attempts.php:1059
+#: ../limit-attempts.php:1060
+msgid "Internet Hostname"
+msgstr "Nazwa hosta"
+
+#: ../limit-attempts.php:1059
+#: ../limit-attempts.php:1060
+msgid "Event"
+msgstr "Zdarzenie"
+
+#: ../limit-attempts.php:1059
+#: ../limit-attempts.php:1060
+msgid "Form"
+msgstr "Formularz"
+
+#: ../limit-attempts.php:1059
+#: ../limit-attempts.php:1060
+msgid "Event time"
+msgstr "Czas zdarzenia"
+
+#: ../limit-attempts.php:1061
+msgid "Failed attempt"
+msgstr "Nieudana próba"
+
+#: ../limit-attempts.php:1083
+msgid "Are you sure you want to delete all statistics entries?"
+msgstr "Czy na pewno chcesz usunąć wszystkie wpisy ze statystyk?"
+
+#: ../limit-attempts.php:1085
+msgid "Yes, delete these entries"
+msgstr "Tak, usuń te wpisy"
+
+#: ../limit-attempts.php:1086
+msgid "No, go back to the Statistics page"
+msgstr "Wróć do strony ze statystykami"
+
+#: ../limit-attempts.php:1101
+msgid "Clear Statistics"
+msgstr "Czyść statystyki"
+
+#: ../limit-attempts.php:1416
+msgid "Limit Login Attempts plugin is activated on your site, as well as Limit Attempts plugin. Please note that Limit Attempts ensures maximum security when no similar plugins are activated. Using other plugins that limit user's login attempts at the same time may lead to undesirable behaviour on your WP site."
+msgstr "Na twojej stronie znajduje się włączona wtyczka Limit Login Attemps, niestety koliduje to z ustawieniami Limit Attemps. Proszę wziąć pod uwagę, że Limit Attemps gwarantuje największą skuteczność jeśli strona nie posiada włączonej podobnej wtyczki. Jednoczesne wykorzystywanie kilku wtyczek o podobnym działaniu może wywołać niepożądane zachowania na twojej stronie."
+
+#: ../limit-attempts.php:1436
+msgid "ATTENTION!"
+msgstr "UWAGA!"
+
+#: ../limit-attempts.php:1439
+msgid "Read and Understood"
+msgstr "Przeczytaj i zapamiętaj"
+
+#: ../limit-attempts.php:1458
+msgid "Allowed retries must be numeric, it was automatically changed to the previous value"
+msgstr "Dozwolona ilość prób musi być liczbą, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1460
+msgid "Allowed retries must be more than zero, it was automatically changed to the previous value"
+msgstr "Dozwolona ilość prób musi być większa od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1466
+msgid "Days of lock must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość dni w czasie blokady blokady musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1468
+msgid "Days of lock can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość dni w czasie blokady nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1474
+msgid "Hours of lock must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość godzin w czasie blokady musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1476
+msgid "Hours of lock can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość godzin w czasie blokady nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1478
+msgid "Hours of lock can&rsquo;t be more than 23, it was automatically changed to the max value"
+msgstr "Ilość godzin w czasie blokady nie może być większa niż 23, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1484
+msgid "Minutes of lock must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość minut  w czasie blokady musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1486
+msgid "Minutes of lock can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość minut w czasie blokady nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1488
+msgid "Minutes of lock can&rsquo;t be more than 59, it was automatically changed to the max value"
+msgstr "Ilość minut w czasie blokady nie może być większa niż 59, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1494
+msgid "Days to reset the number of tries must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość dni do czasu resetu ilości prób musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1496
+msgid "Days to reset the number of tries can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość dni do czasu resetu ilości prób nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1502
+msgid "Hours to reset the number of tries must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość godzin do czasu resetu ilości prób musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1504
+msgid "Hours to reset the number of tries can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość godzin do czasu resetu ilości prób nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1506
+msgid "Hours to reset the number of tries can&rsquo;t be more than 23, it was automatically changed to the max value"
+msgstr "Ilość godzin do czasu resetu ilości prób nie może być większa niż 23, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1512
+msgid "Minutes to reset the number of tries must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość minut do czasu resetu ilości prób muszą być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1514
+msgid "Minutes to reset the number of tries can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość minut do czasu resetu ilości prób nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1516
+msgid "Minutes to reset the number of tries can&rsquo;t be more than 59, it was automatically changed to the max value"
+msgstr "Ilość minut do czasu resetu ilości prób nie może być większa niż 59, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1522
+msgid "Allowed blocks must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość dozwolonych blokad musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1524
+msgid "Allowed blocks must be more than zero, it was automatically changed to the previous value"
+msgstr "Ilość dozwolonych blokad musi być większa od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1526
+msgid "Add to the blacklist option is set on after 1 blocking, this means that address will get into the blacklist right away, instead of blocking for some time."
+msgstr ""
+
+#: ../limit-attempts.php:1532
+msgid "Days to reset the number of locks must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość dni do czasu resetu ilości blokad musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1534
+msgid "Days to reset the number of locks can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość dni do czasu resetu ilości blokad nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1540
+msgid "Hours to reset the number of locks must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość godzin do czasu resetu ilości blokad musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1542
+msgid "Hours to reset the number of locks can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość godzin do czasu resetu ilości blokad nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1544
+msgid "Hours to reset the number of locks can&rsquo;t be more than 23, it was automatically changed to the max value"
+msgstr "Ilość godzin do czasu resetu ilości blokad nie może być większa niż 23, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1550
+msgid "Minutes to reset the number of locks must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość minut do czasu resetu ilości blokad musi być wartością liczbową, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1552
+msgid "Minutes to reset the number of locks can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość minut do czasu resetu ilości blokad nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1554
+msgid "Minutes to reset the number of locks can&rsquo;t be more than 59, it was automatically changed to the max value"
+msgstr "Ilość minut do czasu resetu ilości blokad nie może być większa niż 59, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1559
+msgid "Days to clear statistics must be numeric, it was automatically changed to the previous value"
+msgstr "Ilość dni odstępu między czyszczeniem statystyk musi być wartością liczbowa, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1561
+msgid "Days to clear statistics can&rsquo;t be negative, it was automatically changed to the previous value"
+msgstr "Ilość dni odstępu między czyszczeniem statystyk nie może być mniejsza od zera, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1566
+msgid "Wrong email, it was automatically changed to the previous value"
+msgstr "Zły adres email, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1570
+msgid "Time of lock can&rsquo;t be less than 1 minute, it was automatically changed to the min value"
+msgstr "Czas blokady nie może być mniejszy niż 1 minuta, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1574
+msgid "Time to reset block can&rsquo;t be less than 1 minute, it was automatically changed to the min value"
+msgstr "Czas do resetu blokady nie może być mniejszy niż 1 minuta, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1578
+msgid "Time to reset the number of locks can&rsquo;t be less than 1 minute, it was automatically changed to the min value"
+msgstr "Czas do resetu ilości blokad nie może być mniejszy niż 1 minuta, automatycznie przywrócono poprzednią wartość"
+
+#: ../limit-attempts.php:1588
+msgid "All changes have been saved"
+msgstr "Wszystkie zmiany zostały zapisane"
+
+#: ../limit-attempts.php:1594
+#: ../limit-attempts.php:2832
+msgid "Subject has been restored to default"
+msgstr "Przywrócono domyślny temat"
+
+#: ../limit-attempts.php:1596
+#: ../limit-attempts.php:2834
+msgid "Message has been restored to default"
+msgstr "Przywrócono domyślną wiadomość"
+
+#: ../limit-attempts.php:1598
+#: ../limit-attempts.php:2836
+msgid "Changes are not saved"
+msgstr "Zmiany nie zostały zapisane"
+
+#: ../limit-attempts.php:1606
+msgid "Search results for"
+msgstr "Wyszukaj wyników dla"
+
+#: ../limit-attempts.php:1608
+msgid "is in the following entries"
+msgstr "znajduje się w następujących wpisach"
+
+#: ../limit-attempts.php:1612
+#: ../limit-attempts.php:1643
+msgid "ERROR:"
+msgstr "BŁĄD:"
+
+#: ../limit-attempts.php:1612
+#: ../limit-attempts.php:1646
+msgid "Wrong format or it does not lie in diapason 0.0.0.0 - 255.255.255.255."
+msgstr "Zły format lub adres nie mieści się w przedziale 0.0.0.0 - 255.255.255.255"
+
+#: ../limit-attempts.php:1644
+msgid "No address has been selected"
+msgstr "Nie zaznaczono żadnego adresu"
+
+#: ../limit-attempts.php:1645
+msgid "You must type IP address"
+msgstr "Musisz podać adres IP"
+
+#: ../limit-attempts.php:1648
+msgid "Block has been reset for"
+msgstr "Blokada została zresetowana dla"
+
+#: ../limit-attempts.php:1649
+msgid "Error while reseting block for"
+msgstr "Wystąpił błąd w czasie resetowania blokady dla"
+
+#: ../limit-attempts.php:1651
+msgid "has been added to blacklist"
+msgstr "został dodany do czarnej listy"
+
+#: ../limit-attempts.php:1652
+msgid "can&rsquo;t be added to blacklist."
+msgstr "nie może zostać dodany do czarnej listy"
+
+#: ../limit-attempts.php:1653
+msgid "This IP address has already been added to blacklist"
+msgstr "Podany adres IP został już umieszczony na czarnej liście"
+
+#: ../limit-attempts.php:1654
+msgid "This IP address is in whitelist too, please check this to avoid errors"
+msgstr "Podany adres IP został już umieszczony na białej liście, proszę sprawdzić podłoże błędu."
+
+#: ../limit-attempts.php:1655
+msgid "has been deleted from blacklist"
+msgstr "został usunięty z czarnej listy"
+
+#: ../limit-attempts.php:1656
+msgid "have been deleted from blacklist"
+msgstr "zostanie usunięty z czarnej listy"
+
+#: ../limit-attempts.php:1657
+msgid "Error while deleting from blacklist"
+msgstr "Wystąpił błąd w czasie usuwania adresu z czarnej listy"
+
+#: ../limit-attempts.php:1659
+msgid "has been added to whitelist"
+msgstr "został dodany do białej listy"
+
+#: ../limit-attempts.php:1660
+msgid "can&rsquo;t be added to whitelist."
+msgstr "nie może zostać dodany do białej listy"
+
+#: ../limit-attempts.php:1661
+msgid "This IP address has already been added to whitelist"
+msgstr "Podany adres IP został już umieszczony na białej liście"
+
+#: ../limit-attempts.php:1662
+msgid "This IP address is in blacklist too, please check this to avoid errors"
+msgstr "Podany adres IP został już umieszczony na czarnej liście, proszę sprawdzić podłoże błędu."
+
+#: ../limit-attempts.php:1663
+msgid "has been deleted from whitelist"
+msgstr "został usunięty z białej listy"
+
+#: ../limit-attempts.php:1664
+msgid "have been deleted from whitelist"
+msgstr "zostanie usunięty z białej listy"
+
+#: ../limit-attempts.php:1665
+msgid "Error while deleting from whitelist"
+msgstr "Wystąpił błąd w czasie usuwania adresu z białej listy"
+
+#: ../limit-attempts.php:1667
+msgid "Statistics has been cleared completely"
+msgstr "Statystyki zostały opróżnione"
+
+#: ../limit-attempts.php:1668
+msgid "Statistics is already empty"
+msgstr "Brak danych w statystykach"
+
+#: ../limit-attempts.php:1669
+msgid "Error while clearing statistics completely"
+msgstr "Wystąpił błąd w czasie czyszczenia statystyk"
+
+#: ../limit-attempts.php:1670
+msgid "Selected statistics entry (entries) has been deleted"
+msgstr "Zaznaczony wpis ze statystyk został usunięty"
+
+#: ../limit-attempts.php:1671
+msgid "Error while deleting statistics entry (entries)"
+msgstr "Wystąpił błąd w czasie wpisy statystyk"
+
+#: ../limit-attempts.php:1672
+msgid "Error when creating the database. For the plugins correct work, please, deactivate and activate it again"
+msgstr ""
+
+#: ../limit-attempts.php:1980
+#: ../limit-attempts.php:1983
+msgid "Total"
+msgstr "Łącznie"
+
+#: ../limit-attempts.php:1980
+#: ../limit-attempts.php:1983
+msgid "entry"
+msgid_plural "entries"
+msgstr[0] "wpis"
+msgstr[1] "wpisy"
+msgstr[2] "wpisów"
+msgstr[3] "wpisów"
+
+#: ../limit-attempts.php:2010
+#: ../limit-attempts.php:2130
+#: ../limit-attempts.php:2258
+#: ../limit-attempts.php:2388
+msgid "Ip address"
+msgstr "Adresy IP"
+
+#: ../limit-attempts.php:2011
+msgid "The lock expires"
+msgstr "Blokada wygasła"
+
+#: ../limit-attempts.php:2028
+#: ../limit-attempts.php:2036
+msgid "Reset block"
+msgstr "Resetuj blokadę"
+
+#: ../limit-attempts.php:2131
+#: ../limit-attempts.php:2259
+msgid "Diapason from"
+msgstr "Początek przedziału"
+
+#: ../limit-attempts.php:2132
+#: ../limit-attempts.php:2260
+msgid "Diapason till"
+msgstr "Koniec przedziału"
+
+#: ../limit-attempts.php:2150
+#: ../limit-attempts.php:2158
+msgid "Remove from blacklist"
+msgstr "Usuń z czarnej listy"
+
+#: ../limit-attempts.php:2278
+#: ../limit-attempts.php:2286
+msgid "Remove from whitelist"
+msgstr "Usuń z białej listy"
+
+#: ../limit-attempts.php:2389
+msgid "Number of failed attempts"
+msgstr "Liczba nieudanych prób"
+
+#: ../limit-attempts.php:2390
+msgid "Number of blocks"
+msgstr "Liczba blokad"
+
+#: ../limit-attempts.php:2391
+msgid "Status"
+msgstr "Status"
+
+#: ../limit-attempts.php:2399
+msgid "Delete statistics entry"
+msgstr "Usuń wpis statystyk"
+
+#: ../limit-attempts.php:2484
+msgid "whitelisted"
+msgstr "dodanych do białej listy"
+
+#: ../limit-attempts.php:2487
+msgid "blacklisted"
+msgstr "dodanych do czarnej listy"
+
+#: ../limit-attempts.php:2490
+msgid "blocked"
+msgstr "zablokowany"
+
+#: ../limit-attempts.php:2493
+msgid "not blocked"
+msgstr "niezablokowany"
+
+#: ../limit-attempts.php:2557
+msgid "Addresses per page"
+msgstr "Adresy na stronę"
+
+#~ msgid "Limit Attempts"
+#~ msgstr "Limit Attempts"
+
+#~ msgid "requires"
+#~ msgstr "wymaga"
+
+#~ msgid ""
+#~ "or higher, that is why it has been deactivated! Please upgrade WordPress "
+#~ "and try again."
+#~ msgstr ""
+#~ "lub wyższej, z tego powodu wtyczka została wyłączona! Aktualizuj "
+#~ "WordPress i spróbuj ponownie."
+
+#~ msgid "Back to the WordPress"
+#~ msgstr "Wróć do WordPressa"
+
+#~ msgid "Plugins page"
+#~ msgstr "Strona z wtyczkami"
+
+#~ msgid "Wrong license key"
+#~ msgstr "Błędny klucz licencji"
+
+#~ msgid ""
+#~ "Something went wrong. Try again later. If the error will appear again, "
+#~ "please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</"
+#~ "a>. We are sorry for inconvenience."
+#~ msgstr ""
+#~ "Coś poszło nie tak jak powinno. Spróbuj ponownie później. Jeśli błędy "
+#~ "pojawią się ponownie daj nam znać - <a href=http://support.bestwebsoft."
+#~ "com>BestWebSoft</a>. Przepraszamy za niedogodności. "
+
+#~ msgid "This license key is bind to another site"
+#~ msgstr "Ten klucz został przypisany do innej strony"
+
+#~ msgid ""
+#~ "This license key is valid, but Your license has expired. If you want to "
+#~ "use our plugin in future, you should extend the license."
+#~ msgstr ""
+#~ "Twój klucz licencji jest poprawny, jednak już wygasł. Jeśli chcesz używać "
+#~ "naszej wtyczki w przyszłości powinieneś przedłużyć licencję."
+
+#~ msgid ""
+#~ "Unfortunately, you have exceeded the number of available tries. Please, "
+#~ "upload the plugin manually."
+#~ msgstr ""
+#~ "Niestety, przekroczono liczbę dostępnych prób. Proszę przesłać wtyczki "
+#~ "ręcznie."
+
+#~ msgid "Failed to open the zip archive. Please, upload the plugin manually"
+#~ msgstr "Nieudało się otworzyć archiwum zip. Proszę dodać wtyczkę manualnie."
+
+#~ msgid ""
+#~ "Your server does not support either ZipArchive or Phar. Please, upload "
+#~ "the plugin manually"
+#~ msgstr ""
+#~ "Twój serwer nie ma wsparcia dla ZipArchive ani Phar. Proszę dodać wtyczkę "
+#~ "manualnie."
+
+#~ msgid ""
+#~ "Failed to download the zip archive. Please, upload the plugin manually"
+#~ msgstr ""
+#~ "Wystąpił problem przy pobieraniu archiwum zip. Spróbuj dodać wtyczkę "
+#~ "manualnie."
+
+#~ msgid ""
+#~ "Something went wrong. Try again later or upload the plugin manually. We "
+#~ "are sorry for inconvienience."
+#~ msgstr ""
+#~ "Coś poszło nie tak. Spróbuj ponownie później lub wrzuć wtyczkę ręcznie. "
+#~ "Przepraszamy za niedogodności."
+
+#~ msgid "Please, enter Your license key"
+#~ msgstr "Podaj swój numer licencji"
+
+#~ msgid ""
+#~ "Congratulations! The PRO version of the plugin is successfully download "
+#~ "and activated."
+#~ msgstr "Gratulacje! Wersja PRO została pomyślnie pobrana i aktywowana."
+
+#~ msgid "Please, go to"
+#~ msgstr "Proszę, przejdź do"
+
+#~ msgid "the setting page"
+#~ msgstr "strona z ustawieniami"
+
+#~ msgid "You will be redirected automatically in 5 seconds."
+#~ msgstr "Zostaniesz przekierowany automatycznie w ciągu 5 sekund."
+
+#~ msgid "You can download and activate"
+#~ msgstr "Możesz pobrać i aktywować wersję"
+
+#~ msgid "version of this plugin by entering Your license key."
+#~ msgstr "swojej wtyczki przez podanie klucza licencji."
+
+#~ msgid ""
+#~ "You can find your license key on your personal page Client area, by "
+#~ "clicking on the link"
+#~ msgstr ""
+#~ "Możesz znaleźć swój klucz licencji na spersonalizowanej dla Ciebie "
+#~ "stronie klienta, poprzez kliknięcie na link"
+
+#~ msgid ""
+#~ "(your username is the email you specify when purchasing the product)."
+#~ msgstr "(twój login to adres email podany podczas zakupu produktu)."
+
+#~ msgid "Activate"
+#~ msgstr "Aktywuj"
+
+#~ msgid ""
+#~ "Unfortunately, you have exceeded the number of available tries per day. "
+#~ "Please, upload the plugin manually."
+#~ msgstr ""
+#~ "Niestety, przekroczono liczbę dostępnych prób na dzień dzisiejszy. Proszę "
+#~ "przesłać wtyczki ręcznie."
+
+#~ msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
+#~ msgstr "Jeśli podoba Ci się nasza wtyczka daj nam 5 gwiazdek"
+
+#~ msgid "Rate the plugin"
+#~ msgstr "Oceń tą wtyczkę"
+
+#~ msgid "If there is something wrong about it, please contact us"
+#~ msgstr "Jeśli coś jest nie tak jak powinno, prosimy dać nam znać"
+
+#~ msgid ""
+#~ "It's time to upgrade your <strong>Limit Attempts</strong> to <strong>PRO</"
+#~ "strong> version"
+#~ msgstr ""
+#~ "Czas na aktualizację <strong>Limit Attempts</strong> do wersji "
+#~ "<strong>PRO</strong>"
+
+#~ msgid "Extend standard plugin functionality with new great options"
+#~ msgstr ""
+#~ "Rozszerz podstawowe funkcje wtyczki o nowe wspaniałe funkcjonalności"
